@@ -35,7 +35,7 @@
 
 
 
-\title[Empirical Bayes Covariance Matrix Estimation]{A Nonparametric Empirical Bayes Approach to Covariance Matrix Estimation}
+\title[Empirical Bayes Covariance Matrix Estimation]{A Compound Decision Approach to Covariance Matrix Estimation}
 
 \author{Huiqin Xin$^{*}$\email{huiqinx2@illinois.edu } and
 Sihai Dave Zhao$^{**}$\email{sdzhao@illinois.edu} \\
@@ -103,19 +103,19 @@ We propose to apply some of these recent vector estimation ideas to covariance m
 Interestingly, we can also show that the celebrated linear shrinkage covariance matrix estimator of \citet{ledoit2004well} can be interpreted as a vector estimator. The estimator is defined as
 \begin{equation}
 \label{linear model}
-\hat{\bs{\Sigma}}_{\text{LW}} = \hat{\rho}_{\text{LW}} \bs{S} + (1-\hat{\rho}_{\text{LW}})\hat{\mu} \bs{I}
+\widehat{\bs{\Sigma}}_{\text{LW}} = \widehat{\rho}_{\text{LW}} \bs{S} + (1-\widehat{\rho}_{\text{LW}})\widehat{\mu} \bs{I}
 \end{equation} 
-where $\hat{\mu} = \text{tr}(\bs{S})/p$, and $\hat{\rho}_{\text{LW}} = 1 - b_n^2 / d_n^2$ for $d_n^2=\|\bs{S}-\hat{\mu} \bs{I} \|_F^2$ and $b_n^2 = \sum_{i=1}^n \| \bs{X}_i \bs{X}_i^\top - \bs{S} \|_F^2 / n^2$. Now consider the problem of estimating the vectorized $\bs{\Sigma}$ under risk \ref{frobenius risk}. We restrict attention to decision rules that estimate each component $\sigma_{jk}$ using
+where $\widehat{\mu} = \text{tr}(\bs{S})/p$, and $\widehat{\rho}_{\text{LW}} = 1 - b_n^2 / d_n^2$ for $d_n^2=\|\bs{S}-\widehat{\mu} \bs{I} \|_F^2$ and $b_n^2 = \sum_{i=1}^n \| \bs{X}_i \bs{X}_i^\top - \bs{S} \|_F^2 / n^2$. Now consider the problem of estimating the vectorized $\bs{\Sigma}$ under risk \ref{frobenius risk}. We restrict attention to decision rules that estimate each component $\sigma_{jk}$ using
 \begin{equation}
   \label{linear class}
   \beta_S s_{jk} + \beta_I u_{jk},
 \end{equation}
 where $s_{jk}$ is the $jk$th entry of $\bs{S}$, $u_{jk}$ is the $jk$th entry of $\bs{I}$, and the class is indexed by the parameters $(\beta_S, \beta_I)$. It is straightforward to show that
-$$\hat{R}(\beta_S,\beta_I) = \frac{1}{p^2} \sum_{j,k=1}^{p}[(2\beta_S-1) \hat{\Delta}_{jk}^2 + \{(1- \beta_S) s_{jk} - \beta_I u_{jk}\}^2 ]$$
-is an unbiased estimate of the risk \ref{frobenius risk}, where $\hat{\Delta}_{jk}^2 = \sum_{i=1}^{n}(X_{ij}X_{ik}-s_{jk})^2 / n$ is the sample variance of $s_{jk}$. The optimal estimator in this class can now be chosen by minimizing $\hat{R}(\beta_S, \beta_I)$ over $\beta_S$ and $\beta_I$. It can be shown that this is equivalent to estimating the vector $(\sigma_{11}, \ldots, \sigma_{pp})^\top$ by shrinking $(s_{11}, \ldots, s_{pp})^\top$ toward the one-dimensional subspace spanned by $(u_{11}, \ldots, u_{pp})^\top$ \citep{biscarri2019thesis, lindley1962discussion}. Proposition \ref{prop:linear} shows that this subspace shrinkage estimator is identical to the \citet{ledoit2004well} estimator \ref{linear model}.
+$$\widehat{R}(\beta_S,\beta_I) = \frac{1}{p^2} \sum_{j,k=1}^{p}[(2\beta_S-1) \widehat{\Delta}_{jk}^2 + \{(1- \beta_S) s_{jk} - \beta_I u_{jk}\}^2 ]$$
+is an unbiased estimate of the risk \ref{frobenius risk}, where $\widehat{\Delta}_{jk}^2 = \sum_{i=1}^{n}(X_{ij}X_{ik}-s_{jk})^2 / n$ is the sample variance of $s_{jk}$. The optimal estimator in this class can now be chosen by minimizing $\widehat{R}(\beta_S, \beta_I)$ over $\beta_S$ and $\beta_I$. It can be shown that this is equivalent to estimating the vector $(\sigma_{11}, \ldots, \sigma_{pp})^\top$ by shrinking $(s_{11}, \ldots, s_{pp})^\top$ toward the one-dimensional subspace spanned by $(u_{11}, \ldots, u_{pp})^\top$ \citep{biscarri2019thesis, lindley1962discussion}. Proposition \ref{prop:linear} shows that this subspace shrinkage estimator is identical to the \citet{ledoit2004well} estimator \ref{linear model}.
 \begin{prop}
   \label{prop:linear}
-  Define the estimator $\hat{\bs{\Sigma}}_V$ such that its $jk$th entry obeys $\hat{\sigma}_{jk} = \hat{\beta}_S s_{jk} + \hat{\beta}_I u_{jk}$, where $(\hat{\beta}_S, \hat{\beta}_I) = \argmin_{\beta_S, \beta_I} \hat{R}(\beta_S, \beta_I)$. Then $\hat{\bs{\Sigma}}_V$ = $\hat{\bs{\Sigma}}_{LW}$.
+  Define the estimator $\widehat{\bs{\Sigma}}_V$ such that its $jk$th entry obeys $\widehat{\sigma}_{jk} = \widehat{\beta}_S s_{jk} + \widehat{\beta}_I u_{jk}$, where $(\widehat{\beta}_S, \widehat{\beta}_I) = \argmin_{\beta_S, \beta_I} \widehat{R}(\beta_S, \beta_I)$. Then $\widehat{\bs{\Sigma}}_V$ = $\widehat{\bs{\Sigma}}_{LW}$.
 \end{prop}
 
 \subsection{\label{sec:proposed}Proposed estimator}
@@ -123,9 +123,15 @@ is an unbiased estimate of the risk \ref{frobenius risk}, where $\hat{\Delta}_{j
 The previous section argues that treating covariance matrix estimation as a vector estimation problem can be a fruitful strategy, but discusses only estimators linear in $s_{jk}$. We propose to consider a larger class, the class of so-called separable rules. In the standard compound decision problem of estimating $\bs{\theta}$ using $\bs{Y}$, a separable decision rule $\bs{\delta}(\bs{Y})$ is one where $\delta_i(\bs{Y}) = t(Y_i)$ \citep{robbins1951asymptotically}. Here we generalize this to the problem of estimating a vectorized matrix. For decision rules $\bs{\delta}(\bs{X}) = (\delta_{11}(\bs{X}),\ldots,\delta_{pp}(\bs{X}))$ that estimate $(\sigma_{11}, \ldots, \sigma_{pp})^\top$, define the class of separable rules
 \begin{equation}
   \label{separable}
-  \mathcal{S} = \{\bs{\delta} : \delta_{jk} = t(\bs{X}_{\cdot j}, \bs{X}_{\cdot k})\},
+  \mathcal{S} = \{\bs{\delta} : \delta_{jk} = t(\bs{X}_{\cdot j}, \bs{X}_{\cdot k}), j\neq k,\quad 
+   \delta_{jj} = \widetilde{t}(\bs{X}_{\cdot j}),j=1,\ldots,p)\},
 \end{equation}
-where $\bs{X}_{\cdot j} = (X_{1j}, \ldots, X_{nj})^\top$ is the vector of observed values of the $j$th feature. In other words, rules in $\mathcal{S}$ estimate the $jk$th entry of the covariance matrix using a fixed function $t$ of only observations from features $j$ and $k$.
+where $\bs{X}_{\cdot j} = (X_{1j}, \ldots, X_{nj})^\top$ is the vector of observed values of the $j$th feature. In other words, rules in $\mathcal{S}$ estimate the $jk$th entry of the covariance matrix using a fixed function $t$ of only observations from features $j$ and $k$. The sufficient statistics of $(\bs{X}_{\cdot j}, \bs{X}_{\cdot k})$ is $2\times 2$ matrix
+$\begin{bmatrix}
+s_{jj} & s_{jk} \\
+s_{kj} & s_{kk} 
+\end{bmatrix}$.
+
 
 We propose to search for the optimal estimator within $\mathcal{S}$. This is sensible because $\mathcal{S}$ includes the sample covariance $(s_{11}, \ldots, s_{pp})^\top$, the class of linear estimators \ref{linear class} used by \citet{ledoit2004well}, which can be expressed as
 \[
@@ -133,7 +139,7 @@ We propose to search for the optimal estimator within $\mathcal{S}$. This is sen
 \]
 and the class of adaptive thresholding estimators for sparse covariance matrices studied by \citet{cai2011adaptive}. Therefore the optimal separable estimator $\bs{\delta}^\star$ that minimizes the scaled squared Frobenius risk \ref{frobenius risk} will perform at least as well as these three estimators, and may perform better. Targeting the optimal separable rule is standard in the compound decision literature \citep{zhang2003compound}.
 
-The optimal $\bs{\delta}^\star$ is an oracle estimator and cannot be calculated in practice, as the true risk is unknown. In the classical compound decision framework, empirical Bayes methods are used to estimate the oracle optimal separable rule \citep{robbins1955empirical, zhang2003compound, brown2009nonparametric, jiang2009general, efron2014two, efron2019bayes}. We take a similar approach here. To simplify notation, denote $(\bs{X}_{\cdot j}, \bs{X}_{\cdot k})^\top$ as $\bs{A}_{jk}$. The density of $f(\cdot \mid \bs{\eta}_{jk})$ of $\bs{A}_{jk}$ depends on $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$, where $\sigma_j$ and $\sigma_k$ are the true standard deviations of the $j$th and $k$th covariates and $r_{jk} = \sigma_{jk} / (\sigma_j \sigma_k)$ is their true correlation. When $r_{jk} \ne 1$, $\bs{A}_{jk}$ is comprised of $n$ independent mean-zero multivariate normals with covariance matrices
+The optimal $\bs{\delta}^\star$ is an oracle estimator and cannot be calculated in practice, as the true risk is unknown. In the classical compound decision framework, empirical Bayes methods are used to estimate the oracle optimal separable rule \citep{robbins1955empirical, zhang2003compound, brown2009nonparametric, jiang2009general, efron2014two, efron2019bayes}. We take a similar approach here. To simplify notation, denote $(\bs{X}_{\cdot j}, \bs{X}_{\cdot k})^\top$ as $\bs{A}_{jk}$. $f(\cdot \mid \bs{\eta}_{jk})$, the density of $\bs{A}_{jk}$, depends on $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$, where $\sigma_j$ and $\sigma_k$ are the true standard deviations of the $j$th and $k$th covariates and $r_{jk} = \sigma_{jk} / (\sigma_j \sigma_k)$ is their true correlation. When $r_{jk} \ne 1$, $\bs{A}_{jk}$ is comprised of $n$ independent mean-zero multivariate normals with covariance matrices
 \[
 \bs{C}_{jk}=\begin{bmatrix}
 &\sigma_j^2 & \sigma_j\sigma_k r_{jk} \\
@@ -142,65 +148,90 @@ The optimal $\bs{\delta}^\star$ is an oracle estimator and cannot be calculated 
 \]
 When $r_{jk} = 1$, $\bs{A}_{jk}$ consists of mean-zero univariate normals with variances $\sigma_j^2$.
 
-Now consider the Bayesian model
+Now consider the Bayesian model for non-diagonal entries
 \begin{equation}
-  \label{bayesian}
+  \label{bayesian nondiagonal}
   \bs{A} \mid \bs{\eta} \sim f(\cdot \mid \bs{\eta}),
   \quad
-  \bs{\eta} \sim G_p(a,b, \gamma) =  \frac{1}{p^2} \sum_{j,k=1}^p I(\sigma_j \leq a, \sigma_k \leq b, r_{jk} \leq \gamma).
+  \bs{\eta} \sim G_{nd}(a,b, \gamma) =  \frac{2}{p(p-1)} \sum_{1\leq k<j\leq p} I(\sigma_j \leq a, \sigma_k \leq b, r_{jk} \leq \gamma).
+\end{equation}
+and diagonal entries
+\begin{equation}
+  \label{bayesian diagonal}
+  \bs{A} \mid a \sim \widetilde{f}(\cdot \mid a),
+  \quad
+  a \sim G_d(a) =  \frac{1}{p} \sum_{j=1}^p I(\sigma_j \leq a).
 \end{equation}
 By the fundamental theorem of compound decisions \citep{robbins1951asymptotically, jiang2009general}, this is closely related to the vectorized covariance matrix estimation problem under Frobenius risk \ref{frobenius risk}: for any separable $\bs{\delta} \in \mathcal{S}$ \ref{separable}, the Frobenius risk can be written as
 \begin{align*}
   R(\bs{\Sigma}, \bs{\delta})
   =\,&
-  \frac{1}{p^2} \sum_{j,k = 1}^p
-  \int \{t(\bs{A}) - \sigma_{jk} \}^2 f(\bs{A} \mid \bs{\eta}_{jk}) d\bs{A}\\
+  \frac{1}{p^2} \{\sum_{1\leq k<j\leq p}^p
+  \int \{t(\bs{A}) - \sigma_{jk} \}^2 f(\bs{A} \mid \bs{\eta}_{jk}) d\bs{A} 
+  +
+  \sum_{j=1}^p
+  \int \{\widetilde{t}(\bs{X}) - \sigma_{jj} \}^2 \widetilde{f}(\bs{X} \mid s_{jj}) d\bs{X}
+  \}\\
   =\,&
-  \int \int \{t(\bs{A}) - g(\bs{\eta})\}^2 f(\bs{A} \mid \bs{\eta}) dG_p(\bs{\eta}) d\bs{A}
-  =
-  \bb{E}[\{t(\bs{A}) -  g(\bs{\eta})\}^2],
+  \frac{p-1}{p}\int \int \{t(\bs{A}) - g(\bs{\eta})\}^2 f(\bs{A} \mid \bs{\eta}) dG_{nd}(\bs{\eta}) d\bs{A}
+  +
+  \frac{1}{p}\int \int \{\widetilde{t}(\bs{X}) - a^2\}^2 \widetilde{f}(\bs{X} \mid a) dG_{d}(a) d\bs{X} \\
+  =\,&
+   \frac{p-1}{p}\bb{E}[\{t(\bs{A}) -  g(\bs{\eta})\}^2]+ \frac{1}{p}\bb{E}[\{\widetilde{t}(\bs{X}) -  a^2\}^2],
 \end{align*}
-where $g(a, b, \gamma) = a b \gamma$ and the final expectation is the Bayes risk of estimating $\sigma_{jk}$. The optimal oracle separable rule $\bs{\delta}^\star$ therefore has $jk$th entry equal to $\delta^\star_{jk}(\bs{X}) = t^\star(\bs{A}_{jk})$, where $t^\star = \mathbb{E}\{g(\bs{\eta}) \mid \bs{A}\}$ minimizes the Bayes risk.
+where $g(a, b, \gamma) = a b \gamma$ and the final expectation is the Bayes risk of estimating $\sigma_{jk}$. The optimal oracle separable rule $\bs{\delta}^\star$ therefore has $jk$th entry equal to $\delta^\star_{jk}(\bs{X}) = t^\star(\bs{A}_{jk})$ for $j\neq k$ and $\delta^\star_{jj}(\bs{X}) = \widetilde{t}^\star(\bs{X}_{\cdot j})$, where $t^\star = \mathbb{E}\{g(\bs{\eta}) \mid \bs{A}\}$ and $\widetilde{t}^\star = \mathbb{E}\{g(a) \mid \bs{X}\}$ minimizes the Bayes risk.
 
-Based on this result, we propose the following empirical Bayes procedure. We first use nonparametric maximum likelihood \citep{kiefer1956consistency} to estimate the prior $G_p$. Under the Bayesian model \ref{bayesian}, and the working assumption that the $\bs{A}_{jk}$ are independent across $jk$, we estimate $G_p$ using
+Based on this result, we propose the following empirical Bayes procedure. We first use nonparametric maximum likelihood \citep{kiefer1956consistency} to estimate the prior $G_p$. Under the Bayesian model \ref{bayesian}, and the working assumption that the $\bs{A}_{jk}$ are independent across $jk$, we estimate $G_{nd}$ using
 \begin{equation}
-  \label{Gp hat}
-  \hat{G}_p = \argmax_{G \in \mathcal{G}} \prod_{j,k = 1}^p \int f(\bs{A}_{jk} \mid \bs{\eta}) dG(\bs{\eta}),
+  \label{Gnd hat}
+  \widehat{G}_{nd} = \argmax_{G \in \mathcal{G}_{nd}} \prod_{1\leq k<j<p} \int f(\bs{A}_{jk} \mid \bs{\eta}) dG(\bs{\eta}),
 \end{equation}
-where $\mathcal{G}$ is the family of all distributions supported on $\mathbb{R}_+ \times \mathbb{R}_+ \times [-1, 1]$. Of course, the $\bs{A}_{jk}$ are not independent, so $\hat{G}_p$ does not maximize a likelihood but rather a pairwise composite likelihood \citep{varin2011overview}. Using $\hat{G}_p$, we estimate the vectorized $\bs{\Sigma}$ using
+
+estimate $G_d$ using
+\begin{equation}
+  \label{Gd hat}
+  \widehat{G}_d = \argmax_{G \in \mathcal{G}_d} \prod_{j = 1}^p \int \widetilde{f}(\bs{X} \mid a) dG(a),
+\end{equation}
+where $\mathcal{G}_{nd}$ is the family of all distributions supported on $\mathbb{R}_+ \times \mathbb{R}_+ \times [-1, 1]$,   $\mathcal{G}_{d}$ is the family of all distributions supported on $\mathbb{R}$. Of course, the $\bs{A}_{jk}$ are not independent, so $\widehat{G}_p$ does not maximize a likelihood but rather a pairwise composite likelihood \citep{varin2011overview}. Using $\widehat{G}_p$, we estimate the vectorized $\bs{\Sigma}$ using $ \widehat{\bs{\delta}}(\bs{X})
+  =
+  (\widehat{t}(\bs{A}_{21}), \ldots,  \widehat{t}(\bs{A}_{p,p-1}),\widehat{t}(\bs{X}_{\cdot 1}),\ldots,\widehat{t}(\bs{X}_{\cdot p}))$, where 
 \begin{equation}
   \label{proposed}
-  \hat{\bs{\delta}}(\bs{X})
-  =
-  (\hat{t}(\bs{A}_{11}), \ldots, \hat{t}(\bs{A}_{pp})),
-  \quad
-  \hat{t}(\bs{A}) = \frac{\int g(\bs{\eta}) f(\bs{A} \mid \bs{\eta})d\hat{G}_p(\bs{\eta})}{\int f(\bs{A} \mid \bs{\eta}) d\hat{G}_p(\bs{\eta})}.
+  \widehat{t}(\bs{A}_{jk}) = \frac{\int g(\bs{\eta}) f(\bs{A}_{jk} \mid \bs{\eta})d\widehat{G}_{nd}(\bs{\eta})}{\int f(\bs{A}_{jk} \mid \bs{\eta}) d\widehat{G}_{nd}(\bs{\eta})},
+  \quad 
+  \widehat{t}(\bs{X}_{\cdot j}) = \frac{\int a^2 \widetilde{f}(\bs{X}_{\cdot j} \mid a)d\widehat{G}_d(a)}{\int \widetilde{f}(\bs{X}_{\cdot j} \mid a) d\widehat{G}_d(a)}.
 \end{equation}
-The $\hat{t}$ estimates the Bayes rule $t^\star$ and $\hat{\bs{\delta}}$ estimate the optimal oracle separable rule $\bs{\delta}^\star$.
+The $\widehat{t}$ estimates the Bayes rule $t^\star$ and $\widehat{\bs{\delta}}$ estimate the optimal oracle separable rule $\bs{\delta}^\star$.
 
-Our proposed procedure is an example of what \citet{efron2014two} calls $g$-modeling, an approach to empirical Bayes problems that proceeds by modeling the prior. A major advantage of nonparametric estiation of the prior is that it allows the data itself to determine how best to shrink the estimator. In contrast, most existing methods shrink in a pre-determined direction, such as toward a diagonal matrix in the case of \citet{ledoit2004well}. Theoretical justification of our proposed $\hat{\bs{\delta}}$ is difficult and is discussed in Section \ref{discussion}. Nevertheless, our numerical results in Section \ref{numerical results} show that in practice, our $\hat{\bs{\delta}}$ can outperform many existing covariance matrix estimators.
+Our proposed procedure is an example of what \citet{efron2014two} calls $g$-modeling, an approach to empirical Bayes problems that proceeds by modeling the prior. A major advantage of nonparametric estiation of the prior is that it allows the data itself to determine how best to shrink the estimator. In contrast, most existing methods shrink in a pre-determined direction, such as toward a diagonal matrix in the case of \citet{ledoit2004well}. Theoretical justification of our proposed $\widehat{\bs{\delta}}$ is difficult and is discussed in Section \ref{discussion}. Nevertheless, our numerical results in Section \ref{numerical results} show that in practice, our $\widehat{\bs{\delta}}$ can outperform many existing covariance matrix estimators.
 
 \subsection{\label{implementation}Implementation}
 
-Calculating the estimated prior $\hat{G}_p$ \ref{Gp hat} is difficult, as it is an infinite-dimensional optimization problem over the class of all probability distributions $\mathcal{G}$. \citet{lindsay1983geometry} showed that the solution is atomic and is supported on at most $p^2$ points. The EM algorithm has traditionally been used to estimate the locations of the support points and the masses at those points \citep{laird1978nonparametric}, but this is a difficult nonconvex optimization problem.
+Calculating the estimated prior $\widehat{G}_p$ \ref{Gp hat} is difficult, as it is an infinite-dimensional optimization problem over the class of all probability distributions $\mathcal{G}$. \citet{lindsay1983geometry} showed that the solution is atomic and is supported on at most $p^2$ points. The EM algorithm has traditionally been used to estimate the locations of the support points and the masses at those points \citep{laird1978nonparametric}, but this is a difficult nonconvex optimization problem.
 
-Instead, we maximize the pairwise composite likelihood over a fixed grid of support points, similar to recent $g$-modeling procedures for standard compound decision problems; this restores convexity \citep{jiang2009general, koenker2014convex, feng2018approximate}. Specifically, we assume that the prior for the $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$ is supported on $D$ fixed support points $\bs{\xi}_{\tau}$, $\tau=1,\ldots, D$. We can then use the EM algorithm to estimate the masses $\hat{\bs{w}}=\{\hat{w}_{1},\ldots, \hat{w}_{D}\}$ at those points via the iteration
+Instead, we maximize the pairwise composite likelihood over a fixed grid of support points, similar to recent $g$-modeling procedures for standard compound decision problems; this restores convexity \citep{jiang2009general, koenker2014convex, feng2018approximate}. Specifically, we assume that the prior for the $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$ is supported on $D$ fixed support points $\bs{\xi}_{\tau}$, $\tau=1,\ldots, D$. We can then use the EM algorithm to estimate the masses $\widehat{\bs{w}}=\{\widehat{w}_{1},\ldots, \widehat{w}_{D}\}$ at those points via the iteration
 \[
-\hat{w}_{\tau}^{(k)} = \frac{1}{p^2}\sum_{j, k = 1}^p \frac{\hat{w}_{\tau}^{(k-1)} f(\bs{A}_{jk} \mid \bs{\xi}_{\tau})}{\sum_{l=1}^D\hat{w}_l^{(k-1)} f(\bs{A}_{jk} \mid \bs{\xi}_l)}
+\widehat{w}_{\tau}^{(k)} = \frac{1}{p^2}\sum_{j, k = 1}^p \frac{\widehat{w}_{\tau}^{(k-1)} f(\bs{A}_{jk} \mid \bs{\xi}_{\tau})}{\sum_{l=1}^D\widehat{w}_l^{(k-1)} f(\bs{A}_{jk} \mid \bs{\xi}_l)}
 \]
 over $k$. Early stopping of the EM algorithm can be useful \citep{koenker2019comment}, and more sophisticated convex optimization procedures can be used as well \citep{koenker2014convex}. Our proposed estimator \ref{proposed} then becomes
 \[
-\hat{\bs{\delta}}(\bs{X})
-=
-(\hat{t}(\bs{A}_{11}), \ldots, \hat{t}(\bs{A}_{pp})),
+\widehat{t}(\bs{A}_{jk}) = \frac{ \sum_{\tau=1}^D g(\bs{\xi}_\tau) f(\bs{A} \mid \bs{\xi}_\tau) \widehat{w}_{\tau}}{ \sum_{\tau=1}^D f(\bs{A} \mid \bs{\xi}_\tau) \widehat{w}_{\tau}},
 \quad
-\hat{t}(\bs{A}) = \frac{ \sum_{\tau=1}^D g(\bs{\xi}_\tau) f(\bs{A} \mid \bs{\xi}_\tau) \hat{w}_{\tau}}{ \sum_{\tau=1}^D f(\bs{A} \mid \bs{\xi}_\tau) \hat{w}_{\tau}}.
+\widehat{t}(\bs{X}_{\cdot j}) = \frac{ \sum_{\tau=1}^D a_{\tau}^2 \widetilde{f}(\bs{X}_{\cdot j} \mid a_\tau) \widehat{w}_{\tau}}{ \sum_{\tau=1}^D \widetilde{f}(\bs{X}_{\cdot j}  \mid a_\tau) \widehat{w}_{\tau}}.
 \]
 
-Ideally, the grid points should be chosen to densely cover the parameter space. However, the fact that $G_p$ is multivariate poses difficulties, as for example using a grid of $d$ points in each dimension requires a total of $D = d^3$ grid points, which requires huge computational cost for even moderate $d$. Alternatively, we can use a so-called exemplar algorithm \citep{saha2020nonparametric}, which sets the support points to equal the observed sample versions $\hat{\bs{\eta}}_{jk}$ of the $\bs{\eta}_{jk}$. This reduces the size of the support set, but even in this case the computation complexity grows like $O(p^2)$.
+Ideally, the grid points should be chosen to densely cover the parameter space. However, the fact that $G_p$ is multivariate poses difficulties, as for example using a grid of $d$ points in each dimension requires a total of $D = d^3$ grid points, which requires huge computational cost for even moderate $d$. Alternatively, we can use a so-called exemplar algorithm \citep{saha2020nonparametric}, which sets the support points to equal the observed sample versions $\widehat{\bs{\eta}}_{jk}$ of the $\bs{\eta}_{jk}$. This reduces the size of the support set, but even in this case the computation complexity grows like $O(p^2)$.
 
 Here we propose a clustering-based exemplar algorithm to further improve computational efficiency. Let $s_j$, $s_k$, and $\gamma_{jk}$ be the sample variances and correlation between the $j$th and $k$th covariates. We first apply $K$-means clustering to identify $K$ clusters among the $p (p-1) / 2$ off-diagonal sample points $(s_j,s_k,\gamma_{jk})$ and $\lceil{K^{1/2}}\rceil$ clusters among the $p$ diagonal sample points $(s_j,s_j,1)$. We then use the $K+\lceil{K^{1/2}}\rceil$ cluster centroids as our support points. We cluster the off- and on-diagonal observations separately to ensure that the support points $\bs{\xi}_\tau$ are such that $f(\bs{A}_{jk} \mid \bs{\xi}_\tau) \ne 0$ when both $j = k$ and $j \ne k$. Figure \ref{fig:sim1_frobenius} shows that different $K$ have similar estimation accuracy compared to the exemplar algorithm, while Table \ref{tab:sim1_time} shows that they can be significantly faster.
 
+In our implementation, we use the density function of $\bs{S}_{jk}=\begin{bmatrix}
+s_{jj} & s_{jk} \\
+s_{kj} & s_{kk} 
+\end{bmatrix}$ instead of $\bs{A}_{jk}$ since it is the sufficient statistics of $\bs{A}_{jk}$ and easier to calculate. Based on the property of sufficient statistics, 
+\begin{equation}
+\frac{f(\bs{A}_{jk}\mid \bs{\xi}_{\tau})}{f(\bs{A}_{jk}\mid \bs{\xi}_l)} = \frac{f(\bs{S}_{jk}\mid \bs{\xi}_{\tau})}{f(\bs{S}_{jk}\mid \bs{\xi}_l)}
+\end{equation}
+So it is equivalent to use $f(\bs{A}_{jk}\mid \bs{\xi}_{\tau})$ in calculation.
 \subsection{\label{posdef}Positive definiteness correction}
 Our proposed estimator \ref{proposed} is not guaranteed to be positive-definite. To correct this, we reshape our vector estimator back into a matrix and then identify the closest positive-definite matrix. \citet{higham1988computing} and \citet{huang2017calibration} showed that the projection of a $p \times p$ symmetric matrix $\bs{B}$ onto the space of positive semi-definite matrices is
 \[
@@ -210,7 +241,7 @@ P_0(\bs{B})
 =
 \bs{Q}\text{diag}\{\max(\lambda_1,0),\max(\lambda_2,0),\ldots,\max(\lambda_p,0)\}\bs{Q}^\top,
 \]
-where $\Vert \cdot \Vert$ denotes the Frobenius norm, $\bs{Q}$ is the matrix of eigenvectors of $\bs{B}$, and $\lambda_1,\ldots,\lambda_p$ are its eigenvalues. Projections in terms of other matrix norms are also possible.
+where $\Vert \cdot \Vert$ denotes the Frobenius norm, $\bs{Q}$ is the matrix of eigenvectors of $\bs{B}$, and $\lambda_1,\ldots,\lambda_p$ are its eigenvalues. 
 
 To guarantee positive-definiteness, we follow \citet{huang2017calibration} and replace non-positive eigenvalues with a chosen positive value $c$ smaller than the least positive eigenvalue $\lambda_{\min}^+$, so that the corrected estimate is
 \begin{equation}
@@ -247,13 +278,13 @@ We considered five models for the population covariance matrix. For the first fo
 \item Model 5. With $\bs{U}$ a randomly generated orthogonal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $p / 2$ equaled 1 and the last $p / 2$ equaled 4. This followed simulation settings from \citet{lam2016nonparametric} and \citet{ledoit2019quadratic}.
 \end{itemize}
 
-In each scenario, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. We generated $200$ replicates and reported average errors under the following three norms, where $\hat{\bs{\Sigma}}$ is the estimated matrix with entries $\hat{\sigma}_{jk}$ and $\bs{\Sigma}$ is the true matrix with entries $\sigma_{jk}$:
+In each scenario, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. We generated $200$ replicates and reported average errors under the following three norms, where $\widehat{\bs{\Sigma}}$ is the estimated matrix with entries $\widehat{\sigma}_{jk}$ and $\bs{\Sigma}$ is the true matrix with entries $\sigma_{jk}$:
 \begin{itemize}
-\item Frobenius: $\Vert \hat{\bs{\Sigma}} - \bs{\Sigma} \Vert_F = \{ \sum_{j,k = 1}^p (\hat{\sigma}_{jk} - \sigma_{jk})^2 \}^{1/2}$, a version of \ref{frobenius risk},
+\item Frobenius: $\Vert \widehat{\bs{\Sigma}} - \bs{\Sigma} \Vert_F = \{ \sum_{j,k = 1}^p (\widehat{\sigma}_{jk} - \sigma_{jk})^2 \}^{1/2}$, a version of \ref{frobenius risk},
   
-\item Spectral: $\Vert \hat{\bs{\Sigma}} - \bs{\Sigma} \Vert_2 = \lambda_{\max}(\hat{\bs{\Sigma}} - \bs{\Sigma})$, the largest eigenvalue of $\hat{\bs{\Sigma}} - \bs{\Sigma}$, and
+\item Spectral: $\Vert \widehat{\bs{\Sigma}} - \bs{\Sigma} \Vert_2 = \lambda_{\max}(\widehat{\bs{\Sigma}} - \bs{\Sigma})$, the largest eigenvalue of $\widehat{\bs{\Sigma}} - \bs{\Sigma}$, and
 
-\item Matrix $\ell_1$: $\Vert \hat{\bs{\Sigma}} - \bs{\Sigma} \Vert_{L_1} = \max_{k = 1, \ldots, p} \sum_{j = 1}^p \vert \hat{\sigma}_{jk} - \sigma_{jk} \vert$.
+\item Matrix $\ell_1$: $\Vert \widehat{\bs{\Sigma}} - \bs{\Sigma} \Vert_{L_1} = \max_{k = 1, \ldots, p} \sum_{j = 1}^p \vert \widehat{\sigma}_{jk} - \sigma_{jk} \vert$.
 \end{itemize} 
 
 \subsection{\label{optimalK}Clustering-based exemplar algorithm}
@@ -289,7 +320,7 @@ Figure \ref{fig:sim1_frobenius} presents the Frobenius norm error estimates from
 
 \subsection{\label{compared}Methods compared}
 
-In this section we refer to our approach using the abbreviation MSG: Matrix Shrinkage via $G$-modeling; we use MSGCor to refer to the version corrected for postive-definiteness. We compared MSG and MSGCor to several existing high-dimensional covariance matrix estimation methods:
+In this section we refer to our approach using the abbreviation MSG: Matrix Shrinkage via $G$-modeling; we use MSGCor to refer to the version corrected for postive-definiteness. $K$-means clustering is applied on sample grids with $K=p$. We compared MSG and MSGCor to several existing high-dimensional covariance matrix estimation methods:
 
 \begin{itemize}
 \item Sample: the sample covariance matrix.
@@ -307,29 +338,29 @@ In addition to the above estimators, we also implemented the two following oracl
 \begin{itemize}
 \item OracNonlin: the optimal rotation-invariant covariance estimator, defined in \citet{ledoit2019quadratic}, with $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{U}=(\bs{u}_1\ldots\bs{u}_p)$ is the sample eigenvector matrix and $\bs{l} = (d_1, \ldots, d_p)$ is composed of oracle eigenvalues $d_i = \bs{u}_i^T\bs{\Sigma} \bs{u}_i$. The sample covariance, the linear shrinkage estimator of \citet{ledoit2004well}, and the nonlinear shrinkage estimators QIS and NERCOME are all rotation-invariant.
   
-\item OracMSG: the optimal covariance estimator in the class of separable estimators $\mathcal{S}$ \ref{separable}. It equals our proposed estimator \ref{proposed} except with the true $G_p$ \ref{bayesian} instead of $\hat{G}_p$ \ref{Gp hat}. The adaptive thresholding method of \citet{cai2011adaptive} also targets a separable estimator.
+\item OracMSG: the optimal covariance estimator in the class of separable estimators $\mathcal{S}$ \ref{separable}. It equals our proposed estimator \ref{proposed} except with the true $G_p$ \ref{bayesian} instead of $\widehat{G}_p$ \ref{Gp hat}. The adaptive thresholding method of \citet{cai2011adaptive} also targets a separable estimator.
 \end{itemize}
 
 \begin{figure}
 \begin{center}
 \centerline{  \includegraphics[width=0.85\textwidth]{img/sim2_frobenius.pdf}}
 \end{center}
-\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively.}
+\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively. In MSG, $K$-means clustering is applied with $K=p$}
 \label{fig:sim2_frobenius}
 \end{figure}
 
 
-Figures \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. Our MSG methods had the lowest or near-lowest errors across all settings except for Model 4 which has high correlations 0.9. This is not surprising because our method assumed independence of $\bs{A}_{jk}$.  In some cases, for example in Models 1 and 2, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_p$ \ref{bayesian} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators very slightly outperformed MSG in Model 5. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
+Figure \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. Our MSG methods had the lowest or near-lowest errors across all settings except for Model 4 which has high correlations 0.9. This is not surprising because our method assumed independence of $\bs{A}_{jk}$.  In some cases, for example in Models 1 and 2, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_p$ \ref{bayesian} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators very slightly outperformed MSG in Model 5. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
 
 Finally, the simulations show that the class of separable estimators \ref{separable} proposed in this paper is fundamentally different from the class of rotation-invariant estimators, as the oracle optimal estimators in these two classes behave very differently. For example, the oracle separable estimator had vanishing risk in Model 2, while the oracle rotiation-invariant estimator does not. Separable estimators seemed better for Models 1 and 2 while rotation-invariant estimators were superior in Models 3 and 4. They seem comparable in Model 5.
 
 \subsection{Data analysis}
 \label{gene analysis}
-Covariance matrix estimation is often used to reconstruct gene networks \citep{markowetz2007inferring}. We applied our MSG and the other covariance matrix estimators described in Section \ref{compared} to gene network estimation using data from a small round blue-cell tumor microarray experiment \citep{khan2001classification}, which was also studied by \citet{cai2011adaptive}. \citet{osareh2009classification} report the expression of 2308 genes from 63 samples from four groups: 12 neuroblastoma, 20 rhabdomyosarcoma, 8 Burkitt lymphoma, and 23 Ewing's sarcoma patients. We followed the same data preprocessing as \citet{cai2011adaptive} and sorted the genes in decreasing order according to their $F$-statistic
+Covariance matrix estimation is often used to reconstruct gene networks \citep{markowetz2007inferring}. We applied our MSG and the other covariance matrix estimators described in Section \ref{compared} to gene network estimation using data from a small round blue-cell tumor microarray experiment \citep{khan2001classification}, which was also studied by \citet{cai2011adaptive}. \citet{osareh2009classification} report the expression of 2308 genes from 63 samples from four groups: 12 neuroblastoma, 20 rhabdomyosarcoma, 8 Burkitt lymphoma, and 23 Ewing's sarcoma patients. In MSG, the clustering parameter $K$ is still set as $p=200$. We followed the same data preprocessing as \citet{cai2011adaptive} and sorted the genes in decreasing order according to their $F$-statistic
 \begin{equation}
-F = \frac{1}{k-1}\sum_{m=1}^kn_m(\bar{x}_m - \bar{x})^2 /   \frac{1}{n-k}\sum_{m=1}^k (n_m-1)\hat{\sigma}_m^2 
+F = \frac{1}{k-1}\sum_{m=1}^kn_m(\overline{x}_m - \overline{x})^2 /   \frac{1}{n-k}\sum_{m=1}^k (n_m-1)\widehat{\sigma}_m^2 
 \end{equation}
-where $k = 4$ is the number of patient categories, $n_m$, $\bar{x}_m$, and $\hat{\sigma}_k$ represent the sample size, sample mean, and sample variance of the gene's expression in the $m$th category, respectively, and $\bar{x}$ is the global mean. We proceeded with the top 40 genes and bottom 160 genes.
+where $k = 4$ is the number of patient categories, $n_m$, $\overline{x}_m$, and $\widehat{\sigma}_k$ represent the sample size, sample mean, and sample variance of the gene's expression in the $m$th category, respectively, and $\overline{x}$ is the global mean. We proceeded with the top 40 genes and bottom 160 genes.
 
 We applied various methods to estimate the covariance matrix of these 200 genes. To measure the accuracy of the estimators, we split the 63 samples into two subsets $\bs{X}_1$ and $\bs{X}_2$, ensuring that each subset consisted of the same number of subjects from each of the four disease groups. After centering the variables to have zero mean, we used $\bs{X}_1$ to calculate covariance matrix estimates and compared these to the sample covariance matrix $\bs{S}_2$ of $\bs{X}_2$, which served as a proxy for the unknown true covariance matrix. We measured the errors using the Frobenius, spectral, and matrix $\ell_1$ norms. We repeated this process 200 times.
 
@@ -396,23 +427,26 @@ We thank Dr. Roger Koenker for his valuable comments.\vspace*{-8pt}
 \bibliographystyle{biom} 
 \bibliography{biblio}
 
+\section*{Supporting Information}
+Web Appendices, Tables, and Figures referenced in Section 3 are available with this paper at the Biometrics website on Wiley Online Library.
+
 \appendix
 \section{}
 \subsection{Proof of Proposition \ref{prop:linear}}
 
 \begin{proof}
-  We first rewrite the risk estimate $\hat{R}(\beta_S, \beta_I)$. Define $\bs{M}=(\sum_{j,k=1}^p\hat{\Delta}_{jk}^2, 0)^\top$, $\bs{\beta} = (\beta_S, \beta_I)^\top$, and the vectorized covariance matrices $\bs{v_S}=(s_{11},\ldots, s_{pp})^\top $, $\bs{v_I}=(u_{11},\ldots, u_{pp})^\top $, and $\bs{v_{\Sigma}} = (\sigma_{11},\ldots,\sigma_{pp})^\top$. Then the unbiased risk estimator can be re-written as
+  We first rewrite the risk estimate $\widehat{R}(\beta_S, \beta_I)$. Define $\bs{M}=(\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2, 0)^\top$, $\bs{\beta} = (\beta_S, \beta_I)^\top$, and the vectorized covariance matrices $\bs{v_S}=(s_{11},\ldots, s_{pp})^\top $, $\bs{v_I}=(u_{11},\ldots, u_{pp})^\top $, and $\bs{v_{\Sigma}} = (\sigma_{11},\ldots,\sigma_{pp})^\top$. Then the unbiased risk estimator can be re-written as
   \[
-  \hat{R}(\beta_S,\beta_I) = \bs{\beta}^\top (\bs{Z}^\top \bs{Z})\bs{\beta} - 2(\bs{Z}\bs{v_S}-\bs{M})^\top \bs{\beta} - \bs{1}^\top \bs{M},
+  \widehat{R}(\beta_S,\beta_I) = \bs{\beta}^\top (\bs{Z}^\top \bs{Z})\bs{\beta} - 2(\bs{Z}\bs{v_S}-\bs{M})^\top \bs{\beta} - \bs{1}^\top \bs{M},
   \]
   where $\bs{Z} =(\bs{v_S}, \bs{v_I})$. Therefore
   \begin{align*}
-    \hat{\bs{\beta}} &= \arg\min_{ \bs{\beta} }(\bs{Z}^\top \bs{Z})^{-1}(\bs{Z}\bs{v_S}-\bs{M}),\\
+    \widehat{\bs{\beta}} &= \arg\min_{ \bs{\beta} }(\bs{Z}^\top \bs{Z})^{-1}(\bs{Z}\bs{v_S}-\bs{M}),\\
     &
-    \hat{\bs{v}}_{\bs{\Sigma}} = \bs{Z\hat{\beta}} = \bs{v_S} - \bs{Z}(\bs{Z}^\top \bs{Z})^{-1}\bs{M}.
+    \widehat{\bs{v}}_{\bs{\Sigma}} = \bs{Z\widehat{\beta}} = \bs{v_S} - \bs{Z}(\bs{Z}^\top \bs{Z})^{-1}\bs{M}.
   \end{align*}
 
-  We will need to show $\hat{\mu} b_n^2 / d_n^2 = \hat{\beta}_I$ and $\hat{\beta}_I/\hat{\mu} + \hat{\beta}_S = 1$. Since
+  We will need to show $\widehat{\mu} b_n^2 / d_n^2 = \widehat{\beta}_I$ and $\widehat{\beta}_I/\widehat{\mu} + \widehat{\beta}_S = 1$. Since
 $$\bs{Z}^\top \bs{Z} = \begin{pmatrix}
 s_{11} &\ldots &s_{pp} \\
 u_{11} &\ldots &u_{pp} 
@@ -437,34 +471,34 @@ $$\bs{Z}^\top \bs{S} = \begin{pmatrix}
 \end{pmatrix},
 \quad 
 \bs{Z^\top S}-\bs{M} =  \begin{pmatrix}
-&\sum_{j,k=1}^ps_{jk}^2 - \hat{\Delta}_{jk}^2\\
+&\sum_{j,k=1}^ps_{jk}^2 - \widehat{\Delta}_{jk}^2\\
 &\sum_{j=1}^p s_{jj}
 \end{pmatrix}.$$
 
 Therefore
 \begin{align*}
-\hat{\bs{\beta}}& = (\bs{Z}^\top \bs{Z})^{-1} \bs{Z^\top S} \\
+\widehat{\bs{\beta}}& = (\bs{Z}^\top \bs{Z})^{-1} \bs{Z^\top S} \\
 &= \frac{1}{p^3d_n^2}\begin{pmatrix}
 p & -\sum_{j=1}^p s_{jj}\\
 -\sum_{j=1}^p s_{jj} & \sum_{j,k=1}^ps_{jk}^2
 \end{pmatrix}\begin{pmatrix}
-\sum_{j,k=1}^ps_{jk}^2 - \hat{\Delta}_{jk}^2\\
+\sum_{j,k=1}^ps_{jk}^2 - \widehat{\Delta}_{jk}^2\\
 \sum_{j=1}^p s_{jj}
 \end{pmatrix}\\
 &= \frac{1}{p^3d_n^2}\begin{pmatrix}
- p\sum_{j,k=1}^p s_{jk}^2 -p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2\\
- (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)
+ p\sum_{j,k=1}^p s_{jk}^2 -p\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2\\
+ (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2)
 \end{pmatrix}.
 \end{align*}
-The second component of $\hat{\bs{\beta}}$ equals $\hat{\beta}_I$, so
+The second component of $\widehat{\bs{\beta}}$ equals $\widehat{\beta}_I$, so
 \begin{align*}
-\hat{\beta}_I &= \frac{1}{p^3d_n^2} (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)\\
-&=\{(\sum_{j=1}^ps_{jj})/p\}   \{(\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)/p^2 \} / d_n^2
-=\hat{\mu}\frac{b_n^2}{d_n^2}.
+\widehat{\beta}_I &= \frac{1}{p^3d_n^2} (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2)\\
+&=\{(\sum_{j=1}^ps_{jj})/p\}   \{(\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2)/p^2 \} / d_n^2
+=\widehat{\mu}\frac{b_n^2}{d_n^2}.
 \end{align*}
 Furthermore,
 \begin{align*}
-\hat{\beta}_I /\hat{\mu} + \hat{\beta}_S &= \frac{1}{p^3d_n^2}p\sum_{j,k=1}^p \{s_{jk}^2 -p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2+p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2\}\\
+\widehat{\beta}_I /\widehat{\mu} + \widehat{\beta}_S &= \frac{1}{p^3d_n^2}p\sum_{j,k=1}^p \{s_{jk}^2 -p\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2+p\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2\}\\
 &=\frac{1}{p^3d_n^2}\{p\sum_{j,k=1}^p s_{jk}^2 -(\sum_{j=1}^ps_{jj})^2\}
 =
 1.

@@ -1,0 +1,34 @@
+\begin{figure}
+\begin{center}
+\centerline{\includegraphics[width=0.85\textwidth]{img/sim1_frobenius.pdf} }
+\end{center}
+\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively.}
+\label{fig:sim1_frobenius}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\begin{center}
+\centerline{  \includegraphics[width=0.85\textwidth]{img/sim2_frobenius.pdf}}
+\end{center}
+\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively. In MSG, $K$-means clustering is applied with $K=p$}
+\label{fig:sim2_frobenius}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\begin{center}
+\centerline{ \includegraphics[width=0.85\textwidth]{img/network.pdf}}
+\end{center}
+\caption{Gene networks recovered by the different covariance matrix estimation methods.}
+\label{network}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\begin{center}
+\centerline{\includegraphics[width=0.85\textwidth]{img/top20.pdf}}
+\end{center}
+\caption{Similarities of gene degrees between the estimated networks. Each number reports the Jaccard index between the top 20\% most connected genes of each pair of networks.}
+\label{top20}
+\end{figure}

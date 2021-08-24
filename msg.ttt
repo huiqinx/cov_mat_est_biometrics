@@ -1,0 +1,39 @@
+\begin{table}
+\begin{center}
+\caption{\label{tab:sim1_time} Average running time for different ratios.}
+%\setlength{\tabcolsep}{3pt} % Default value: 6pt
+\begin{tabular}{lrrr}
+\Hline
+            & p=30 & p=100 & p=200 \\
+\hline
+Exemplar method   & 0.0748          & 4.2575         & 47.8616       \\
+$K=2p$       & 0.0445       & 1.3166    & 12.2612         \\
+$K=p$            & 0.0291         & 0.8744         & 8.0862         \\
+$K=p/2$         & 0.0207         & 0.5861         & 5.3757         \\
+$K=p/4$      & 0.0153         &0.4132          & 3.7415         \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+\begin{center}
+\caption{\label{tab:tab1} Average gene expression covariance matrix estimation errors. Bold entries highlight the smallest errors in each column.}
+%\setlength{\tabcolsep}{3pt} % Default value: 6pt
+\begin{tabular}{lrrr}
+\Hline
+            & Frobenius & Spectral & Matrix $\ell_1$ \\
+\hline
+MSG   & 24.07          & 12.89         & 47.12         \\
+MSGCor & \textbf{23.90} & \textbf{12.87}& \textbf{46.63}         \\
+Adap        & 28.81          & 17.20         & 50.71         \\
+Linear      & 24.59         & 13.57         & 51.43         \\
+QIS         & 28.66          & 15.94         & 59.30         \\
+NERCOME     & 29.76          & 20.13         & 57.30         \\
+Sample      & 28.39          & 16.10         & 57.90         \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
