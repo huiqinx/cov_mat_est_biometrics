@@ -2,7 +2,7 @@
 \begin{center}
 \centerline{\includegraphics[width=0.85\textwidth]{img/sim1_frobenius.pdf} }
 \end{center}
-\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively.}
+\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 5, respectively.}
 \label{fig:sim1_frobenius}
 \end{figure}
 \efloatseparator

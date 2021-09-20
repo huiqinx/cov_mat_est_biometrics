@@ -1,0 +1,296 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Abramovich, Spencer, and Gorokhov}{Abramovich
+  et~al.}{2001}]{abramovich2001locally}
+Abramovich, Y., Spencer, N., and Gorokhov, A. (2001).
+\newblock Locally optimal covariance matrix estimation techniques for array
+  signal processing applications.
+\newblock In {\em Conference Record of Thirty-Fifth Asilomar Conference on
+  Signals, Systems and Computers (Cat. No. 01CH37256)}, volume~2, pages
+  1127--1133. IEEE.
+
+\bibitem[\protect\citeauthoryear{Biscarri}{Biscarri}{2019}]{biscarri2019thesis}
+Biscarri, W.~D. (2019).
+\newblock {\em {Statistical methods for binomial and Gaussian sequences}}.
+\newblock PhD thesis, University of Illinois at Urbana-Champaign.
+
+\bibitem[\protect\citeauthoryear{Brown and Greenshtein}{Brown and
+  Greenshtein}{2009}]{brown2009nonparametric}
+Brown, L.~D. and Greenshtein, E. (2009).
+\newblock Nonparametric empirical bayes and compound decision approaches to
+  estimation of a high-dimensional vector of normal means.
+\newblock {\em The Annals of Statistics} {\bf 37,} 1685--1704.
+
+\bibitem[\protect\citeauthoryear{Cai and Liu}{Cai and
+  Liu}{2011}]{cai2011adaptive}
+Cai, T. and Liu, W. (2011).
+\newblock Adaptive thresholding for sparse covariance matrix estimation.
+\newblock {\em Journal of the American Statistical Association} {\bf 106,}
+  672--684.
+
+\bibitem[\protect\citeauthoryear{Dey and Stephens}{Dey and
+  Stephens}{2018}]{dey2018corshrink}
+Dey, K.~K. and Stephens, M. (2018).
+\newblock Corshrink: Empirical bayes shrinkage estimation of correlations, with
+  applications.
+\newblock {\em bioRxiv} page 368316.
+
+\bibitem[\protect\citeauthoryear{Donoho and Johnstone}{Donoho and
+  Johnstone}{1995}]{donoho1995adapting}
+Donoho, D.~L. and Johnstone, I.~M. (1995).
+\newblock Adapting to unknown smoothness via wavelet shrinkage.
+\newblock {\em Journal of the American Statistical Association} {\bf 90,}
+  1200--1224.
+
+\bibitem[\protect\citeauthoryear{Efron}{Efron}{2014}]{efron2014two}
+Efron, B. (2014).
+\newblock {Two modeling strategies for empirical Bayes estimation}.
+\newblock {\em {Statistical Science}} {\bf 29,} 285--301.
+
+\bibitem[\protect\citeauthoryear{Efron}{Efron}{2019}]{efron2019bayes}
+Efron, B. (2019).
+\newblock {Bayes, Oracle Bayes and Empirical Bayes}.
+\newblock {\em {Statistical Science}} {\bf 34,} 177--201.
+
+\bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
+  et~al.}{2008}]{fan2008high}
+Fan, J., Fan, Y., and Lv, J. (2008).
+\newblock High dimensional covariance matrix estimation using a factor model.
+\newblock {\em Journal of Econometrics} {\bf 147,} 186--197.
+
+\bibitem[\protect\citeauthoryear{Feng and Dicker}{Feng and
+  Dicker}{2018}]{feng2018approximate}
+Feng, L. and Dicker, L.~H. (2018).
+\newblock Approximate nonparametric maximum likelihood for mixture models: A
+  convex optimization approach to fitting arbitrary multivariate mixing
+  distributions.
+\newblock {\em Computational Statistics \& Data Analysis} {\bf 122,} 80--91.
+
+\bibitem[\protect\citeauthoryear{Fourdrinier, Strawderman, and
+  Wells}{Fourdrinier et~al.}{2018}]{fourdrinier2018shrinkage}
+Fourdrinier, D., Strawderman, W.~E., and Wells, M.~T. (2018).
+\newblock {\em Shrinkage estimation}.
+\newblock Springer.
+
+\bibitem[\protect\citeauthoryear{Higham}{Higham}{1988}]{higham1988computing}
+Higham, N.~J. (1988).
+\newblock Computing a nearest symmetric positive semidefinite matrix.
+\newblock {\em Linear algebra and its applications} {\bf 103,} 103--118.
+
+\bibitem[\protect\citeauthoryear{Huang, Farewell, and Pan}{Huang
+  et~al.}{2017}]{huang2017calibration}
+Huang, C., Farewell, D., and Pan, J. (2017).
+\newblock A calibration method for non-positive definite covariance matrix in
+  multivariate data analysis.
+\newblock {\em Journal of Multivariate Analysis} {\bf 157,} 45--52.
+
+\bibitem[\protect\citeauthoryear{James and Stein}{James and
+  Stein}{1961}]{james1961estimation}
+James, W. and Stein, C.~M. (1961).
+\newblock Estimation with quadratic loss.
+\newblock In {\em Proceedings of the Fourth Berkeley Symposium on Mathematical
+  Statistics and Probability}, volume~1, pages 367--379. Berkeley and Los
+  Angeles, University of California Press.
+
+\bibitem[\protect\citeauthoryear{Jiang and Zhang}{Jiang and
+  Zhang}{2009}]{jiang2009general}
+Jiang, W. and Zhang, C.-H. (2009).
+\newblock General maximum likelihood empirical bayes estimation of normal
+  means.
+\newblock {\em The Annals of Statistics} {\bf 37,} 1647--1684.
+
+\bibitem[\protect\citeauthoryear{Johnstone}{Johnstone}{2017}]{johnstone2017gaussian}
+Johnstone, I.~M. (2017).
+\newblock Gaussian estimation: Sequence and wavelet models.
+\newblock Technical report, Department of Statistics, Stanford University,
+  Stanford.
+
+\bibitem[\protect\citeauthoryear{Khan, Wei, Ringner, Saal, Ladanyi, Westermann,
+  Berthold, Schwab, Antonescu, Peterson, et~al\mbox{.}}{Khan
+  et~al.}{2001}]{khan2001classification}
+Khan, J., Wei, J.~S., Ringner, M., Saal, L.~H., Ladanyi, M., Westermann, F.,
+  Berthold, F., Schwab, M., Antonescu, C.~R., Peterson, C., et~al. (2001).
+\newblock Classification and diagnostic prediction of cancers using gene
+  expression profiling and artificial neural networks.
+\newblock {\em Nature medicine} {\bf 7,} 673--679.
+
+\bibitem[\protect\citeauthoryear{Kiefer and Wolfowitz}{Kiefer and
+  Wolfowitz}{1956}]{kiefer1956consistency}
+Kiefer, J. and Wolfowitz, J. (1956).
+\newblock Consistency of the maximum likelihood estimator in the presence of
+  infinitely many incidental parameters.
+\newblock {\em The Annals of Mathematical Statistics} pages 887--906.
+
+\bibitem[\protect\citeauthoryear{Koenker, Gu, et~al\mbox{.}}{Koenker
+  et~al.}{2019}]{koenker2019comment}
+Koenker, R., Gu, J., et~al. (2019).
+\newblock Comment: Minimalist $g$-modeling.
+\newblock {\em Statistical Science} {\bf 34,} 209--213.
+
+\bibitem[\protect\citeauthoryear{Koenker and Mizera}{Koenker and
+  Mizera}{2014}]{koenker2014convex}
+Koenker, R. and Mizera, I. (2014).
+\newblock Convex optimization, shape constraints, compound decisions, and
+  empirical bayes rules.
+\newblock {\em Journal of the American Statistical Association} {\bf 109,}
+  674--685.
+
+\bibitem[\protect\citeauthoryear{Laird}{Laird}{1978}]{laird1978nonparametric}
+Laird, N. (1978).
+\newblock Nonparametric maximum likelihood estimation of a mixing distribution.
+\newblock {\em Journal of the American Statistical Association} {\bf 73,}
+  805--811.
+
+\bibitem[\protect\citeauthoryear{Lam et~al\mbox{.}}{Lam
+  et~al.}{2016}]{lam2016nonparametric}
+Lam, C. et~al. (2016).
+\newblock Nonparametric eigenvalue-regularized precision or covariance matrix
+  estimator.
+\newblock {\em The Annals of Statistics} {\bf 44,} 928--953.
+
+\bibitem[\protect\citeauthoryear{Ledoit and Wolf}{Ledoit and
+  Wolf}{2003}]{ledoit2003improved}
+Ledoit, O. and Wolf, M. (2003).
+\newblock Improved estimation of the covariance matrix of stock returns with an
+  application to portfolio selection.
+\newblock {\em Journal of empirical finance} {\bf 10,} 603--621.
+
+\bibitem[\protect\citeauthoryear{Ledoit and Wolf}{Ledoit and
+  Wolf}{2018}]{ledoit2018analytical}
+Ledoit, O. and Wolf, M. (2018).
+\newblock Analytical nonlinear shrinkage of large-dimensional covariance
+  matrices.
+\newblock Technical Report 264, Department of Economics, University of Zurich.
+
+\bibitem[\protect\citeauthoryear{Ledoit and Wolf}{Ledoit and
+  Wolf}{2019}]{ledoit2019quadratic}
+Ledoit, O. and Wolf, M. (2019).
+\newblock Quadratic shrinkage for large covariance matrices.
+\newblock Technical Report 335, Department of Economics, University of Zurich.
+
+\bibitem[\protect\citeauthoryear{Ledoit, Wolf, et~al\mbox{.}}{Ledoit
+  et~al.}{2004}]{ledoit2004well}
+Ledoit, O., Wolf, M., et~al. (2004).
+\newblock A well-conditioned estimator for large-dimensional covariance
+  matrices.
+\newblock {\em Journal of Multivariate Analysis} {\bf 88,} 365--411.
+
+\bibitem[\protect\citeauthoryear{Ledoit, Wolf, et~al\mbox{.}}{Ledoit
+  et~al.}{2012}]{ledoit2012nonlinear}
+Ledoit, O., Wolf, M., et~al. (2012).
+\newblock Nonlinear shrinkage estimation of large-dimensional covariance
+  matrices.
+\newblock {\em The Annals of Statistics} {\bf 40,} 1024--1060.
+
+\bibitem[\protect\citeauthoryear{Li, Zhou, Zhang, and Li}{Li
+  et~al.}{2017}]{li2017estimation}
+Li, J., Zhou, J., Zhang, B., and Li, X.~R. (2017).
+\newblock Estimation of high dimensional covariance matrices by shrinkage
+  algorithms.
+\newblock In {\em 2017 20th International Conference on Information Fusion
+  (Fusion)}, pages 1--8. IEEE.
+
+\bibitem[\protect\citeauthoryear{Lindley}{Lindley}{1962}]{lindley1962discussion}
+Lindley, D.~V. (1962).
+\newblock Discussion on professor stein's paper.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological)} {\bf 24,} 265--296.
+
+\bibitem[\protect\citeauthoryear{Lindsay}{Lindsay}{1983}]{lindsay1983geometry}
+Lindsay, B.~G. (1983).
+\newblock The geometry of mixture likelihoods: a general theory.
+\newblock {\em The Annals of Statistics} pages 86--94.
+
+\bibitem[\protect\citeauthoryear{Liu, Sun, and Zhao}{Liu
+  et~al.}{2017}]{liu2017covariance}
+Liu, Y., Sun, X., and Zhao, S. (2017).
+\newblock A covariance matrix shrinkage method with toeplitz rectified target
+  for doa estimation under the uniform linear array.
+\newblock {\em AEU-International Journal of Electronics and Communications}
+  {\bf 81,} 50--55.
+
+\bibitem[\protect\citeauthoryear{Markowetz and Spang}{Markowetz and
+  Spang}{2007}]{markowetz2007inferring}
+Markowetz, F. and Spang, R. (2007).
+\newblock Inferring cellular networks -- a review.
+\newblock {\em BMC Bioinformatics} {\bf 8,} S5.
+
+\bibitem[\protect\citeauthoryear{Mestre}{Mestre}{2008}]{mestre2008asymptotic}
+Mestre, X. (2008).
+\newblock On the asymptotic behavior of the sample estimates of eigenvalues and
+  eigenvectors of covariance matrices.
+\newblock {\em IEEE Transactions on Signal Processing} {\bf 56,} 5353--5368.
+
+\bibitem[\protect\citeauthoryear{Osareh and Shadgar}{Osareh and
+  Shadgar}{2009}]{osareh2009classification}
+Osareh, A. and Shadgar, B. (2009).
+\newblock Classification and diagnostic prediction of cancers using gene
+  microarray data analysis.
+\newblock {\em Journal of Applied Sciences} {\bf 9,} 459--468.
+
+\bibitem[\protect\citeauthoryear{Robbins}{Robbins}{1951}]{robbins1951asymptotically}
+Robbins, H. (1951).
+\newblock Asymptotically subminimax solutions of compound statistical decision
+  problems.
+\newblock In {\em Proceedings of the second Berkeley symposium on mathematical
+  statistics and probability}. The Regents of the University of California.
+
+\bibitem[\protect\citeauthoryear{Robbins}{Robbins}{1955}]{robbins1955empirical}
+Robbins, H. (1955).
+\newblock {An empirical Bayes approach to statistics}.
+\newblock In {\em {Proceedings of the Third Berkeley Symposium on Mathematical
+  Statistics and Probability}}, pages 157--164. Berkeley and Los Angeles,
+  University of California Press.
+
+\bibitem[\protect\citeauthoryear{Rothman, Levina, and Zhu}{Rothman
+  et~al.}{2009}]{rothman2009generalized}
+Rothman, A.~J., Levina, E., and Zhu, J. (2009).
+\newblock Generalized thresholding of large covariance matrices.
+\newblock {\em Journal of the American Statistical Association} {\bf 104,}
+  177--186.
+
+\bibitem[\protect\citeauthoryear{Saha, Guntuboyina, et~al\mbox{.}}{Saha
+  et~al.}{2020}]{saha2020nonparametric}
+Saha, S., Guntuboyina, A., et~al. (2020).
+\newblock On the nonparametric maximum likelihood estimator for gaussian
+  location mixture densities with application to gaussian denoising.
+\newblock {\em Annals of Statistics} {\bf 48,} 738--762.
+
+\bibitem[\protect\citeauthoryear{Sch{\"a}fer and Strimmer}{Sch{\"a}fer and
+  Strimmer}{2005}]{schafer2005shrinkage}
+Sch{\"a}fer, J. and Strimmer, K. (2005).
+\newblock A shrinkage approach to large-scale covariance matrix estimation and
+  implications for functional genomics.
+\newblock {\em Statistical applications in genetics and molecular biology} {\bf
+  4,}.
+
+\bibitem[\protect\citeauthoryear{Stein}{Stein}{1975}]{stein1975estimation}
+Stein, C. (1975).
+\newblock Estimation of a covariance matrix.
+\newblock In {\em 39th Annual Meeting IMS, Atlanta, GA, 1975}.
+
+\bibitem[\protect\citeauthoryear{Stein}{Stein}{1986}]{stein1986lectures}
+Stein, C. (1986).
+\newblock Lectures on the theory of estimation of many parameters.
+\newblock {\em Journal of Soviet Mathematics} {\bf 34,} 1373--1403.
+
+\bibitem[\protect\citeauthoryear{Varin, Reid, and Firth}{Varin
+  et~al.}{2011}]{varin2011overview}
+Varin, C., Reid, N., and Firth, D. (2011).
+\newblock An overview of composite likelihood methods.
+\newblock {\em Statistica Sinica} pages 5--42.
+
+\bibitem[\protect\citeauthoryear{Xue, Ma, and Zou}{Xue
+  et~al.}{2012}]{xue2012positive}
+Xue, L., Ma, S., and Zou, H. (2012).
+\newblock Positive-definite $l_1$-penalized estimation of large covariance
+  matrices.
+\newblock {\em Journal of the American Statistical Association} {\bf 107,}
+  1480--1491.
+
+\bibitem[\protect\citeauthoryear{Zhang}{Zhang}{2003}]{zhang2003compound}
+Zhang, C.-H. (2003).
+\newblock {Compound decision theory and empirical Bayes methods}.
+\newblock {\em {The Annals of Statistics}} {\bf 31,} 379--390.
+
+\end{thebibliography}

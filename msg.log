@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 AUG 2021 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  20 SEP 2021 00:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -332,67 +332,6 @@ Overfull \vbox (10.83334pt too high) has occurred while \output is active []
 [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-
-Package natbib Warning: Citation `ledoit2003improved' on page 1 undefined on in
-put line 67.
-
-
-Package natbib Warning: Citation `schafer2005shrinkage' on page 1 undefined on 
-input line 67.
-
-
-Package natbib Warning: Citation `abramovich2001locally' on page 1 undefined on
- input line 67.
-
-
-Package natbib Warning: Citation `rothman2009generalized' on page 1 undefined o
-n input line 69.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 1 undefined on input
- line 69.
-
-
-Package natbib Warning: Citation `xue2012positive' on page 1 undefined on input
- line 69.
-
-
-Package natbib Warning: Citation `fan2008high' on page 1 undefined on input lin
-e 69.
-
-
-Package natbib Warning: Citation `li2017estimation' on page 1 undefined on inpu
-t line 69.
-
-
-Package natbib Warning: Citation `liu2017covariance' on page 1 undefined on inp
-ut line 69.
-
-
-Package natbib Warning: Citation `ledoit2004well' on page 1 undefined on input 
-line 71.
-
-
-Package natbib Warning: Citation `ledoit2012nonlinear' on page 1 undefined on i
-nput line 71.
-
-
-Package natbib Warning: Citation `ledoit2019quadratic' on page 1 undefined on i
-nput line 71.
-
-
-Package natbib Warning: Citation `lam2016nonparametric' on page 1 undefined on 
-input line 71.
-
-
-Package natbib Warning: Citation `ledoit2018analytical' on page 1 undefined on 
-input line 73.
-
-
-Package natbib Warning: Citation `mestre2008asymptotic' on page 1 undefined on 
-input line 73.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -403,13 +342,7 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 [1
 
 ]
-
-Package natbib Warning: Citation `jiang2009general' on page 2 undefined on inpu
-t line 77.
-
-
-Package natbib Warning: Citation `koenker2014convex' on page 2 undefined on inp
-ut line 77.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -417,122 +350,17 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [2]
-
-Package natbib Warning: Citation `robbins1951asymptotically' on page 3 undefine
-d on input line 92.
-
-
-Package natbib Warning: Citation `johnstone2017gaussian' on page 3 undefined on
- input line 97.
-
-
-Package natbib Warning: Citation `james1961estimation' on page 3 undefined on i
-nput line 99.
-
-
-Package natbib Warning: Citation `brown2009nonparametric' on page 3 undefined o
-n input line 99.
-
-
-Package natbib Warning: Citation `jiang2009general' on page 3 undefined on inpu
-t line 99.
-
-
-Package natbib Warning: Citation `johnstone2017gaussian' on page 3 undefined on
- input line 99.
-
-
-Package natbib Warning: Citation `lindley1962discussion' on page 3 undefined on
- input line 99.
-
-
-Package natbib Warning: Citation `fourdrinier2018shrinkage' on page 3 undefined
- on input line 99.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 3 undefined on input
- line 101.
-
-
-Package natbib Warning: Citation `donoho1995adapting' on page 3 undefined on in
-put line 101.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 3
  []
 
 [3]
-
-Package natbib Warning: Citation `ledoit2004well' on page 4 undefined on input 
-line 103.
-
-
-Package natbib Warning: Citation `biscarri2019thesis' on page 4 undefined on in
-put line 115.
-
-
-Package natbib Warning: Citation `lindley1962discussion' on page 4 undefined on
- input line 115.
-
-
-Package natbib Warning: Citation `ledoit2004well' on page 4 undefined on input 
-line 115.
-
-
-Package natbib Warning: Citation `robbins1951asymptotically' on page 4 undefine
-d on input line 123.
-
-
-Underfull \vbox (badness 3492) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 4
  []
 
 [4]
-
-Package natbib Warning: Citation `ledoit2004well' on page 5 undefined on input 
-line 136.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 5 undefined on input
- line 140.
-
-
-Package natbib Warning: Citation `zhang2003compound' on page 5 undefined on inp
-ut line 140.
-
-
-Package natbib Warning: Citation `robbins1955empirical' on page 5 undefined on 
-input line 142.
-
-
-Package natbib Warning: Citation `zhang2003compound' on page 5 undefined on inp
-ut line 142.
-
-
-Package natbib Warning: Citation `brown2009nonparametric' on page 5 undefined o
-n input line 142.
-
-
-Package natbib Warning: Citation `jiang2009general' on page 5 undefined on inpu
-t line 142.
-
-
-Package natbib Warning: Citation `efron2014two' on page 5 undefined on input li
-ne 142.
-
-
-Package natbib Warning: Citation `efron2019bayes' on page 5 undefined on input 
-line 142.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3407) has occurred while \output is active []
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -540,25 +368,7 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [5]
-
-Package natbib Warning: Citation `robbins1951asymptotically' on page 6 undefine
-d on input line 165.
-
-
-Package natbib Warning: Citation `jiang2009general' on page 6 undefined on inpu
-t line 165.
-
-
-Overfull \hbox (39.98842pt too wide) detected at line 181
-[]
- []
-
-
-Package natbib Warning: Citation `kiefer1956consistency' on page 6 undefined on
- input line 184.
-
-
-LaTeX Warning: Reference `bayesian' on page 6 undefined on input line 184.
+Underfull \vbox (badness 3826) has occurred while \output is active []
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -567,39 +377,7 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 
 [6]
 
-Package natbib Warning: Citation `varin2011overview' on page 7 undefined on inp
-ut line 195.
-
-
-Package natbib Warning: Citation `efron2014two' on page 7 undefined on input li
-ne 206.
-
-
-Package natbib Warning: Citation `ledoit2004well' on page 7 undefined on input 
-line 206.
-
-
-LaTeX Warning: Reference `Gp hat' on page 7 undefined on input line 210.
-
-
-Package natbib Warning: Citation `lindsay1983geometry' on page 7 undefined on i
-nput line 210.
-
-
-Package natbib Warning: Citation `laird1978nonparametric' on page 7 undefined o
-n input line 210.
-
-
-Package natbib Warning: Citation `jiang2009general' on page 7 undefined on inpu
-t line 212.
-
-
-Package natbib Warning: Citation `koenker2014convex' on page 7 undefined on inp
-ut line 212.
-
-
-Package natbib Warning: Citation `feng2018approximate' on page 7 undefined on i
-nput line 212.
+LaTeX Warning: Reference `bayesian' on page 7 undefined on input line 195.
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -607,46 +385,15 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [7]
-
-Package natbib Warning: Citation `koenker2019comment' on page 8 undefined on in
-put line 216.
-
-
-Package natbib Warning: Citation `koenker2014convex' on page 8 undefined on inp
-ut line 216.
-
-
-Package natbib Warning: Citation `saha2020nonparametric' on page 8 undefined on
- input line 223.
-
-
-Underfull \vbox (badness 1237) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 8
  []
 
 [8]
-
-Package natbib Warning: Citation `higham1988computing' on page 9 undefined on i
-nput line 236.
-
-
-Package natbib Warning: Citation `huang2017calibration' on page 9 undefined on 
-input line 236.
-
-
-Package natbib Warning: Citation `huang2017calibration' on page 9 undefined on 
-input line 246.
-
-
-Package natbib Warning: Citation `huang2017calibration' on page 9 undefined on 
-input line 253.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 9 undefined on input
- line 261.
+Overfull \hbox (1.13158pt too wide) in paragraph at lines 235--239
+[]\OT1/cmr/m/n/12 In our im-ple-men-ta-tion, we use the den-sity func-tion of $
+[][] = []$ in-stead of $([][]\OML/cmm/m/it/12 ; [][]\OT1/cmr/m/n/12 )$
+ []
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -654,16 +401,7 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [9]
-
-LaTeX Warning: Reference `Gp hat' on page 10 undefined on input line 276.
-
-
-Package natbib Warning: Citation `lam2016nonparametric' on page 10 undefined on
- input line 278.
-
-
-Package natbib Warning: Citation `ledoit2019quadratic' on page 10 undefined on 
-input line 278.
+Underfull \vbox (badness 1728) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -671,19 +409,7 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [10]
-\openout3 = `msg.fff'.
-
- (msg.fff)
-\openout4 = `msg.ttt'.
-
- (msg.ttt)
-
-Package natbib Warning: Citation `ledoit2004well' on page 11 undefined on input
- line 328.
-
-
-Package natbib Warning: Citation `ledoit2019quadratic' on page 11 undefined on 
-input line 330.
+Underfull \vbox (badness 2384) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -692,73 +418,32 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 
 [11]
 
-Package natbib Warning: Citation `lam2016nonparametric' on page 12 undefined on
- input line 332.
+LaTeX Warning: Reference `Gp hat' on page 12 undefined on input line 286.
 
+\openout3 = `msg.fff'.
 
-Package natbib Warning: Citation `cai2011adaptive' on page 12 undefined on inpu
-t line 334.
+(msg.fff)
+\openout4 = `msg.ttt'.
 
-
-Package natbib Warning: Citation `ledoit2019quadratic' on page 12 undefined on 
-input line 339.
-
-
-Package natbib Warning: Citation `ledoit2004well' on page 12 undefined on input
- line 339.
-
-
-LaTeX Warning: Reference `bayesian' on page 12 undefined on input line 341.
-
-
-LaTeX Warning: Reference `Gp hat' on page 12 undefined on input line 341.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 12 undefined on inpu
-t line 341.
-
-
-LaTeX Warning: Reference `bayesian' on page 12 undefined on input line 353.
-
-
+ (msg.ttt)
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 12
  []
 
 [12]
-
-Package natbib Warning: Citation `markowetz2007inferring' on page 13 undefined 
-on input line 359.
-
-
-Package natbib Warning: Citation `khan2001classification' on page 13 undefined 
-on input line 359.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 13 undefined on inpu
-t line 359.
-
-
-Package natbib Warning: Citation `osareh2009classification' on page 13 undefine
-d on input line 359.
-
-
-Package natbib Warning: Citation `cai2011adaptive' on page 13 undefined on inpu
-t line 359.
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 13
  []
 
 [13]
 
-Package natbib Warning: Citation `cai2011adaptive' on page 14 undefined on inpu
-t line 390.
+LaTeX Warning: Reference `bayesian' on page 14 undefined on input line 353.
 
 
-Package natbib Warning: Citation `cai2011adaptive' on page 14 undefined on inpu
-t line 390.
+LaTeX Warning: Reference `Gp hat' on page 14 undefined on input line 353.
+
+
+LaTeX Warning: Reference `bayesian' on page 14 undefined on input line 365.
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -766,30 +451,11 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 15
  []
 
 [15]
-
-Package natbib Warning: Citation `jiang2009general' on page 16 undefined on inp
-ut line 417.
-
-
-Package natbib Warning: Citation `saha2020nonparametric' on page 16 undefined o
-n input line 417.
-
-
-LaTeX Warning: Reference `Gp hat' on page 16 undefined on input line 419.
-
-No file msg.bbl.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 16
  []
@@ -801,80 +467,130 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 
 [17]
 
-Package natbib Warning: There were undefined citations.
+LaTeX Warning: Reference `Gp hat' on page 18 undefined on input line 431.
 
-AED endfloat: Processing end Figures and Tables
+(./msg.bbl
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 18
  []
 
-[18] (./msg.fff
-<img/sim1_frobenius.pdf, id=90, 578.16pt x 448.67625pt>
+[18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 19
+ []
+
+[19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 20
+ []
+
+[20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 21
+ []
+
+[21])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 22
+ []
+
+[22]
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 23
+ []
+
+[23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 24
+ []
+
+[24] AED endfloat: Processing end Figures and Tables
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 25
+ []
+
+[25] (./msg.fff
+<img/sim1_frobenius.pdf, id=112, 578.16pt x 448.67625pt>
 File: img/sim1_frobenius.pdf Graphic file (type pdf)
 <use img/sim1_frobenius.pdf>
 Package pdftex.def Info: img/sim1_frobenius.pdf  used on input line 3.
 (pdftex.def)             Requested size: 399.2946pt x 309.86765pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 19
+\OT1/cmr/m/n/9 26
  []
 
-[19 <./img/sim1_frobenius.pdf>]
-<img/sim2_frobenius.pdf, id=99, 578.16pt x 433.62pt>
+[26 <./img/sim1_frobenius.pdf>]
+<img/sim2_frobenius.pdf, id=121, 578.16pt x 433.62pt>
 File: img/sim2_frobenius.pdf Graphic file (type pdf)
 <use img/sim2_frobenius.pdf>
 Package pdftex.def Info: img/sim2_frobenius.pdf  used on input line 12.
 (pdftex.def)             Requested size: 399.2946pt x 299.46939pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 20
+\OT1/cmr/m/n/9 27
  []
 
-[20 <./img/sim2_frobenius.pdf>]
-<img/network.pdf, id=108, 578.16pt x 578.16pt>
+[27 <./img/sim2_frobenius.pdf>]
+<img/network.pdf, id=130, 578.16pt x 578.16pt>
 File: img/network.pdf Graphic file (type pdf)
 <use img/network.pdf>
 Package pdftex.def Info: img/network.pdf  used on input line 21.
 (pdftex.def)             Requested size: 399.2946pt x 399.29253pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 21
+\OT1/cmr/m/n/9 28
  []
 
-[21 <./img/network.pdf>]
-<img/top20.pdf, id=117, 578.16pt x 578.16pt>
+[28 <./img/network.pdf>]
+<img/top20.pdf, id=139, 578.16pt x 578.16pt>
 File: img/top20.pdf Graphic file (type pdf)
 <use img/top20.pdf>
 Package pdftex.def Info: img/top20.pdf  used on input line 30.
 (pdftex.def)             Requested size: 399.2946pt x 399.29253pt.
 )
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 22
+\OT1/cmr/m/n/9 29
  []
 
-[22 <./img/top20.pdf>] (./msg.ttt
+[29 <./img/top20.pdf>] (./msg.ttt
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 23
+\OT1/cmr/m/n/9 30
  []
 
-[23])
+[30])
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 24
+\OT1/cmr/m/n/9 31
  []
 
-[24] (./msg.aux)
+[31] (./msg.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3672 strings out of 492616
- 47374 string characters out of 6129482
- 121743 words of memory out of 5000000
- 7488 multiletter control sequences out of 15000+600000
+ 3810 strings out of 492616
+ 50978 string characters out of 6129482
+ 126943 words of memory out of 5000000
+ 7624 multiletter control sequences out of 15000+600000
  23401 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,34p,1265b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,16n,34p,1270b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/c
 mbsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
@@ -903,10 +619,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/201
 9/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on msg.pdf (25 pages, 455742 bytes).
+Output written on msg.pdf (32 pages, 480007 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
+ 245 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
