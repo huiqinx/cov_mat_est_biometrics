@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  20 SEP 2021 00:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 SEP 2021 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -360,15 +360,12 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [4]
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 5
  []
 
 [5]
-Underfull \vbox (badness 3826) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -376,10 +373,6 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [6]
-
-LaTeX Warning: Reference `bayesian' on page 7 undefined on input line 195.
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 7
  []
@@ -390,18 +383,15 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [8]
-Overfull \hbox (1.13158pt too wide) in paragraph at lines 235--239
-[]\OT1/cmr/m/n/12 In our im-ple-men-ta-tion, we use the den-sity func-tion of $
-[][] = []$ in-stead of $([][]\OML/cmm/m/it/12 ; [][]\OT1/cmr/m/n/12 )$
- []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 9
  []
 
 [9]
-Underfull \vbox (badness 1728) has occurred while \output is active []
+Overfull \hbox (1.13158pt too wide) in paragraph at lines 236--240
+[]\OT1/cmr/m/n/12 In our im-ple-men-ta-tion, we use the den-sity func-tion of $
+[][] = []$ in-stead of $([][]\OML/cmm/m/it/12 ; [][]\OT1/cmr/m/n/12 )$
+ []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -417,12 +407,9 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [11]
-
-LaTeX Warning: Reference `Gp hat' on page 12 undefined on input line 286.
-
 \openout3 = `msg.fff'.
 
-(msg.fff)
+ (msg.fff)
 \openout4 = `msg.ttt'.
 
  (msg.ttt)
@@ -436,14 +423,7 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [13]
-
-LaTeX Warning: Reference `bayesian' on page 14 undefined on input line 353.
-
-
-LaTeX Warning: Reference `Gp hat' on page 14 undefined on input line 353.
-
-
-LaTeX Warning: Reference `bayesian' on page 14 undefined on input line 365.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -465,11 +445,7 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 17
  []
 
-[17]
-
-LaTeX Warning: Reference `Gp hat' on page 18 undefined on input line 431.
-
-(./msg.bbl
+[17] (./msg.bbl
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 18
  []
@@ -525,44 +501,44 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [25] (./msg.fff
-<img/sim1_frobenius.pdf, id=112, 578.16pt x 448.67625pt>
+<img/sim1_frobenius.pdf, id=112, 422.57875pt x 329.23pt>
 File: img/sim1_frobenius.pdf Graphic file (type pdf)
 <use img/sim1_frobenius.pdf>
 Package pdftex.def Info: img/sim1_frobenius.pdf  used on input line 3.
-(pdftex.def)             Requested size: 399.2946pt x 309.86765pt.
+(pdftex.def)             Requested size: 399.2946pt x 311.09886pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 26
  []
 
 [26 <./img/sim1_frobenius.pdf>]
-<img/sim2_frobenius.pdf, id=121, 578.16pt x 433.62pt>
+<img/sim2_frobenius.pdf, id=121, 422.57875pt x 329.23pt>
 File: img/sim2_frobenius.pdf Graphic file (type pdf)
 <use img/sim2_frobenius.pdf>
 Package pdftex.def Info: img/sim2_frobenius.pdf  used on input line 12.
-(pdftex.def)             Requested size: 399.2946pt x 299.46939pt.
+(pdftex.def)             Requested size: 399.2946pt x 311.09886pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 27
  []
 
 [27 <./img/sim2_frobenius.pdf>]
-<img/network.pdf, id=130, 578.16pt x 578.16pt>
+<img/network.pdf, id=130, 422.57875pt x 348.30125pt>
 File: img/network.pdf Graphic file (type pdf)
 <use img/network.pdf>
 Package pdftex.def Info: img/network.pdf  used on input line 21.
-(pdftex.def)             Requested size: 399.2946pt x 399.29253pt.
+(pdftex.def)             Requested size: 399.2946pt x 329.11984pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 28
  []
 
 [28 <./img/network.pdf>]
-<img/top20.pdf, id=139, 578.16pt x 578.16pt>
+<img/top20.pdf, id=139, 422.57875pt x 399.4925pt>
 File: img/top20.pdf Graphic file (type pdf)
 <use img/top20.pdf>
 Package pdftex.def Info: img/top20.pdf  used on input line 30.
-(pdftex.def)             Requested size: 399.2946pt x 399.29253pt.
+(pdftex.def)             Requested size: 399.2946pt x 377.49193pt.
 )
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 29
@@ -578,48 +554,45 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 31
  []
 
-[31] (./msg.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[31] (./msg.aux) ) 
 Here is how much of TeX's memory you used:
  3810 strings out of 492616
- 50978 string characters out of 6129482
+ 50988 string characters out of 6129482
  126943 words of memory out of 5000000
  7624 multiletter control sequences out of 15000+600000
- 23401 words of font info for 86 fonts, out of 8000000 for 9000
+ 24003 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,16n,34p,1270b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
-7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/c
-mbsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.
-pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
-pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
-fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
-b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on msg.pdf (32 pages, 480007 bytes).
+ 41i,16n,34p,1284b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmbsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
+sfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmcsc10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmib10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cme
+xtra/cmmib8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
+fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on msg.pdf (32 pages, 476712 bytes).
 PDF statistics:
  245 PDF objects out of 1000 (max. 8388607)
  172 compressed objects within 2 object streams

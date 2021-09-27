@@ -111,14 +111,15 @@ where $\widehat{\mu} = \text{tr}(\bs{S})/p$, and $\widehat{\rho}_{\text{LW}} = 1
   \beta_S s_{jk} + \beta_I u_{jk},
 \end{equation}
 where $s_{jk}$ is the $jk$th entry of $\bs{S}$, $u_{jk}$ is the $jk$th entry of $\bs{I}$, and the class is indexed by the parameters $(\beta_S, \beta_I)$. As proved in appendix, we can show that
-$$URE(\beta_S,\beta_I) = \frac{1}{p^2} \sum_{j,k=1}^{p}[(2\beta_S-1) \widehat{\Delta}_{jk}^2 + \{(1- \beta_S) s_{jk} - \beta_I u_{jk}\}^2 ]$$
-is an unbiased estimator of the risk \eqref{frobenius risk}, where $\widehat{\Delta}_{jk}^2 = \sum_{i=1}^{n}(X_{ij}X_{ik}-s_{jk})^2 / n(n-1)$ is an unbiased estimator of variance of $s_{jk}$. The optimal estimator in this class can now be chosen by minimizing $URE(\beta_S, \beta_I)$ over $\beta_S$ and $\beta_I$. It can be shown that this is equivalent to estimating the vector $(\sigma_{11}, \ldots, \sigma_{pp})^\top$ by shrinking $(s_{11}, \ldots, s_{pp})^\top$ toward the one-dimensional subspace spanned by $(u_{11}, \ldots, u_{pp})^\top$ \citep{biscarri2019thesis, lindley1962discussion}. Proposition \eqref{prop:linear} shows that this subspace shrinkage estimator is identical to the \citet{ledoit2004well} estimator \eqref{linear model}.
+$$\textsc{RE}(\beta_S,\beta_I) = \frac{1}{p^2} \sum_{j,k=1}^{p}[(2\beta_S-1) \widehat{\Delta}_{jk}^2 + \{(1- \beta_S) s_{jk} - \beta_I u_{jk}\}^2 ]$$
+is an approximately unbiased estimator of the risk \eqref{frobenius risk}, where $\widehat{\Delta}_{jk}^2 = \sum_{i=1}^{n}(X_{ij}X_{ik}-s_{jk})^2 / n^2$ is an approximately unbiased estimator of variance of $s_{jk}$. The optimal estimator in this class can now be chosen by minimizing $RE(\beta_S, \beta_I)$ over $\beta_S$ and $\beta_I$. It can be shown that this is equivalent to estimating the vector $(\sigma_{11}, \ldots, \sigma_{pp})^\top$ by shrinking $(s_{11}, \ldots, s_{pp})^\top$ toward the one-dimensional subspace spanned by $(u_{11}, \ldots, u_{pp})^\top$ \citep{biscarri2019thesis, lindley1962discussion}. Proposition \eqref{prop:linear} shows that this subspace shrinkage estimator is closely related to the \citet{ledoit2004well} estimator \eqref{linear model}.
 \begin{prop}
-  \label{prop:linear}
-  Define the estimator $\widehat{\bs{\Sigma}}_V$ such that its $jk$th entry obeys $\widehat{\sigma}_{jk} = \widehat{\beta}_S s_{jk} + \widehat{\beta}_I u_{jk}$, where $(\widehat{\beta}_S, \widehat{\beta}_I) = \argmin_{\beta_S, \beta_I} \widehat{R}(\beta_S, \beta_I)$. Then the coefficients $\widehat{\beta}_S$, $\widehat{\beta}_I $ and $\widehat{\rho}_{\text{LW}}$, $(1-\widehat{\rho}_{\text{LW}})\widehat{\mu}$ are very closed.
-  
-  \end{prop}
-
+\label{prop:linear}
+Define the estimator $\widehat{\bs{\Sigma}}_V$ such that its $jk$th entry obeys $\widehat{\sigma}_{jk} = \widehat{\beta}_S s_{jk} + \widehat{\beta}_I u_{jk}$, where $(\widehat{\beta}_S, \widehat{\beta}_I) = \argmin_{\beta_S, \beta_I} \widehat{RE}(\beta_S, \beta_I)$. Then the estimator \eqref{linear model} can be expressed as 
+$$\widehat{\bs{\Sigma}}_{\text{LW}} = (\widehat{\beta}_S)_+ \bs{S} + \min\{\widehat{\beta}_I, \hat{\mu}\} \bs{I}$$.
+where $\hat{\mu} = \frac{1}{p}\sum_{j=1}^p s_{jj}$
+\end{prop}
+The first coefficient, which is constraint to be nonnegative, is an analog of nonnegative James-Stein estimator.
 \subsection{\label{sec:proposed}Proposed estimator}
 
 The previous section argues that treating covariance matrix estimation as a vector estimation problem can be a fruitful strategy, but discusses only estimators linear in $s_{jk}$. We propose to consider a larger class, the class of so-called separable rules. In the standard compound decision problem of estimating $\bs{\theta}$ using $\bs{Y}$, a separable decision rule $\bs{\delta}(\bs{Y})$ is one where $\delta_i(\bs{Y}) = t(Y_i)$ \citep{robbins1951asymptotically}. Here we generalize this to the problem of estimating a vectorized matrix. For decision rules $\bs{\delta}(\bs{X}) = (\delta_{11}(\bs{X}),\ldots,\delta_{pp}(\bs{X}))$ that estimate $(\sigma_{11}, \ldots, \sigma_{pp})^\top$, define the class of separable rules
@@ -192,7 +193,7 @@ where $g(a, b, \gamma) = a b \gamma$ and the final expectation is the Bayes risk
 \end{prop}
 The decision rule which minimizes the Frobenius risk depends on all the $\sigma_j$ and $r_{jk}$. The optimal oracle separable rule $\bs{\delta}^\star$ therefore has $jk$th entry equal to $\delta^\star_{jk}(\bs{X}) = t^\star((\bs{X}_{\cdot j},\bs{X}_{\cdot k}))$ for $j> k$ and $\delta^\star_{jj}(\bs{X}) = \widetilde{t}^\star(\bs{X}_{\cdot j})$, where $t^\star = \mathbb{E}\{g(\bs{\eta}) \mid (\bs{X},\bs{X}^{'})\}$ and $\widetilde{t}^\star = \mathbb{E}\{a^2 \mid \bs{X}\}$ minimizes the Bayes risk.
 
-Based on this result, we propose the following empirical Bayes procedure. We first use nonparametric maximum likelihood \citep{kiefer1956consistency} to estimate the priors $G_{nd}$ and $G_d$. Under the Bayesian model \eqref{bayesian}, and the working assumption that the $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$ are independent across $jk$, we estimate $G_{nd}$ using
+Based on this result, we propose the following empirical Bayes procedure. We first use nonparametric maximum likelihood \citep{kiefer1956consistency} to estimate the priors $G_{nd}$ and $G_d$. Under the Bayesian model \eqref{bayesian nondiagonal} and \eqref{bayesian diagonal}, and the working assumption that the $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$ are independent across $jk$, we estimate $G_{nd}$ using
 \begin{equation}
   \label{Gnd hat}
   \widehat{G}_{nd} = \argmax_{G_{nd} \in \mathcal{G}_{nd}} \{\prod_{1\leq k\leq j<p} \int f(\bs{X}_{\cdot j},\bs{X}_{\cdot k} \mid \bs{\eta}) dG_{nd}(\bs{\eta})\} 
@@ -283,11 +284,11 @@ We considered five models for the population covariance matrix. For the first fo
   
 \item Model 3. The standard deviations were generated independently from $\mathcal{U}(1, 1.5)$ and $\bs{C}$ was a compound symmetric matrix with correlation parameter 0.7. This modeled a dense covariance matrix.
   
-\item Model 4. This setting was the same as Model 3 except with correlation parameter 0.9. This high level of dependence tested the robustness of the pairwise composite likelihood estimator \eqref{Gp hat}.
+\item Model 4. This setting was the same as Model 3 except with correlation parameter 0.9. This high level of dependence tested the robustness of the pairwise composite likelihood estimator \eqref{Gnd hat}.
   
-\item Model 5. With $\bs{U}$ a randomly generated orthogonal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $p / 2$ equaled 1 and the last $p / 2$ equaled 4. This followed simulation settings from \citet{lam2016nonparametric} and \citet{ledoit2019quadratic}.
+\item Model 5. With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $p / 2$ equaled 1 and the last $p / 2$ equaled 4. This followed simulation settings from \citet{lam2016nonparametric} and \citet{ledoit2019quadratic}.
 
-\item Model 6. With $\bs{U}$ a randomly generated orthogonal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $3$ entries were 4,3,2 and the remaining $p -3$ entries equaled 1. 
+\item Model 6. With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $3$ entries were 4,3,2 and the remaining $p -3$ entries equaled 1. 
 \end{itemize}
 
 In each scenario, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. Although $\bb{E}\bs{X}=0$ in our setting, we assume it is unknown and use $\bs{S}=\frac{1}{n-1}(\bs{X}-\bs{\bar{X}})^\top(\bs{X}-\bs{\bar{X}})$. We generated $200$ replicates and reported median errors under the following Frobenius norms, where $\widehat{\bs{\Sigma}}$ is the estimated matrix with entries $\widehat{\sigma}_{jk}$ and $\bs{\Sigma}$ is the true matrix with entries $\sigma_{jk}$:
@@ -316,11 +317,11 @@ We first studied the behavior of our $K$-means clustering-based exemplar algorit
 \Hline
             & p=30 & p=100 & p=200 \\
 \hline
-Exemplar method   & 0.0748          & 4.2575         & 47.8616       \\
-$K=2p$	      & 0.0445 	     & 1.3166	   & 12.2612         \\
-$K=p$            & 0.0291         & 0.8744         & 8.0862         \\
-$K=p/2$         & 0.0207         & 0.5861         & 5.3757         \\
-$K=p/4$      & 0.0153         &0.4132          & 3.7415         \\
+Exemplar method   & 0.1357          & 6.0338        & 91.8942       \\
+$K=2p$	      & 0.0539 	     & 1.1883	   & 10.7687         \\
+$K=p$            & 0.0357         & 0.7852         & 7.0807         \\
+$K=p/2$         & 0.0222        & 0.5231         & 4.6736         \\
+$K=p/4$      & 0.0158         &0.3694          & 3.2749         \\
 \hline
 \end{tabular}
 \end{center}
@@ -350,7 +351,7 @@ In addition to the above estimators, we also implemented the two following oracl
 \begin{itemize}
 \item OracNonlin: the optimal rotation-invariant covariance estimator, defined in \citet{ledoit2019quadratic}, with $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{U}=(\bs{u}_1\ldots\bs{u}_p)$ is the sample eigenvector matrix and $\bs{l} = (d_1, \ldots, d_p)$ is composed of oracle eigenvalues $d_i = \bs{u}_i^T\bs{\Sigma} \bs{u}_i$. The sample covariance, the linear shrinkage estimator of \citet{ledoit2004well}, and the nonlinear shrinkage estimators QIS and NERCOME are all rotation-invariant.
   
-\item OracMSG: the optimal covariance estimator in the class of separable estimators $\mathcal{S}$ \eqref{separable}. It equals our proposed estimator \eqref{proposed} except with the true $G_p$ \eqref{bayesian} instead of $\widehat{G}_p$ \eqref{Gp hat}. The adaptive thresholding method of \citet{cai2011adaptive} also targets a separable estimator.
+\item OracMSG: It equals our proposed estimator \eqref{proposed} except sample grid points are cluster centers of true parameters $(\sigma_j,\sigma_k,r_{jk})$.
 \end{itemize}
 
 \begin{figure}
@@ -362,7 +363,7 @@ In addition to the above estimators, we also implemented the two following oracl
 \end{figure}
 
 
-Figure \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. Our MSG methods had the lowest or near-lowest errors across all settings except for Model 4 which has high correlations 0.9. This is not surprising because our method assumed independence of $\bs{A}_{jk}$.  In some cases, for example in Models 1 and 2, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_{nd}$ \eqref{bayesian} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators very slightly outperformed MSG in Model 5. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
+Figure \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. Our MSG methods had the lowest or near-lowest errors across all settings except for Model 4 which has high correlations 0.9. This is not surprising because our method assumed independence of $\bs{A}_{jk}$.  In some cases, for example in Models 1 and 2, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_{nd}$ \eqref{bayesian nondiagonal} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators very slightly outperformed MSG in Model 5. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
 
 Finally, the simulations show that the class of separable estimators \eqref{separable} proposed in this paper is fundamentally different from the class of rotation-invariant estimators, as the oracle optimal estimators in these two classes behave very differently. For example, the oracle separable estimator had vanishing risk in Model 2, while the oracle rotiation-invariant estimator does not. Separable estimators seemed better for Models 1 and 2 while rotation-invariant estimators were superior in Models 3 and 4. They seem comparable in Model 5.
 
@@ -386,13 +387,13 @@ Table \eqref{tab:tab1} reports the average errors across the replications. Our M
 \Hline
             & Frobenius & Spectral & Matrix $\ell_1$ \\
 \hline
-MSG   & 24.07          & 12.89         & 47.12         \\
-MSGCor & \textbf{23.90} & \textbf{12.87}& \textbf{46.63}         \\
-Adap        & 28.81          & 17.20         & 50.71         \\
-Linear      & 24.59         & 13.57         & 51.43         \\
-QIS         & 28.66          & 15.94         & 59.30         \\
-NERCOME     & 29.76          & 20.13         & 57.30         \\
-Sample      & 28.39          & 16.10         & 57.90         \\
+MSG   & 24.13 (2.54)         & 13.14(2.96)         & 46.53(8.49)         \\
+MSGCor & \textbf{24.04(2.56)} & \textbf{13.12(2.94)}& \textbf{46.00(8.67)}         \\
+Adap        & 28.93(2.03)          & 17.54(3.85)         & 49.66(8.47)         \\
+Linear      & 24.49(2.53)         & 13.65(3.14)         & 49.46(9.04)         \\
+QIS         & 28.76(2.79)          & 16.09(3.35)         & 58.73(9.74)         \\
+NERCOME     & 24.52(2.52)          & 13.19(3.07)         & 48.27(9.67)         \\
+Sample      & 28.43(2.54)          & 16.21(3.15)         & 56.08(9.89)         \\
 \hline
 
 \end{tabular}
@@ -428,7 +429,7 @@ The class of separable covariance matrix estimators \eqref{separable} that we pr
 
 Though our estimator performs well in simulations and in real data, providing theoretical guarantees is difficult. In the standard mean vector estimation problem with $Y_i \sim N(\theta_i, 1)$, \citet{jiang2009general} showed that an empirical Bayes estimator based on a nonparametric maximum likelihood estimate of the prior on the $\theta_i$ can indeed asymptotically achieve the same risk as the oracle optimal separable estimator. However, this was in a simple model with a univariate prior distribution. \citet{saha2020nonparametric} extended these results to multivariate $\bs{Y}_i \sim N(\bs{\theta}_i, \bs{\Sigma}_i)$ with a multivariate prior on the $\bs{\theta}_i$, but assumed that the $\bs{Y}_i$ were independent. In contrast, our covariance matrix estimator is built from arbitrarily dependent $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$. These imposes significant theoretical difficulties that will require substantial work to address; we leave this for future research.
 
-Finally, we have so far assumed that our data are multivariate normal. To extend our procedure to non-normal data belonging to a parametric family, we can simply modify the density function $f(\cdot \mid \bs{\eta})$ in the nonparametric maximum compositive likelihood problem \eqref{Gp hat} and in our proposed estimator \eqref{proposed}. If $f$ is unknown or difficult to specify, alternative procedures may be necessary to approximate the optimal separable rule.
+Finally, we have so far assumed that our data are multivariate normal. To extend our procedure to non-normal data belonging to a parametric family, we can simply modify the density function $f(\cdot \mid \bs{\eta})$ in the nonparametric maximum compositive likelihood problem \eqref{Gnd hat} and in our proposed estimator \eqref{proposed}. If $f$ is unknown or difficult to specify, alternative procedures may be necessary to approximate the optimal separable rule.
 
 \backmatter
 
@@ -450,17 +451,17 @@ Web Appendices, Tables, and Figures referenced in Section 3 are available with t
 The estimator in \citet{ledoit2004well} is
 \begin{equation} 
 \label{eq:lw}
-\bs{\Sigma}_{LW} = \frac{d_n^2-b_n^2}{d_n^2}\bs{S}+ \frac{b_n^2}{d_n^2}\hat{\mu}\bs{I}
+\bs{\Sigma}_{LW} = (\frac{d_n^2-b_n^2}{d_n^2})_+\bs{S}+ \min\{1,\frac{b_n^2}{d_n^2}\}\hat{\mu}\bs{I}
 \end{equation}
-where $d_n^2=\frac{1}{p}\sum_{j,k=1}^p s_{jk}^2-\frac{1}{p^2}(\sum_{j=1}^p s_{jj})^2$, $b_n^2=\frac{1}{n^2}\sum_{j,k=1}^p\sum_{i=1}^n (X_{ij}X_{ik}-s_{jk})^2$, $\hat{\mu}=\frac{1}{p}\sum_{j=1}^p s_{jj}$.
+where $d_n^2=\frac{1}{p}\sum_{j,k=1}^p s_{jk}^2-\frac{1}{p^2}(\sum_{j=1}^p s_{jj})^2$, $b_n^2=\frac{1}{pn^2}\sum_{j,k=1}^p\sum_{i=1}^n (X_{ij}X_{ik}-s_{jk})^2$, $\hat{\mu}=\frac{1}{p}\sum_{j=1}^p s_{jj}$.
 
-  We first rewrite the risk estimate $\widehat{R}(\beta_S, \beta_I)$. Define $\bs{M}=(\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2, 0)^\top$, $\bs{\beta} = (\beta_S, \beta_I)^\top$, and the vectorized covariance matrices $\bs{v_S}=(s_{11},\ldots, s_{pp})^\top $, $\bs{v_I}=(u_{11},\ldots, u_{pp})^\top $, and $\bs{v_{\Sigma}} = (\sigma_{11},\ldots,\sigma_{pp})^\top$. Then the unbiased risk estimator can be re-written as
+  We first rewrite the risk estimate $\widehat{RE}(\beta_S, \beta_I)$. Define $\bs{M}=(\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2, 0)^\top$, $\bs{\beta} = (\beta_S, \beta_I)^\top$, and the vectorized covariance matrices $\bs{v_S}=(s_{11},\ldots, s_{pp})^\top $, $\bs{v_I}=(u_{11},\ldots, u_{pp})^\top $, and $\bs{v_{\Sigma}} = (\sigma_{11},\ldots,\sigma_{pp})^\top$. Then the unbiased risk estimator can be re-written as
   \[
- p^2 \widehat{R}(\beta_S,\beta_I) = \bs{\beta}^\top (\bs{Z}^\top \bs{Z})\bs{\beta} - 2(\bs{Z}^\top\bs{v_S}-\bs{M})^\top \bs{\beta} - \bs{1}^\top \bs{M}+\bs{v}_S^\top\bs{v}_S,
+ p^2 \widehat{RE}(\beta_S,\beta_I) = \bs{\beta}^\top (\bs{Z}^\top \bs{Z})\bs{\beta} - 2(\bs{Z}^\top\bs{v_S}-\bs{M})^\top \bs{\beta} - \bs{1}^\top \bs{M}+\bs{v}_S^\top\bs{v}_S,
   \]
   where $\bs{Z} =(\bs{v_S}, \bs{v_I})$. Therefore
   \begin{align*}
-    \widehat{\bs{\beta}} &= \arg\min_{ \bs{\beta} }\widehat{R}(\beta_S,\beta_I) = (\bs{Z}^\top \bs{Z})^{-1}(\bs{Z}^\top\bs{v_S}-\bs{M}),\\
+    \widehat{\bs{\beta}} &= \arg\min_{ \bs{\beta} }\widehat{RE}(\beta_S,\beta_I) = (\bs{Z}^\top \bs{Z})^{-1}(\bs{Z}^\top\bs{v_S}-\bs{M}),\\
     &
     \widehat{\bs{v}}_{\bs{\Sigma}} = \bs{Z\widehat{\beta}} = \bs{v_S} - \bs{Z}(\bs{Z}^\top \bs{Z})^{-1}\bs{M}.
   \end{align*}
@@ -513,7 +514,7 @@ The second component of $\widehat{\bs{\beta}}$ equals $\widehat{\beta}_I$, so
 \begin{align*}
 \widehat{\beta}_I &= \frac{1}{p^2d_n^2} (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2)\\
 &=\{(\sum_{j=1}^ps_{jj})/p\}   \{(\sum_{j,k=1}^p\widehat{\Delta}_{jk}^2)/p \} / d_n^2
-=\widehat{\mu}\frac{b_n^2}{d_n^2}\frac{n}{n-1}.
+=\widehat{\mu}\frac{b_n^2}{d_n^2}.
 \end{align*}
 which is very closed to the coefficient of $\bs{I}$ in \eqref{eq:lw}
 Furthermore,
@@ -533,8 +534,9 @@ R(\beta_{S},\beta_{I}) &=\frac{1}{p^2}\sum_{j,k=1}^p \bb{E} \{ (\beta_{S}s_{jk}+
 & =\frac{1}{p^2}\sum_{j,k=1}^p \bb{E} [s_{jk}-\sigma_{jk} - \{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}]^2\\
 & =\frac{1}{p^2}\sum_{j,k=1}^p \bb{E}[(s_{jk}-\sigma_{jk})^2+ \bb{E}\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2-2(1-\beta_{S})\bb{E}s_{jk}(s_{jk}-\sigma_{jk})]\\
 & =\frac{1}{p^2}\sum_{j,k=1}^p [(2\beta_{S}-1)\text{Var}(s_{jk})+\bb{E}\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2] \\
-& =\frac{1}{p^2}\sum_{j,k=1}^p\bb{E}[(2\beta_S-1)\widehat{\Delta}_{jk}^2+\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2]
+& =\frac{1}{p^2}\sum_{j,k=1}^p\bb{E}[(2\beta_S-1)\frac{n}{n-1}\widehat{\Delta}_{jk}^2+\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2]
 \end{align*}
+The last equality is based on the fact that $\text{Var}(s_{jk}) = \frac{1}{n(n-1)}\sum_{i=1}^{n}(X_{ij}X_{ik}-s_{jk})^2$.
 \end{proof}
 \label{lastpage}
 \end{document}
