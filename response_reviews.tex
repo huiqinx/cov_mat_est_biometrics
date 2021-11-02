@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 %\usepackage{amsthm}
 \usepackage{amsfonts}
@@ -13,11 +14,15 @@
 \def\bs{\boldsymbol}
 \def\bb{\mathbb}
 
-\title{}
+\title{Response to reviews of BIOM2021236M}
+\author{}
+\date{}
 
 \begin{document}
+\maketitle
 
-\section{Comments to the editor}
+\section{Response to the Associate Editor}
+
 \begin{enumerate}
 \item \emph{As a journal, Biometrics presents papers that focus on the development of new methods and results of use in biosciences. As of now, the application seems more an afterthought, the use of a convenient (easily available) dataset to fit the scope of the journal. I believe that the authors should motivate their approach from the gene expression data or other bio-related applications starting from the Introduction.}
 \item \emph{It is not really intuitively clear why the vectorization works, despite the approach not taking into consideration the structure of the covariance matrix. Also, the manuscript proposes a series of ad-hoc expedients to implement the method. See the clustering-based exemplar algorithm and replacing non-positive eigenvalues with a chosen positive value $c$ in the positive-definite correction. These expedients do not seem to be completely justified by the proposed separable compound-decision theory framework, and their effects on the estimation are unclear. A referee also commented on the impossibility to follow closely the implementation of the EM algorithm. In short, while I appreciate that the theoretical justification for the asymptotic efficiency of the proposed vectorization is not clear, the current implementation reads more like a clever algorithm than a well-founded statistical method. The authors should justify all the steps of the algorithm and provide an assessment of their contribution to its overall performance.}
@@ -75,14 +80,15 @@ We have changed the notation $\hat{R}$ to $\text{RE}$ which means risk estimator
 
 \section{Comments to Referee1}
 Thank you so much for the detailed and inspiring suggestions on our paper. We learnt a lot through them. We agree with your comments and address them in the updated draft version. Please find the following responses for more details.
-\subsection{comments to section "CorShrink"}
+
+\subsection{Comments to section "CorShrink"}
 After carefully reviewed \cite{dey2018}, we think it is very related to our paper and it is valuable to make the comparison.
 
 As mentioned in Section 1, our method is quite similar to \cite{dey2018}. Both of us used empirical Bayes estimator and nonparametric estimation of prior distribution. The difference is that our method aim to estimate covariance matrix which requires to also shrink standard deviations.
 
 We also compared our two methods by numerical experiments which are shown in supporting information. We designed two simulations to compare the performance on correlation matrix estimation and covariance matrix estimation. In the first simulation, we compare covariance matrix estimation. For corShrink, $\widehat{\bs{\Sigma}} = \text{diag}(\widehat{SD}) \widehat{\bs{R}} \text{diag}(\widehat{SD})$, where $\widehat{SD}$ are sample standard deviations. In the second simulation, $\bs{\widehat{R}} = \text{diag}(1/\widehat{SD})\widehat{\bs{\Sigma}}\text{diag}(1/\widehat{SD})$, where $\widehat{SD}$ are standard deviations derived from $\widehat{\bs{\Sigma}}$. For each setting, we take $n$ as 20 and 100. 
 
-\subsection{comments to section "Separable rules, symmetry and the diagonal"}
+\subsection{Comments to section "Separable rules, symmetry and the diagonal"}
 \begin{equation}\label{R1}
 \widehat{\Sigma} = (\widehat{\sigma}_{jk})_{1\leq j,k\leq p},\quad \widehat{\sigma}_{jk} = t(X_{\cdot,j}, X_{\cdot,k}), \quad t:\bb{R}^n\times \bb{R}^n\to \bb{R}
 \end{equation}
@@ -145,7 +151,7 @@ $X_{\cdot j}^TX_{\cdot k}$ is sufficient statistics of the single entry $\sigma_
 This is a good point. To measure the performance of our method on nonGaussian distribution, we did some simulations on negative binomial distribution. We first generate independent distributed $Y$ and then let $X = L Y$, where L is the Cholesky decomposition of $\Sigma$. The simulation results are presented in supporting information.
 \end{enumerate}
 
-\subsection{comments to section "Compound decision theory or empirical Bayes?"}
+\subsection{Comments to section "Compound decision theory or empirical Bayes?"}
 \begin{enumerate}
 \item \emph{The result following equation (6) could be presented separately as a Theorem (or Proposition). It should be highlighted that part of the statement is that the estimator in (R1) that optimizes (R2) depends on all the $\sigma_{j}$ and $\rho_{jk}$.}
  
@@ -205,3 +211,7 @@ Ledoit, O., \& Wolf, M. (2004). A well-conditioned estimator for large-dimension
 
 \end{thebibliography}
 \end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

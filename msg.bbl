@@ -1,13 +1,19 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Abramovich, Spencer, and Gorokhov}{Abramovich
-  et~al.}{2001}]{abramovich2001locally}
-Abramovich, Y., Spencer, N., and Gorokhov, A. (2001).
-\newblock Locally optimal covariance matrix estimation techniques for array
-  signal processing applications.
-\newblock In {\em Conference Record of Thirty-Fifth Asilomar Conference on
-  Signals, Systems and Computers (Cat. No. 01CH37256)}, volume~2, pages
-  1127--1133. IEEE.
+\bibitem[\protect\citeauthoryear{Aibar, Gonz{\'a}lez-Blas, Moerman, Imrichova,
+  Hulselmans, Rambow, Marine, Geurts, Aerts, van~den Oord, Atak, Wouters, and
+  Aerts}{Aibar et~al.}{2017}]{aibar2017scenic}
+Aibar, S., Gonz{\'a}lez-Blas, C.~B., Moerman, T., Imrichova, H., Hulselmans,
+  G., Rambow, F., Marine, J.-C., Geurts, P., Aerts, J., van~den Oord, J., Atak,
+  Z.~K., Wouters, J., and Aerts, S. (2017).
+\newblock {SCENIC: single-cell regulatory network inference and clustering}.
+\newblock {\em Nature Methods} {\bf 14,} 1083--1086.
+
+\bibitem[\protect\citeauthoryear{Baranchik}{Baranchik}{1964}]{baranchik1964multiple}
+Baranchik, A.~J. (1964).
+\newblock Multiple regression and estimation of the mean of a multivariate
+  normal distribution.
+\newblock Technical Report~51, Stanford University.
 
 \bibitem[\protect\citeauthoryear{Biscarri}{Biscarri}{2019}]{biscarri2019thesis}
 Biscarri, W.~D. (2019).
@@ -21,12 +27,24 @@ Brown, L.~D. and Greenshtein, E. (2009).
   estimation of a high-dimensional vector of normal means.
 \newblock {\em The Annals of Statistics} {\bf 37,} 1685--1704.
 
+\bibitem[\protect\citeauthoryear{Bun, Allez, Bouchaud, and Potters}{Bun
+  et~al.}{2016}]{bun2016rotational}
+Bun, J., Allez, R., Bouchaud, J.-P., and Potters, M. (2016).
+\newblock Rotational invariant estimator for general noisy matrices.
+\newblock {\em IEEE Transactions on Information Theory} {\bf 62,} 7475--7490.
+
 \bibitem[\protect\citeauthoryear{Cai and Liu}{Cai and
   Liu}{2011}]{cai2011adaptive}
 Cai, T. and Liu, W. (2011).
 \newblock Adaptive thresholding for sparse covariance matrix estimation.
 \newblock {\em Journal of the American Statistical Association} {\bf 106,}
   672--684.
+
+\bibitem[\protect\citeauthoryear{Dai, Li, Zeng, and Chen}{Dai
+  et~al.}{2019}]{dai2019cell}
+Dai, H., Li, L., Zeng, T., and Chen, L. (2019).
+\newblock Cell-specific network constructed by single-cell rna sequencing data.
+\newblock {\em Nucleic Acids Research} {\bf 47,} e62--e62.
 
 \bibitem[\protect\citeauthoryear{Dey and Stephens}{Dey and
   Stephens}{2018}]{dey2018corshrink}
@@ -51,6 +69,14 @@ Efron, B. (2014).
 Efron, B. (2019).
 \newblock {Bayes, Oracle Bayes and Empirical Bayes}.
 \newblock {\em {Statistical Science}} {\bf 34,} 177--201.
+
+\bibitem[\protect\citeauthoryear{Efron and Morris}{Efron and
+  Morris}{1973}]{efron1973stein}
+Efron, B. and Morris, C. (1973).
+\newblock {Stein's estimation rule and its competitors—an empirical Bayes
+  approach}.
+\newblock {\em Journal of the American Statistical Association} {\bf 68,}
+  117--130.
 
 \bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
   et~al.}{2008}]{fan2008high}
@@ -148,12 +174,18 @@ Lam, C. et~al. (2016).
   estimator.
 \newblock {\em The Annals of Statistics} {\bf 44,} 928--953.
 
+\bibitem[\protect\citeauthoryear{Langfelder and Horvath}{Langfelder and
+  Horvath}{2008}]{langfelder2008wgcna}
+Langfelder, P. and Horvath, S. (2008).
+\newblock {WGCNA: an R package for weighted correlation network analysis}.
+\newblock {\em BMC Bioinformatics} {\bf 9,} 1--13.
+
 \bibitem[\protect\citeauthoryear{Ledoit and Wolf}{Ledoit and
-  Wolf}{2003}]{ledoit2003improved}
-Ledoit, O. and Wolf, M. (2003).
-\newblock Improved estimation of the covariance matrix of stock returns with an
-  application to portfolio selection.
-\newblock {\em Journal of empirical finance} {\bf 10,} 603--621.
+  Wolf}{2004}]{ledoit2004well}
+Ledoit, O. and Wolf, M. (2004).
+\newblock A well-conditioned estimator for large-dimensional covariance
+  matrices.
+\newblock {\em Journal of Multivariate Analysis} {\bf 88,} 365--411.
 
 \bibitem[\protect\citeauthoryear{Ledoit and Wolf}{Ledoit and
   Wolf}{2018}]{ledoit2018analytical}
@@ -167,13 +199,6 @@ Ledoit, O. and Wolf, M. (2018).
 Ledoit, O. and Wolf, M. (2019).
 \newblock Quadratic shrinkage for large covariance matrices.
 \newblock Technical Report 335, Department of Economics, University of Zurich.
-
-\bibitem[\protect\citeauthoryear{Ledoit, Wolf, et~al\mbox{.}}{Ledoit
-  et~al.}{2004}]{ledoit2004well}
-Ledoit, O., Wolf, M., et~al. (2004).
-\newblock A well-conditioned estimator for large-dimensional covariance
-  matrices.
-\newblock {\em Journal of Multivariate Analysis} {\bf 88,} 365--411.
 
 \bibitem[\protect\citeauthoryear{Ledoit, Wolf, et~al\mbox{.}}{Ledoit
   et~al.}{2012}]{ledoit2012nonlinear}
@@ -264,6 +289,13 @@ Sch{\"a}fer, J. and Strimmer, K. (2005).
 \newblock {\em Statistical applications in genetics and molecular biology} {\bf
   4,}.
 
+\bibitem[\protect\citeauthoryear{Stegle, Teichmann, and Marioni}{Stegle
+  et~al.}{2015}]{stegle2015computational}
+Stegle, O., Teichmann, S.~A., and Marioni, J.~C. (2015).
+\newblock Computational and analytical challenges in single-cell
+  transcriptomics.
+\newblock {\em Nature Reviews Genetics} {\bf 16,} 133--145.
+
 \bibitem[\protect\citeauthoryear{Stein}{Stein}{1975}]{stein1975estimation}
 Stein, C. (1975).
 \newblock Estimation of a covariance matrix.
@@ -273,6 +305,12 @@ Stein, C. (1975).
 Stein, C. (1986).
 \newblock Lectures on the theory of estimation of many parameters.
 \newblock {\em Journal of Soviet Mathematics} {\bf 34,} 1373--1403.
+
+\bibitem[\protect\citeauthoryear{Stigler}{Stigler}{1990}]{stigler19901988}
+Stigler, S.~M. (1990).
+\newblock {The 1988 Neyman memorial lecture: a Galtonian perspective on
+  shrinkage estimators}.
+\newblock {\em Statistical Science} pages 147--155.
 
 \bibitem[\protect\citeauthoryear{Varin, Reid, and Firth}{Varin
   et~al.}{2011}]{varin2011overview}
@@ -287,6 +325,13 @@ Xue, L., Ma, S., and Zou, H. (2012).
   matrices.
 \newblock {\em Journal of the American Statistical Association} {\bf 107,}
   1480--1491.
+
+\bibitem[\protect\citeauthoryear{Zhang and Horvath}{Zhang and
+  Horvath}{2005}]{zhang2005general}
+Zhang, B. and Horvath, S. (2005).
+\newblock A general framework for weighted gene co-expression network analysis.
+\newblock {\em Statistical Applications in Genetics and Molecular Biology} {\bf
+  4,}.
 
 \bibitem[\protect\citeauthoryear{Zhang}{Zhang}{2003}]{zhang2003compound}
 Zhang, C.-H. (2003).
