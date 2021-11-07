@@ -78,7 +78,7 @@ Nonlinear shrinkage estimators have desirable optimality properties \citep{ledoi
 
 % In this paper, we propose a new covariance matrix estimator which is approximately optimal among all separable estimators. Our method is motivated by the similarity between covariance estimation and vector mean estimation. Covariance matrix estimation under Frobenius loss can be viewed as a vector estimation problem by converting the matrix to a vector. \citep{cai_liu} used this motivation to generalize thresholding method in mean vector estimation to large sparse covariance matrix estimation. Nevertheless, they are not totally the same because covariance matrix has repeated entries due to its symmetry. In mean vector estimation problem, optimality has been achieved among all separable decision rules. \citep{jiang_zhang2009} and \citep{brown_greenshtein} proposed empirical Bayes methods to approximate the optimal separable estimator. We proposed to apply vector estimation methods to covariance estimation problem and expect that these methods will also have good properties here. Result in simulation and real data set shows that our estimator has good performance in different scenarios.
 
-Here we propose a new class of unstructured non-rotationally invariant estimators for high-dimensional covariance matrices. Our approach is based on interpreting the covariance matrix estimation problem as a compound decision problem \citep{robbins1951asymptotically}; see Section \ref{sec:compound}. This framing motivates us to vectorize the covariance matrix and solve the resulting vector estimation problem using a nonparametric empirical Bayes procedure, which has been shown in the compound decision literature to have excellent properties \citep{jiang2009general, koenker2014convex, efron2019bayes}. We then reassemble the estimated vector into matrix form and project onto the space of positive-definite matrices to give our final estimator. Surprisingly, though our vectorized approach essentially ignores the matrix structure, it can still substantially outperform a number of state-of-the-art proposals in simulations and a real data analysis. Our compound decision approach is conceptually similar the empirical Bayes approach taken by \citet{dey2018corshrink} to estimate a high-dimensional correlation matrix. We discuss in detail the connections with their work in Section \ref{sec:proposed}. \blue{Need to add to numerical results}
+Here we propose a new class of unstructured non-rotationally invariant estimators for high-dimensional covariance matrices. Our approach is based on interpreting the covariance matrix estimation problem as a compound decision problem \citep{robbins1951asymptotically}; see Section \ref{sec:compound}. This framing motivates us to vectorize the covariance matrix and solve the resulting vector estimation problem using a nonparametric empirical Bayes procedure, which has been shown in the compound decision literature to have excellent properties \citep{jiang2009general, koenker2014convex, efron2019bayes}. We then reassemble the estimated vector into matrix form and project onto the space of positive-definite matrices to give our final estimator. Surprisingly, though our vectorized approach essentially ignores the matrix structure, it can still substantially outperform a number of state-of-the-art proposals in simulations and a real data analysis. Our compound decision approach is conceptually similar to the empirical Bayes approach taken by \citet{dey2018corshrink} to estimate a high-dimensional correlation matrix. We discuss in detail the connections with their work in Section \ref{sec:proposed}. \blue{Need to add to numerical results}
 
 The article is organized as follows. In Section \eqref{sec:method}, we briefly review compound decision theory and then introduce our proposed approach. In Section \eqref{numerical results} we illustrate the performance of our method in simulations and a gene expression dataset. Finally, Section \eqref{sec:discussion} concludes with a discussion. Our procedure is implemented in the R package \verb|cole|, available on GitHub. \blue{Is this implemented in the package yet?}
 
@@ -163,7 +163,7 @@ We propose to consider an even larger class of estimators, the class of so-calle
   \mathcal{S} = \{\bs{\delta} : \delta_{kj} = \delta_{jk} = t(\bs{X}_{\cdot j}, \bs{X}_{\cdot k}),\, 1\leq k<j\leq p,\quad 
    \delta_{jj} = \widetilde{t}(\bs{X}_{\cdot j}),\,j=1,\ldots,p)\},
 \end{equation}
-where $\bs{X}_{\cdot j} = (X_{1j}, \ldots, X_{nj})^\top$ is the vector of observed values of the $j$th feature. In other words, rules in $\mathcal{S}$ estimate diagonal entries of $\bs{\Sigma}$ using a function $\tilde{t}$ observations of the corresponding feature and off-diagonal entries using a function $t$ of observations from the two corresponding features, where $t$ and $\tilde{t}$ do not depend on the indices $j$ and $k$. Furthermore, we enforce rule in $\mathcal{S}$ to give symmetric estimates of the off-diagonal entries.
+where $\bs{X}_{\cdot j} = (X_{1j}, \ldots, X_{nj})^\top$ is the vector of observed values of the $j$th feature. In other words, rules in $\mathcal{S}$ estimate diagonal entries of $\bs{\Sigma}$ using a function $\tilde{t}$ of observations of the corresponding feature and off-diagonal entries using a function $t$ of observations from the two corresponding features, where $t$ and $\tilde{t}$ do not depend on the indices $j$ and $k$. Furthermore, we enforce rule in $\mathcal{S}$ to give symmetric estimates of the off-diagonal entries.
 
 % The sufficient statistics of $(\bs{X}_{\cdot j}, \bs{X}_{\cdot k})$ is $2\times 2$ matrix of $S$ denoted by $\bs{S}_{jk}=
 % \begin{bmatrix}
@@ -240,13 +240,13 @@ For any $\bs{\delta} \in \mathcal{S}$ \eqref{separable}, the Frobenius risk can 
 \end{align*}
 where $g(a, b, \gamma) = a b \gamma$ and the final expectation is the Bayes risk of estimating $\sigma_{jk}$. 
 \end{prop}
-The decision rule which minimizes the Frobenius risk depends on all the $\sigma_j$ and $r_{jk}$. The optimal oracle separable rule $\bs{\delta}^\star$ therefore has $jk$th entry equal to $\delta^\star_{jk}(\bs{X}) = t^\star((\bs{X}_{\cdot j},\bs{X}_{\cdot k}))$ for $j> k$ and $\delta^\star_{jj}(\bs{X}) = \widetilde{t}^\star(\bs{X}_{\cdot j})$, where $t^\star = \mathbb{E}\{g(\bs{\eta}) \mid (\bs{X},\bs{X}^{'})\}$ and $\widetilde{t}^\star = \mathbb{E}\{a^2 \mid \bs{X}\}$ minimizes the Bayes risk.
+The decision rule which minimizes the Frobenius risk depends on all the $\sigma_j$ and $r_{jk}$. The optimal oracle separable rule $\bs{\delta}^\star$ therefore has $jk$th entry equal to $\delta^\star_{jk}(\bs{X}) = t^\star((\bs{X}_{\cdot j},\bs{X}_{\cdot k}))$ for $j> k$ and $\delta^\star_{jj}(\bs{X}) = \widetilde{t}^\star(\bs{X}_{\cdot j})$, where $t^\star = \mathbb{E}\{g(\bs{\eta}) \mid (\bs{X},\bs{X}^{'})\}$ and $\widetilde{t}^\star = \mathbb{E}\{a^2 \mid \bs{X}\}$ minimize the Bayes risk.
 
 Based on this result, we propose the following empirical Bayes procedure. We first use nonparametric maximum likelihood \citep{kiefer1956consistency} to estimate the priors $G_{nd}$ and $G_d$. Under the Bayesian model \eqref{bayesian nondiagonal} and \eqref{bayesian diagonal}, and the working assumption that the $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$ are independent across $jk$, we estimate $G_{nd}$ using
 \begin{equation}
   \label{Gnd hat}
   \hat{G}_{nd} = \argmax_{G_{nd} \in \mathcal{G}_{nd}} \{\prod_{1\leq k\leq j<p} \int f(\bs{X}_{\cdot j},\bs{X}_{\cdot k} \mid \bs{\eta}) dG_{nd}(\bs{\eta})\} 
-  \{\prod_{j = 1}^p \int \widetilde{f}(\bs{X} \mid a) dG_d(a)\},
+  \{\prod_{j = 1}^p \int \widetilde{f}(\bs{X}_{\cdot j} \mid a) dG_d(a)\},
 \end{equation}
 where $\mathcal{G}_{nd}$ is the family of all distributions supported on $\mathbb{R}_+ \times \mathbb{R}_+ \times [-1, 1]$,   $G_d$ is determined by $G_{nd}$ as indicated in \eqref{eq:marginal}. Of course, the $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$ are not independent, so $\hat{G}_{nd}$ does not maximize a likelihood but rather a pairwise composite likelihood \citep{varin2011overview}. Using $\hat{G}_{nd}$ and $\hat{G}_d$, we estimate the vectorized $\bs{\Sigma}$ using 
 $$ \hat{\bs{\delta}}(\bs{X})=
@@ -264,14 +264,16 @@ Our proposed procedure is an example of what \citet{efron2014two} calls $g$-mode
 
 \subsection{\label{implementation}Implementation}
 
-Calculating the estimated prior $\hat{G}_{nd}$ \eqref{Gnd hat} is difficult, as it is an infinite-dimensional optimization problem over the class of all probability distributions $\mathcal{G}$. \citet{lindsay1983geometry} showed that the solution is atomic and is supported on at most $p^2$ points. The EM algorithm has traditionally been used to estimate the locations of the support points and the masses at those points \citep{laird1978nonparametric}, but this is a difficult nonconvex optimization problem.
+Calculating the estimated prior $\hat{G}_{nd}$ \eqref{Gnd hat} is difficult, as it is an infinite-dimensional optimization problem over the class of all probability distributions $\mathcal{G}_{nd}$ supported on $\mathbb{R}_+ \times \mathbb{R}_+ \times [-1, 1]$. \citet{lindsay1983geometry} showed that the solution is atomic and is supported on at most $p(p+1)/2$ points. The EM algorithm has traditionally been used to estimate the locations of the support points and the masses at those points \citep{laird1978nonparametric}, but this is a difficult nonconvex optimization problem.
 
-Instead, we maximize the pairwise composite likelihood over a fixed grid of support points, similar to recent $g$-modeling procedures for standard compound decision problems; this restores convexity \citep{jiang2009general, koenker2014convex, feng2018approximate}. Specifically, we assume that the prior for the $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$ is supported on $D$ fixed support points $\bs{\xi}_{\tau}$, $\tau=1,\ldots, D$. We can then use the EM algorithm to estimate the masses $\hat{\bs{w}}=\{\hat{w}_{1},\ldots, \hat{w}_{D}\}$ at those points via the iteration
-\begin{equation}
+Instead, we maximize the pairwise composite likelihood over a fixed grid of support points, similar to recent $g$-modeling procedures for standard compound decision problems; this restores convexity \citep{jiang2009general, koenker2014convex, feng2018approximate}. Specifically, we assume that the prior for the $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$ is supported on $D$ fixed support points $\bs{\xi}_{\tau}$, $\tau=1,\ldots, D$. The support grid points are constructed symmetrically, satisfying $\bs{\xi}_{\tau+D/2}=(b_{\tau},a_{\tau},\gamma_{\tau})$ for $\tau=1,\ldots,D/2$. Since the empirical distribution of diagonal entries $G_{d}$ is symmetric about the first two parameters, so we would to like enforce the weights $w_{\tau}$ also have symmetric property. We can then use the EM algorithm to estimate the masses $\hat{\bs{w}}=\{\hat{w}_{1},\ldots, \hat{w}_{D}\}$ at those points via the iteration
+\begin{align*}
 \label{eq:iteration}
-\hat{w}_{\tau}^{(k)} = \frac{1}{p^2}\sum_{j, k = 1}^p \frac{\hat{w}_{\tau}^{(k-1)} f(\bs{X}_j,\bs{X}_k \mid \bs{\xi}_{\tau})}{\sum_{l=1}^D\hat{w}_l^{(k-1)} f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_l)}
-\end{equation}
-over $k$. Early stopping of the EM algorithm can be useful \citep{koenker2019comment}, and more sophisticated convex optimization procedures can be used as well \citep{koenker2014convex}. Our proposed estimator \eqref{proposed} then becomes
+%\hat{w}_{\tau}^{(k)} = \frac{2}{p(p-1)}\sum_{1\leq k< j \leq p} \frac{\hat{w}_{\tau}^{(k-1)} f(\bs{X}_j,\bs{X}_k \mid \bs{\xi}_{\tau})}{\sum_{l=1}^D\hat{w}_l^{(k-1)} f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_l)}
+\hat{w}_{\tau}^{(k)} = \hat{w}_{\tau+D/2}^{(k)}  &= \frac{2}{p(p-1)} [\sum_{1\leq k< j \leq p} \frac{\hat{w}_{\tau}^{(k-1)} \{f(\bs{X}_j,\bs{X}_k \mid \bs{\xi}_{\tau})+f(\bs{X}_j,\bs{X}_k \mid \bs{\xi}_{\tau+D/2})\}}{\sum_{l=1}^{D/2}\hat{w}_l^{(k-1)} \{f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_l)+f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_{l+D/2})\}} \\
+&+\sum_{j=1}^p \frac{\hat{w}_{\tau}^{(k-1)} \{\widetilde{f}(\bs{X}_j \mid a_{\tau})+\widetilde{f}(\bs{X}_j \mid a_{\tau+D/2})\}}{\sum_{l=1}^{D/2}\hat{w}_{l}^{(k-1)} \{\widetilde{f}(\bs{X}_j \mid a_{l})+\widetilde{f}(\bs{X}_j \mid a_{l+D/2})\} }]
+\end{align*}
+over $k$ and the iteration guarantees symmetry. Early stopping of the EM algorithm can be useful \citep{koenker2019comment}, and more sophisticated convex optimization procedures can be used as well \citep{koenker2014convex}. Our proposed estimator \eqref{proposed} then becomes
 \[
 \hat{t}(\bs{X}_j,\bs{X}_k) = \frac{ \sum_{\tau=1}^D g(\bs{\xi}_\tau) f(\bs{X}_j,\bs{X}_k \mid \bs{\xi}_\tau) \hat{w}_{\tau}}{ \sum_{\tau=1}^D f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_\tau) \hat{w}_{\tau}},
 \quad
@@ -285,7 +287,7 @@ Here we propose a clustering-based exemplar algorithm to further improve computa
 In our implementation, we use the density function of $\bs{S}_{jk}=\begin{bmatrix}
 s_{jj} & s_{jk} \\
 s_{kj} & s_{kk} 
-\end{bmatrix}$ instead of $(\bs{X}_j,\bs{X}_k)$ since it is the sufficient statistics of $(\bs{X}_j,\bs{X}_k)$ with respect to $\bs{C}_{jk}$. Based on the property of sufficient statistics, 
+\end{bmatrix}$ instead of $(\bs{X}_j,\bs{X}_k)$ since it is the sufficient statistic of $(\bs{X}_j,\bs{X}_k)$ with respect to $\bs{C}_{jk}$. Based on the property of sufficient statistics, 
 \begin{equation}
 \frac{f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_{\tau})}{f(\bs{X}_j,\bs{X}_k\mid \bs{\xi}_l)} = \frac{f(\bs{S}_{jk}\mid \bs{\xi}_{\tau})}{f(\bs{S}_{jk}\mid \bs{\xi}_l)}
 \end{equation}
@@ -316,28 +318,28 @@ To guarantee positive-definiteness, we follow \citet{huang2017calibration} and r
 In this section we refer to our approach using the abbreviation MSG: Matrix Shrinkage via $G$-modeling; we use MSGCor to refer to the version corrected for postive-definiteness. In our EM algorithm, the maximum number of iterations \eqref{eq:iteration} is 200 and it early stops when $\frac{L(\bs{w}^{(k+1)})-L(\bs{w}^{(k)})}{L(\bs{w}^{(k)})}\leq 10^{-4}$, where $L(\bs{w}^{(k)}) = \sum_{1\leq k\leq j\leq p}\log f(\bs{X}_{\cdot j},\bs{X}_{\cdot k}|\bs{w}^{(k)})$ is composite log likelihood of the observations. 
 \subsection{\label{models}Models}
 
-We considered five models for the population covariance matrix. For the first four settings, $\bs{\Sigma} = \text{diag}(\bs{s}) \bs{C} \text{diag}(\bs{s})$, where $\bs{C}$ is correlation matrix and $\bs{s}$ is a vector of standard deviations.
+We considered six models for the population covariance matrix to explore the behavior of our method in different settings. For the first four settings, $\bs{\Sigma} = \text{diag}(\bs{s}) \bs{C} \text{diag}(\bs{s})$, where $\bs{C}$ is correlation matrix and $\bs{s}$ is a vector of standard deviations.
 \begin{itemize}
-\item Model 1. The standard deviations were independently generated from $\mathcal{U}(1,1.5)$ and the correlation matrix followed Model 2 of \citet{cai2011adaptive}:
+\item Model 1 (Sparse). The standard deviations were independently generated from $\mathcal{U}(1,1.5)$ and the correlation matrix followed Model 2 of \citet{cai2011adaptive}:
   \[
   \bs{C}=
   \begin{pmatrix}&\bs{A}_1 & \bs{0} \\ &\bs{0} &\bs{I}_{p/2\times p/2}\end{pmatrix},
   \]
   where the $jk$th entry of $\bs{A}_1$ is $a_{jk} = \max(1- \vert j - k \vert / 10, 0)$. This setting modeled a sparse covariance matrix.
   
-\item Model 2. The first $p / 2$ standard deviations equaled 1, the last $p / 2$ equaled 2, and the correlation matrix was
+\item Model 2 (Block). The first $p / 2$ standard deviations equaled 1, the last $p / 2$ equaled 2, and the correlation matrix was
   \[
   \bs{C} = \begin{pmatrix} & \bs{C}_{11} & \bs{C}_{12} \\  & \bs{C}_{21} & \bs{C}_{22}\end{pmatrix},
   \]
   where $\bs{C}_{11}$ and $\bs{C}_{22}$ were $p/2 \times p/2$ compound symmetric matrices with correlation parameters 0.8 and 0.2, respectively, and $\bs{C}_{12}$ and $\bs{C}_{21}$ were $p/2 \times p/2$ matrices with entries equal to 0.4. This model was designed such that larger $\sigma_j$ and $\sigma_k$ tended to correspond to larger $r_{jk}$.
   
-\item Model 3. The standard deviations were generated independently from $\mathcal{U}(1, 1.5)$ and $\bs{C}$ was a compound symmetric matrix with correlation parameter 0.7. This modeled a dense covariance matrix.
+\item Model 3 (Dense). The standard deviations were generated independently from $\mathcal{U}(1, 1.5)$ and $\bs{C}$ was a compound symmetric matrix with correlation parameter 0.7. This modeled a dense covariance matrix.
   
-\item Model 4. This setting was the same as Model 3 except with correlation parameter 0.9. This high level of dependence tested the robustness of the pairwise composite likelihood estimator \eqref{Gnd hat}.
+\item Model 4 (Dense2). This setting was the same as Model 3 except with correlation parameter 0.9. This high level of dependence tested the robustness of the pairwise composite likelihood estimator \eqref{Gnd hat}.
   
-\item Model 5. With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $p / 2$ equaled 1 and the last $p / 2$ equaled 4. This followed simulation settings from \citet{lam2016nonparametric} and \citet{ledoit2019quadratic}.
+\item Model 5 (Orth). With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues independently generated from $\mathcal{U}(1, 4)$. This referred to simulation settings from \citet{lam2016nonparametric} and \citet{ledoit2019quadratic}.
 
-\item Model 6. With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $3$ entries were 4,3,2 and the remaining $p -3$ entries equaled 1. 
+\item Model 6 (Spiked). With $\bs{U}$ a randomly generated orthonormal matrix, $\bs{\Sigma} = \bs{U}^T\text{diag}(\bs{l})\bs{U}$, where $\bs{l}$ was a vector of eigenvalues where the first $3$ entries were 4,3,2 and the remaining $p -3$ entries equaled 1. 
 \end{itemize}
 
 In each scenario, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. Although $\bb{E}\bs{X}=0$ in our setting, we assume it is unknown and use $\bs{S}=\frac{1}{n-1}(\bs{X}-\bs{\bar{X}})^\top(\bs{X}-\bs{\bar{X}})$. We generated $200$ replicates and reported median errors under the following Frobenius norms, where $\hat{\bs{\Sigma}}$ is the estimated matrix with entries $\hat{\sigma}_{jk}$ and $\bs{\Sigma}$ is the true matrix with entries $\sigma_{jk}$:
@@ -354,7 +356,7 @@ We first studied the behavior of our $K$-means clustering-based exemplar algorit
 \begin{center}
 \centerline{\includegraphics[width=0.85\textwidth]{img/sim1_frobenius.pdf} }
 \end{center}
-\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 5, respectively.}
+\caption{Median Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 6, respectively.}
 \label{fig:sim1_frobenius}
 \end{figure}
 
@@ -407,14 +409,14 @@ In addition to the above estimators, we also implemented the two following oracl
 \begin{center}
 \centerline{  \includegraphics[width=0.85\textwidth]{img/sim2_frobenius.pdf}}
 \end{center}
-\caption{Average Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, and Orth panels correspond to Models 1 through 5, respectively. In MSG, $K$-means clustering is applied with $K=p$}
+\caption{Median Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 6, respectively. In MSG, $K$-means clustering is applied with $K=p$}
 \label{fig:sim2_frobenius}
 \end{figure}
 
 
-Figure \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. Our MSG methods had the lowest or near-lowest errors across all settings except for Model 4 which has high correlations 0.9. This is not surprising because our method assumed independence of $\bs{A}_{jk}$.  In some cases, for example in Models 1 and 2, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_{nd}$ \eqref{bayesian nondiagonal} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators very slightly outperformed MSG in Model 5. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
+Figure \ref{fig:sim2_frobenius} presents the Frobenius loss for different estimators. From Model 1 to Model 4 when the prior distributions of $G_{nd}$ are simple, our MSG methods had the lowest errors across all settings. For Model 4 which has high correlations 0.9, the priority is less obvious. This is not surprising because our method assumed independence of $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$. In some cases, the improvement was substantial. Model 2 was especially interesting because the standard deviation and correlations were related. Our proposed empirical Bayes estimator was able to capture this dependence in its estimate of the prior $G_{nd}$ \eqref{bayesian nondiagonal} and leverage it to provide much more accurate estimates. The nonlinear shrinkage estimators outperformed MSG in Model 5 and Model 6. From the plot, we can observe that CorShrink, of which the target is to estimate the correlation matrix, also had competitive performance in all settings. In every setting, correcting MSG for positive-definiteness never increased the risk and decreased the risk in some cases. We also did experiments for Spectral norm and Matrix $\ell_1$. The results for this two norms are very similar to Frobenius norm. One exception is Adap has the lowest error in terms of Matrix $\ell_1$ norm in Model 1 because of its sparsity. Though our estimator was motivated in terms of the Frobenius norm error, it performed extremely well in terms of the other two norms as well.
 
-Finally, the simulations show that the class of separable estimators \eqref{separable} proposed in this paper is fundamentally different from the class of rotation-invariant estimators, as the oracle optimal estimators in these two classes behave very differently. For example, the oracle separable estimator had vanishing risk in Model 2, while the oracle rotiation-invariant estimator does not. Separable estimators seemed better for Models 1 and 2 while rotation-invariant estimators were superior in Models 3 and 4. They seem comparable in Model 5.
+Finally, the simulations show that the class of separable estimators \eqref{separable} proposed in this paper is fundamentally different from the class of rotation-invariant estimators, as the oracle optimal estimators in these two classes behave very differently. For example, the oracle separable estimator had vanishing risk in Model 2, 3 and 4, while the oracle rotiation-invariant estimator does not. Separable estimators seemed better for Models 1 to 4 while rotation-invariant estimators were superior in Models 6. They seem comparable in Model 5.
 
 \subsection{Data analysis}
 \label{gene analysis}

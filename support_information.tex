@@ -33,10 +33,10 @@
 \pagebreak
 \appendix
 \section*{Simulation} 
-In this web appendix, we present more details about the simulations shown in the main manuscript. We also did more experiments to investigate our method in different scenarios. For each simulation setting, we use the six matrix models introduced in \ref{models}. In our main manuscript, the Frobenius error medians of different methods are presented in figures without exact numbers. In this section, all the error medians are displayed in tables with uncertainty, which is the difference of 75\% quantile and 25\% quantile of Frobenius errors in numbers of replicates.
+In this web appendix, we present more details about the simulations shown in the main manuscript. We also did more experiments to investigate our method in different scenarios. For each simulation setting, we use the six matrix models introduced in \ref{models}. In our main manuscript, the Frobenius error medians of different methods are presented in figures without exact numbers. In this section, all the error medians are displayed in tables with uncertainty, which is the difference of 75\% quantile and 25\% quantile of Frobenius errors among all replicates. The number of replicates is set to be 200 unless there is any extra clarification.
 
 \subsection{Clustering-based exemplar algorithm}
-In this part, we show the exact Frobenius errors and uncertainties in \ref{tab:cluster}. The result is as \ref{tab:cluster} shows.
+In this part, we show the exact Frobenius error medians and uncertainties for the simulation studying the behavior of our $K$-means clustering-based exemplar algorithm for different $K$. The result is shown in \ref{tab:cluster}.
 \begin{table}[H]
 \centering
 \caption{Simulations investigating Clustering-based exemplar algorithm, as described in Section \ref{optimalK}.}
@@ -78,17 +78,17 @@ Model          & Method      & p=30                 & p=100                   & 
 \end{tabular}%
 }
 \end{table}
-According to the result in \ref{tab:cluster}, applying clustering does not have substantial effect on the accuracy of our MSG method but could dramatically reduce the computation cost as observed in \ref{tab:sim1_time}. With larger number of clusters, our method generally has smaller error but longer running time. To balance the computation cost and accuracy, we take $K=p$ in the later simulations.
+According to the result in \ref{tab:cluster}, applying clustering does not have substantial negative effect on the accuracy of our MSG method but could dramatically reduce the computation cost as observed in \ref{tab:sim1_time}. With larger number of clusters, our method generally has smaller error but longer running time. To balance the computation cost and accuracy, we take $K=p$ in the later simulations.
 
 \subsection{Comparison with CorShrink}
-In this part, we compared the behavior of different estimators on correlation and covariance estimation. We did this to make comparison with CorShrink \cite{dey2018corshrink} which also adopts empirical Bayes method but aims to estimate correlation matrix. In each setting, we generated true covariance matrices $\bs{\Sigma}$ as in \ref{models}.
+In this part, we compared the behavior of different estimators on correlation and covariance estimation. We did this mainly to make comparison with CorShrink \cite{dey2018corshrink} which also adopts empirical Bayes method but aims to estimate correlation matrix. 
 
-We first compared the estimation of covariance matrix $\bs{\Sigma}$. For CorShrink, covariance matrix is estimated as $\text{diag}(\widehat{SD}) \widehat{\bs{R}} \text{diag}(\widehat{SD})$, where $\widehat{SD}$ are sample deviations for $\bs{X}_{\cdot j}, j=1,\ldots,p$. The result is presented in \ref{tab:cov n100}.
+We first compared the estimation of covariance matrix $\bs{\Sigma}$. For CorShrink, covariance matrix is estimated as $\text{diag}(\widehat{sd}) \widehat{\bs{R}} \text{diag}(\widehat{sd})$, where $\widehat{sd}$ are sample standard deviations for $j-th$ feature $\bs{X}_{\cdot j}, j=1,\ldots,p$. The result is presented in \ref{tab:cov n100}.
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulations for covariance matrix estimation. $n=100$.}
+\caption{Simulation results for covariance matrix estimation.}
 \label{tab:cov n100}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -164,13 +164,12 @@ Model          & Method      & p=30                 & p=100                   & 
 }
 \end{table}
 
-In the second setting, we compare the estimation of correlation matrix $\bs{R}$. For covariance matrix estimators, $\bs{\widehat{R}} = \text{diag}(1/\widehat{SD})\widehat{\bs{\Sigma}}\text{diag}(1/\widehat{SD})$, where $\widehat{SD}$ are standard deviations derived from $\widehat{\bs{\Sigma}}$. The result is presented in \ref{tab:cor n100}.
-
+Secondly, we compare the estimation of correlation matrix $\bs{R}$. For covariance matrix estimators, $\bs{\widehat{R}} = \text{diag}(1/\widehat{sd})\widehat{\bs{\Sigma}}\text{diag}(1/\widehat{sd})$, where $\widehat{sd}=\sqrt{\text{diag}(\widehat{\bs{\Sigma}})}$. The result is presented in \ref{tab:cor n100}.
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulations for correlation matrix estimation. $n=100$.}
+\caption{Simulation results for correlation matrix estimation.}
 \label{tab:cor n100}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -245,7 +244,7 @@ Model          & Method      & p=30                 & p=100                   & 
 \end{tabular}%
 }
 \end{table} 
-The results in \ref{tab:cov n100} and \ref{tab:cor n100} show that CorShrink has outstanding performance in correlation estimation, it has the lowest error in most models, except for Block model when correlations and standard deviations are related and our MSG method can beat other methods. As for covariance estimation, when the empirical distribution of the parameter $(\sigma_j,\sigma_k,r_{jk})$ is simple and easy to approximate, like in Sparse, Block, Dense and Dense2, our method had better performance than CorShrink. In the models built on eigenvalue structure, like Orth and Spiked, CorShrink behaved slighter better. This phenomenon can also be observed in comparison between OracNonlin and OracMSG.
+The results in \ref{tab:cov n100} and \ref{tab:cor n100} show that CorShrink has outstanding performance in correlation estimation, it has the lowest error in most models. The only exception is Block model when correlations and standard deviations are correlated and our MSG method can beat other methods. As for covariance estimation, when the empirical distribution of the parameter $(\sigma_j,\sigma_k,r_{jk})$ is simple and easy to approximate, like in Sparse, Block, Dense and Dense2, our method had better performance than CorShrink and other covariance matrix estimators. In the models built on eigenvalue structure, like Orth and Spiked, CorShrink behaved better than MSG method. In these models, one of the nonlinear methods, NERCOME had the lowest error in general. The outperformance of our method in some scenarios can also be observed in the comparison between OracNonlin and OracMSG.
 
 \subsection{Misspecification}
 Our estimator is based on the assumption that data is generated from multivariate Gaussian distribution. In reality, data is not always normally distributed. So we are interested to investigate its performance when the model is misspecified. We generated $\bs{Y}$ from two non-normal distributions with variance of 1 and let $\bs{X}=\bs{L}\bs{Y}$ where $\bs{L}$ is Cholesky decomposition of covariance matrix $\bs{\Sigma}$. Then the observed data $\bs{X}$ has covariance matrix $\Sigma$. In first simulation, $\bs{Y}\sim U(0,1) / \sqrt(1/12)$. In the second simulation, $\bs{Y}$ was generated from negative binomial distributions with size of 10 and mean of 4, and then was normalized to have variance of 1. 
@@ -253,7 +252,7 @@ Our estimator is based on the assumption that data is generated from multivariat
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulations result for uniform distributed data.}
+\caption{Simulation results for uniform distributed data.}
 \label{tab:unif}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -332,7 +331,7 @@ Model          & Method      & p=30                 & p=100                   & 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulations result for negative binomial distributed data.}
+\caption{Simulation results for negative binomial distributed data.}
 \label{tab:nb}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -407,10 +406,10 @@ Model          & Method      & p=30                 & p=100                   & 
 \end{tabular}%
 }
 \end{table}
-The result shows that although MSG and CorShrink method assume normal distribution for data, it can adapt to misspecified data either for continuous distribution \ref{tab:unif} and discrete distribution \ref{tab:nb}, especially in Sparse, Block Dense and Dense2 models.
+The result shows that although MSG and CorShrink assume normal distribution on data, it can adapt to misspecified model for both continuous distribution \ref{tab:unif} and discrete distribution \ref{tab:nb}, especially in Sparse, Block, Dense and Dense2 models.
 
 \subsection{Large dimension}
-In previous simulations, we made $p=30,100 and 200$. We are also interested in the case when $p$ has large value. In this section, we let $p=1000$. The median of errors is presented in \ref{tab:p1k}. 
+In previous simulations, we took $p=30,100$ and 200. We are also interested in the case when $p$ has even larger value. In this section, we took $p=1000$ and investigated its performance in different models. The medians of errors among 50 replications are presented in \ref{tab:p1k}. 
 
 \begin{table}[H]
 \small
@@ -420,21 +419,21 @@ In previous simulations, we made $p=30,100 and 200$. We are also interested in t
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
 \toprule
- & Method      &Sparse     &Block       &Dense    &Dense2  &Orth  &Spiked \\ \midrule
- & MSG& 43.79(1.91) & 17.23(21.37)  &118.17(141.00) &182.41(203.76) &60.57(1.23)&16.82(0.42) \\
- & MSGCor  & 42.38(1.86) & 17.26(21.37) & 116.58(141.91) &179.05(207.58)&60.57(1.23)&16.82(0.42) \\
- & Adap     &46.96(1.49)   & 64.48(11.57) & 322.20 (262.64)&164.11(233.82) &49.06(0.29)&6.35(0.26)\\
- & Linear         & 74.99(0.35)  & 23.44(13.66) & 140.98 (110.96)&150.00(201.23)&47.17(0.16) &4.78(0.17) \\
- & QIS            & 161.49(3.03) & 68.03(28.94) & 433.54 (151.17)&205.06(175.77) &240.09(2.53) &97.78(0.76) \\
- & NERCOME        & 75.29(0.58)  & 22.93(18.16)  & 141.50 (113.74)&174.27(174.87) &46.81(0.20) &3.83(0.01)\\
- & CorShrink            & 26.63(0.93) &  22.75(14.11) & 118.93 (147.66)&168.85(218.66) &47.96(0.11)&101.24(0.42)\\
- & Sample            & 159.30(2.62) & 24.80(14.45) & 143.48 (129.75)&170.29(217.02) &251.14(1.80)&101.24(0.42)\\
- & OracNonlin & 74.45(0.32) & 16.29(1.27)  & 99.63(6.74)&66.90(7.45) &46.54(0.01) & 3.73(0.00)\\
- & OracMSG  & 29.97(0.83) &0.0(0.0)  &84.75(32.78) &115.78(72.52)&46.65(0.01) &3.74(0.00) \\  \bottomrule
+ & Method      	&Sparse  		&Block       		&Dense    			&Dense2  			&Orth  		&Spiked \\ \midrule
+ & MSG		&39.11(2.51) 	&210.24(205.80)  	&111.39(141.12) 	&176.32(151.84) 	&49.36(1.07)	&16.71(0.45) \\
+ & MSGCor  	&37.81(2.48) 	&210.22(205.80) 	&111.34(141.08) 	&176.27(151.84)	&49.36(1.07)	&16.71(0.45) \\
+ & Adap     	&66.52(1.89)  	&645.60(161.94) 	&472.83 (321.31)	&202.18(154.34) 	&30.22(0.28)	&6.28(0.17)\\
+ & Linear         	&97.60(0.61)  	&275.21(141.56) 	&152.10(107.99)	&172.98(135.58)	&28.35(0.21) 	&4.87(0.18) \\
+ & QIS            	&166.11(4.33) 	&618.28(393.61) 	&401.43 (206.23)	&212.00(213.07) 	&240.58(2.01) 	&97.52(0.87) \\
+ & NERCOME  &97.46(0.83)  	&271.85(183.10)  	&157.60 (84.65)	&173.08(160.65) 	&27.46(0.01) 	&3.83(0.01)\\
+ & CorShrink     &33.40(1.50) 	&256.70(151.64) 	&138.11(101.14)	&190.83(152.22) 	&29.63(0.12)	&5.86(0.11)\\
+ & Sample         &163.29(3.08) 	&278.28(153.45) 	&161.04 (88.05)	&194.30(149.77) 	&250.26(1.89)	&101.12(0.88)\\
+ & OracNonlin 	&96.31(0.73) 	&167.39(141.56)  	&105.08(10.96)		&68.40(7.33) 		&27.33(0.01) 	& 3.73(0.01)\\
+ & OracMSG  	&31.33(1.75) 	&0.0(0.0)  			&7.15(6.41) 		&0.52(1.16)		&27.37(0.01) 	&3.74(0.00) \\  \bottomrule
 \end{tabular}%
 }
 \end{table}
-The result shows that our estimator still has performance when $p$ is extremely value. 
+The result shows that our estimator still had competitive performance when $p$ has extremely large value. 
 \bibliographystyle{biom} 
 \bibliography{biblio}
 \end{document}

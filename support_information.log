@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 NOV 2021 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 NOV 2021 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -738,20 +738,33 @@ Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\openout4 = `support_information.ttt'.
-
-
-(support_information.ttt)
-LaTeX Font Info:    Try loading font information for U+eur on input line 81.
+LaTeX Font Info:    Try loading font information for U+eur on input line 39.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/ueur.fd
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+
+LaTeX Warning: Reference `tab:cluster' on page 1 undefined on input line 39.
+
+\openout4 = `support_information.ttt'.
+
+(support_information.ttt)
+
+LaTeX Warning: Reference `tab:cluster' on page 1 undefined on input line 81.
+
+
+Package natbib Warning: Citation `dey2018corshrink' on page 1 undefined on inpu
+t line 84.
+
+
+LaTeX Warning: Reference `tab:cov n100' on page 1 undefined on input line 86.
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 1
  []
@@ -759,11 +772,34 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
+
+LaTeX Warning: Reference `tab:cor n100' on page 2 undefined on input line 167.
+
+
+LaTeX Warning: Reference `tab:cov n100' on page 2 undefined on input line 247.
+
+
+LaTeX Warning: Reference `tab:cor n100' on page 2 undefined on input line 247.
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 2
  []
 
-[2] (./support_information.bbl)
+[2]
+
+LaTeX Warning: Reference `tab:unif' on page 3 undefined on input line 409.
+
+
+LaTeX Warning: Reference `tab:nb' on page 3 undefined on input line 409.
+
+
+LaTeX Warning: Reference `tab:p1k' on page 3 undefined on input line 412.
+
+(./support_information.bbl)
+
+Package natbib Warning: There were undefined citations.
+
 AED endfloat: Processing end Figures and Tables
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 3
@@ -812,29 +848,40 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 
 [9
 
-] (./support_information.aux) ) 
+] (./support_information.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 15497 strings out of 492616
- 265707 string characters out of 6129482
- 341964 words of memory out of 5000000
- 19247 multiletter control sequences out of 15000+600000
+ 15502 strings out of 492616
+ 265775 string characters out of 6129482
+ 341913 words of memory out of 5000000
+ 19252 multiletter control sequences out of 15000+600000
  547401 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,63p,751b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti9.pfb>
-Output written on support_information.pdf (9 pages, 146931 bytes).
+ 41i,12n,63p,752b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/tex
+live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on support_information.pdf (9 pages, 147759 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
