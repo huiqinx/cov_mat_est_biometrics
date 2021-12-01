@@ -28,67 +28,74 @@
 \usepackage{xr}
 \externaldocument{msg}
 
+
+\title[Supporting Information]{Supporting Information for ``A Compound Decision Approach to Covariance Matrix Estimation''}
+
+\author{Huiqin Xin$^{*}$\email{huiqinx2@illinois.edu } and
+Sihai Dave Zhao$^{**}$\email{sdzhao@illinois.edu} \\
+Department of Statistics, University of Illinois at Urbana-Champaign, Champaign, Illinois}
+
 \begin{document}
 
-\pagebreak
-\appendix
-\section*{Simulation} 
-In this web appendix, we present more details about the simulations shown in the main manuscript. We also did more experiments to investigate our method in different scenarios. For each simulation setting, we use the six matrix models introduced in \ref{models}. In our main manuscript, the Frobenius error medians of different methods are presented in figures without exact numbers. In this section, all the error medians are displayed in tables with uncertainty, which is the difference of 75\% quantile and 25\% quantile of Frobenius errors among all replicates. The number of replicates is set to be 200 unless there is any extra clarification.
+\maketitle
 
-\subsection{Clustering-based exemplar algorithm}
-In this part, we show the exact Frobenius error medians and uncertainties for the simulation studying the behavior of our $K$-means clustering-based exemplar algorithm for different $K$. The result is shown in \ref{tab:cluster}.
+\section{Introduction} 
+Here we present more details about the simulations shown in the main manuscript as well as report additional experiments. We used the six models described in Section \ref{models} of the main text. We report the medians and interquartile ranges of the Frobenius errors across our replications. We used 200 replications unless otherwise specified.
+
+\section{Clustering-based exemplar algorithm}
+
+The following table gives exact numerical results corresponding to Figure \ref{fig:sim1_frobenius} of the main text.
+
 \begin{table}[H]
 \centering
-\caption{Simulations investigating Clustering-based exemplar algorithm, as described in Section \ref{optimalK}.}
+\caption{Numerical results corresponding to Figure \ref{fig:sim1_frobenius}}
 \label{tab:cluster}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
 \toprule
 Model          & Method      & p=30                 & p=100                   & p=200  \\ \midrule
-\multirow{5}{*}{Sparse}        &no cluster & 3.02 (1.21) & 7.35 (1.52) & 11.4 (1.73)  \\
-&ratio=2     & 3.26 (1.25) & 7.51 (1.47) & 11.52 (1.78) \\
-&ratio=1     & 3.38 (1.33) & 7.86 (1.53) & 11.93 (1.8)  \\
-&ratio=0.5   & 3.59 (1.34) & 7.98 (1.69) & 11.94 (1.86) \\
-&ratio=0.25  & 3.95 (1.45) & 8.4 (1.77)  & 11.97 (1.76)\\ \midrule
-\multirow{5}{*}{Block} & no cluster & 5.19 (6.86) & 15.75 (19.95) & 32.23 (34.18) \\
-&ratio=2     & 5.42 (7.2)  & 15.51 (20.15) & 32.61 (33.87) \\
-&ratio=1     & 5.34 (7.03) & 15.25 (19.32) & 32.06 (33.43) \\
-&ratio=0.5   & 5.4 (6.75)  & 15.48 (18.94) & 33.58 (34.96) \\
-&ratio=0.25  & 5.22 (6.59) & 16.31 (18.37) & 33.03 (34.54)\\ \midrule
-\multirow{5}{*}{Dense}     & no cluster & 3.76 (3.81) & 12.38 (13.37) & 19.93 (21.49) \\
- & ratio=2     & 3.59 (3.79) & 12.45 (13.44) & 20.07 (21.51) \\
- & ratio=1     & 3.72 (3.6)  & 12.27 (12.87) & 20.54 (21.65) \\
- & ratio=0.5   & 3.68 (3.72) & 12.57 (13.39) & 20.08 (22.77) \\
- & ratio=0.25  & 3.83 (3.81) & 12.9 (12.75)  & 21.71 (22.82)   \\  \midrule
-\multirow{5}{*}{Dense2}     & no cluster & 4.46 (5.23) & 14.63 (21.61) & 24.35 (37.1)  \\
- & ratio=2     & 4.48 (5.28) & 14.83 (22.3)  & 24.58 (37.05) \\
- & ratio=1     & 4.65 (5.21) & 14.85 (21.99) & 24.39 (36.78) \\
- & ratio=0.5   & 4.48 (5.29) & 14.43 (21.76) & 24.24 (38.92) \\
- & ratio=0.25  & 4.49 (5.2)  & 14.44 (21.0)  & 25.01 (39.0)   \\  \midrule
-\multirow{5}{*}{Orth} & no cluster & 5.72 (0.27) & 13.02 (0.16) & 20.23 (0.25) \\
-&ratio=2    & 5.71 (0.28) & 13.01 (0.16) & 20.22 (0.26) \\
-&ratio=1    & 5.71 (0.25) & 13.01 (0.18) & 20.24 (0.26) \\
-&ratio=0.5  & 5.78 (0.29) & 13.01 (0.16) & 20.25 (0.24) \\
-&ratio=0.25 & 6.05 (0.39) & 13.04 (0.16) & 20.27 (0.26)\\ \midrule
-\multirow{5}{*}{Spiked} &no cluster & 2.62 (0.21) & 3.71 (0.12) & 4.76 (0.15) \\
-&ratio=2     & 2.62 (0.2)  & 3.7 (0.12)  & 4.74 (0.16) \\
-&ratio=1     & 2.63 (0.21) & 3.71 (0.11) & 4.75 (0.16) \\
-&ratio=0.5   & 2.66 (0.2)  & 3.71 (0.11) & 4.77 (0.16) \\
-&ratio=0.25  & 2.77 (0.19) & 3.77 (0.13) & 4.77 (0.18)\\ \bottomrule
+\multirow{5}{*}{Sparse}        &Exemplar & 3.02 (1.21) & 7.35 (1.52) & 11.4 (1.73)  \\
+&$K = 2p$     & 3.26 (1.25) & 7.51 (1.47) & 11.52 (1.78) \\
+&$K = p$     & 3.38 (1.33) & 7.86 (1.53) & 11.93 (1.8)  \\
+&$K = p / 2$   & 3.59 (1.34) & 7.98 (1.69) & 11.94 (1.86) \\
+&$K = p/4$  & 3.95 (1.45) & 8.4 (1.77)  & 11.97 (1.76)\\ \midrule
+\multirow{5}{*}{Hypercorrelated} & Exemplar & 5.19 (6.86) & 15.75 (19.95) & 32.23 (34.18) \\
+&$K = 2p$     & 5.42 (7.2)  & 15.51 (20.15) & 32.61 (33.87) \\
+&$K = p$     & 5.34 (7.03) & 15.25 (19.32) & 32.06 (33.43) \\
+&$K = p / 2$   & 5.4 (6.75)  & 15.48 (18.94) & 33.58 (34.96) \\
+&$K = p/4$  & 5.22 (6.59) & 16.31 (18.37) & 33.03 (34.54)\\ \midrule
+\multirow{5}{*}{Dense-0.7-0.7}     & Exemplar & 3.76 (3.81) & 12.38 (13.37) & 19.93 (21.49) \\
+ & $K = 2p$     & 3.59 (3.79) & 12.45 (13.44) & 20.07 (21.51) \\
+ & $K = p$     & 3.72 (3.6)  & 12.27 (12.87) & 20.54 (21.65) \\
+ & $K = p / 2$   & 3.68 (3.72) & 12.57 (13.39) & 20.08 (22.77) \\
+ & $K = p/4$  & 3.83 (3.81) & 12.9 (12.75)  & 21.71 (22.82)   \\  \midrule
+\multirow{5}{*}{Dense-0.7-0.9}     & Exemplar & 4.46 (5.23) & 14.63 (21.61) & 24.35 (37.1)  \\
+ & $K = 2p$     & 4.48 (5.28) & 14.83 (22.3)  & 24.58 (37.05) \\
+ & $K = p$     & 4.65 (5.21) & 14.85 (21.99) & 24.39 (36.78) \\
+ & $K = p / 2$   & 4.48 (5.29) & 14.43 (21.76) & 24.24 (38.92) \\
+ & $K = p/4$  & 4.49 (5.2)  & 14.44 (21.0)  & 25.01 (39.0)   \\  \midrule
+\multirow{5}{*}{Orthogonal} & Exemplar & 5.72 (0.27) & 13.02 (0.16) & 20.23 (0.25) \\
+&$K = 2p$    & 5.71 (0.28) & 13.01 (0.16) & 20.22 (0.26) \\
+&$K = p$    & 5.71 (0.25) & 13.01 (0.18) & 20.24 (0.26) \\
+&$K = p / 2$  & 5.78 (0.29) & 13.01 (0.16) & 20.25 (0.24) \\
+&$K = p/4$ & 6.05 (0.39) & 13.04 (0.16) & 20.27 (0.26)\\ \midrule
+\multirow{5}{*}{Spiked} &Exemplar & 2.62 (0.21) & 3.71 (0.12) & 4.76 (0.15) \\
+&$K = 2p$     & 2.62 (0.2)  & 3.7 (0.12)  & 4.74 (0.16) \\
+&$K = p$     & 2.63 (0.21) & 3.71 (0.11) & 4.75 (0.16) \\
+&$K = p / 2$   & 2.66 (0.2)  & 3.71 (0.11) & 4.77 (0.16) \\
+&$K = p/4$  & 2.77 (0.19) & 3.77 (0.13) & 4.77 (0.18)\\ \bottomrule
 \end{tabular}%
 }
 \end{table}
-According to the result in \ref{tab:cluster}, applying clustering does not have substantial negative effect on the accuracy of our MSG method but could dramatically reduce the computation cost as observed in \ref{tab:sim1_time}. With larger number of clusters, our method generally has smaller error but longer running time. To balance the computation cost and accuracy, we take $K=p$ in the later simulations.
 
-\subsection{Comparison with CorShrink}
-In this part, we compared the behavior of different estimators on correlation and covariance estimation. We did this mainly to make comparison with CorShrink \cite{dey2018corshrink} which also adopts empirical Bayes method but aims to estimate correlation matrix. 
+\section{Estimation accuracies}
 
-We first compared the estimation of covariance matrix $\bs{\Sigma}$. For CorShrink, covariance matrix is estimated as $\text{diag}(\widehat{sd}) \widehat{\bs{R}} \text{diag}(\widehat{sd})$, where $\widehat{sd}$ are sample standard deviations for $j-th$ feature $\bs{X}_{\cdot j}, j=1,\ldots,p$. The result is presented in \ref{tab:cov n100}.
+The following table gives exact numerical results corresponding to Figure \ref{fig:sim2_frobenius} of the main text.
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulation results for covariance matrix estimation.}
+\caption{Numerical results corresponding to Figure \ref{fig:sim2_frobenius}}
 \label{tab:cov n100}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -102,10 +109,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.79 (1.26) & 14.45 (1.28) & 29.57 (1.48) \\
  & NERCOME        & 4.94 (1.32) & 14.54 (1.34) & 26.61 (1.21) \\
  & CorShrink      & 3.97 (1.49) & 8.99 (1.53)  & 13.53 (1.74) \\
- & SCM            & 4.98 (1.03) & 16.56 (1.52) & 33.21 (1.8)  \\
+ & Sample            & 4.98 (1.03) & 16.56 (1.52) & 33.21 (1.8)  \\
  & OracNonlin & 3.99 (0.74) & 13.5 (0.95)  & 25.65 (1.01) \\
  & OracMSG  & 2.03 (0.76) & 6.12 (1.35)  & 10.09 (1.49)  \\ \midrule
-\multirow{10}{*}{Block}  
+\multirow{10}{*}{Hypercorrelated}  
  & MSG & 5.26 (5.04) & 17.71 (19.52) & 29.12 (42.35)  \\
  & MSGCor   & 5.26 (5.04) & 17.71 (19.52) & 29.12 (42.35)  \\
  & Adap     & 13.59 (2.5) & 55.12 (6.47)  & 114.28 (13.71) \\
@@ -113,10 +120,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 7.08 (3.63) & 24.74 (13.66) & 65.1 (39.25)   \\
  & NERCOME        & 6.97 (4.13) & 23.95 (15.33) & 46.8 (31.58)   \\
  & CorShrink      & 6.73 (3.96) & 23.0 (13.92)  & 42.03 (30.29)  \\
- & SCM            & 7.36 (3.66) & 25.7 (13.44)  & 46.21 (28.97)  \\
+ & Sample            & 7.36 (3.66) & 25.7 (13.44)  & 46.21 (28.97)  \\
  & OracNonlin & 4.9 (1.15)  & 16.35 (2.03)  & 32.98 (4.15)   \\
  & OracMSG  & 0.0 (0.0)   & 0.0 (0.0)     & 0.0 (0.0) \\ \midrule
-\multirow{10}{*}{Dense}    
+\multirow{10}{*}{Dense-0.7}    
  & MSG & 3.6 (3.96)  & 12.37 (13.53) & 23.42 (28.93) \\
  & MSGCor   & 3.6 (3.96)  & 12.37 (13.53) & 23.42 (28.93) \\
  & Adap     & 4.97 (2.99) & 18.51 (10.55) & 46.22 (32.62) \\
@@ -124,10 +131,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 5.13 (3.23) & 16.14 (10.2)  & 37.25 (30.02) \\
  & NERCOME        & 5.01 (3.09) & 16.84 (10.99) & 30.67 (23.03) \\
  & CorShrink      & 4.25 (3.16) & 14.94 (11.29) & 28.68 (24.66) \\
- & SCM            & 5.03 (2.83) & 17.18 (10.01) & 32.92 (20.91) \\
+ & Sample            & 5.03 (2.83) & 17.18 (10.01) & 32.92 (20.91) \\
  & OracNonlin & 3.27 (0.56) & 10.83 (1.41)  & 21.3 (2.44)   \\
  & OracMSG  & 0.01 (0.08) & 0.23 (0.61)   & 0.9 (1.52)  \\  \midrule
-\multirow{10}{*}{Dense2}    
+\multirow{10}{*}{Dense-0.9}    
  & MSG & 4.64 (5.06) & 14.23 (16.91) & 30.05 (34.95) \\
  & MSGCor   & 4.64 (5.06) & 14.22 (16.91) & 30.05 (34.95) \\
  & Adap     & 4.77 (4.71) & 16.17 (15.34) & 33.03 (29.22) \\
@@ -135,10 +142,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.8 (4.76)  & 16.14 (15.19) & 34.61 (32.51) \\
  & NERCOME        & 4.95 (4.85) & 16.42 (16.58) & 34.18 (32.12) \\
  & CorShrink      & 4.72 (4.73) & 15.83 (15.48) & 33.28 (31.55) \\
- & SCM            & 4.8 (4.74)  & 16.14 (14.96) & 33.86 (30.36) \\
+ & Sample            & 4.8 (4.74)  & 16.14 (14.96) & 33.86 (30.36) \\
  & OracNonlin & 2.01 (0.43) & 6.8 (0.81)    & 13.81 (1.6)   \\
  & OracMSG  & 0.0 (0.01)  & 0.0 (0.03)    & 0.01 (0.11) \\ \midrule
-\multirow{10}{*}{Orth}  
+\multirow{10}{*}{Orthogonal}  
  & MSG & 4.24 (0.19) & 8.89 (0.19)  & 13.85 (0.39) \\
  & MSGCor   & 4.24 (0.19) & 8.89 (0.19)  & 13.85 (0.39) \\
  & Adap     & 5.0 (0.19)  & 9.54 (0.11)  & 12.93 (0.16) \\
@@ -146,7 +153,7 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.3 (0.26)  & 10.19 (0.31) & 37.19 (0.48) \\
  & NERCOME        & 4.09 (0.15) & 8.52 (0.06)  & 11.69 (0.05) \\
  & CorShrink      & 4.52 (0.22) & 9.07 (0.13)  & 12.71 (0.15) \\
- & SCM            & 8.15 (0.42) & 24.43 (0.68) & 51.86 (0.81) \\
+ & Sample            & 8.15 (0.42) & 24.43 (0.68) & 51.86 (0.81) \\
  & OracNonlin & 3.79 (0.12) & 8.34 (0.06)  & 11.53 (0.03) \\
  & OracMSG  & 4.13 (0.13) & 8.47 (0.07)  & 11.64 (0.03)  \\  \midrule
 \multirow{10}{*}{Spiked}  
@@ -157,19 +164,21 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 2.27 (0.26) & 4.05 (0.2)   & 15.17 (0.21) \\
  & NERCOME        & 2.24 (0.27) & 3.25 (0.3)   & 3.66 (0.07)  \\
  & CorShrink      & 2.68 (0.2)  & 3.79 (0.09)  & 4.21 (0.08)  \\
- & SCM            & 3.67 (0.28) & 10.72 (0.28) & 20.73 (0.31) \\
+ & Sample            & 3.67 (0.28) & 10.72 (0.28) & 20.73 (0.31) \\
  & OracNonlin & 2.05 (0.23) & 2.99 (0.22)  & 3.4 (0.14)   \\
  & OracMSG  & 2.54 (0.22) & 3.51 (0.08)  & 3.68 (0.04) \\ \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-Secondly, we compare the estimation of correlation matrix $\bs{R}$. For covariance matrix estimators, $\bs{\widehat{R}} = \text{diag}(1/\widehat{sd})\widehat{\bs{\Sigma}}\text{diag}(1/\widehat{sd})$, where $\widehat{sd}=\sqrt{\text{diag}(\widehat{\bs{\Sigma}})}$. The result is presented in \ref{tab:cor n100}.
+\section{Correlation matrix estimation}
+
+To fairly compare our methods to the CorShrink procedure of \citet{dey2018corshrink}, which was designed for estimating correlation matrices, we also studied the performance of these methods for estimating correlation matrices under Frobenius norm loss. For each method in Section \ref{compared}, we calculated a correlation matrix estimate by scaling the corresponding covariance matrix estimate such that the estimated variances were equal to one. The results in Table \ref{tab:cor n100} show that CorShink performs slightly better than our methods except in Model 2, likely because the additional flexibility that our method trades off lower bias for higher variance.
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulation results for correlation matrix estimation.}
+\caption{Estimation errors for correlation matrices.}
 \label{tab:cor n100}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -180,13 +189,13 @@ Model          & Method      & p=30                 & p=100                   & 
  & MSGCor   & 1.49 (0.46) & 3.54 (0.52) & 5.68 (0.69)  \\
  & Adap     & 1.98 (0.58) & 5.81 (0.61) & 9.63 (0.78)  \\
  & Linear         & 2.58 (0.28) & 8.21 (0.45) & 14.85 (0.45) \\
- & QIS            & 2.32 (0.34) & 7.68 (0.4)  & 17.44 (0.46) \\
+               & QIS            & 2.32 (0.34) & 7.68 (0.4)  & 17.44 (0.46) \\
  & NERCOME        & 2.35 (0.37) & 7.76 (0.4)  & 14.12 (0.4)  \\
  & CorShrink      & 1.38 (0.4)  & 3.35 (0.55) & 5.08 (0.62)  \\
- & SCM            & 2.78 (0.3)  & 9.75 (0.48) & 19.83 (0.46) \\
+ & Sample            & 2.78 (0.3)  & 9.75 (0.48) & 19.83 (0.46) \\
  & OracNonlin & 2.19 (0.36) & 7.58 (0.44) & 14.29 (0.39) \\
  & OracMSG  & 0.89 (0.39) & 2.78 (0.64) & 4.56 (0.68)  \\  \midrule
-\multirow{10}{*}{Block}    
+\multirow{10}{*}{Hypercorrelated}    
  & MSG & 1.0 (0.61)  & 2.28 (1.47)  & 4.34 (2.9)   \\
  & MSGCor   & 1.0 (0.61)  & 2.25 (1.43)  & 4.36 (2.92)  \\
  & Adap     & 6.51 (1.15) & 26.75 (2.07) & 56.71 (2.84) \\
@@ -194,10 +203,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 1.73 (0.52) & 5.66 (1.19)  & 23.33 (5.42) \\
  & NERCOME        & 1.66 (0.45) & 5.54 (1.09)  & 11.01 (2.02) \\
  & CorShrink      & 2.01 (0.31) & 6.53 (0.59)  & 12.91 (1.07) \\
- & SCM            & 2.31 (0.35) & 7.65 (0.75)  & 15.35 (1.25) \\
+ & Sample            & 2.31 (0.35) & 7.65 (0.75)  & 15.35 (1.25) \\
  & OracNonlin & 1.52 (0.37) & 5.17 (0.77)  & 10.3 (1.44)  \\
  & OracMSG  & 0.0 (0.0)   & 0.0 (0.0)    & 0.0 (0.0)  \\ \midrule
- \multirow{10}{*}{Dense}  
+ \multirow{10}{*}{Dense-0.7}  
  & MSG & 0.76 (0.74) & 1.97 (2.2)  & 4.74 (4.55)   \\
  & MSGCor   & 0.76 (0.7)  & 2.01 (2.22) & 4.64 (4.56)   \\
  & Adap     & 1.4 (0.48)  & 5.16 (2.51) & 13.69 (10.33) \\
@@ -205,10 +214,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 1.87 (1.02) & 6.82 (2.99) & 16.29 (5.92)  \\
  & NERCOME        & 1.74 (0.71) & 7.04 (2.67) & 14.37 (5.81)  \\
  & CorShrink      & 0.64 (0.83) & 1.82 (2.37) & 4.53 (4.44)   \\
- & SCM            & 1.39 (0.42) & 4.55 (1.12) & 9.41 (2.44)   \\
+ & Sample            & 1.39 (0.42) & 4.55 (1.12) & 9.41 (2.44)   \\
  & OracNonlin & 1.5 (0.25)  & 6.41 (0.42) & 13.66 (0.58)  \\
  & OracMSG  & 0.01 (0.08) & 0.21 (0.57) & 0.73 (1.89) \\ \midrule
-\multirow{10}{*}{Dense2}  
+\multirow{10}{*}{Dense-0.9}  
  & MSG & 0.36 (0.27) & 0.96 (0.86) & 1.98 (2.25) \\
  & MSGCor   & 0.32 (0.27) & 0.94 (0.88) & 1.88 (2.19) \\
  & Adap     & 0.49 (0.17) & 1.63 (0.56) & 3.38 (1.56) \\
@@ -216,10 +225,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 0.7 (0.45)  & 2.75 (1.33) & 6.28 (2.55) \\
  & NERCOME        & 0.72 (0.34) & 2.95 (1.32) & 6.51 (3.49) \\
  & CorShrink      & 0.29 (0.32) & 0.84 (1.04) & 1.91 (2.17) \\
- & SCM            & 0.49 (0.17) & 1.63 (0.55) & 3.36 (1.37) \\
+ & Sample            & 0.49 (0.17) & 1.63 (0.55) & 3.36 (1.37) \\
  & OracNonlin & 0.6 (0.05)  & 2.78 (0.1)  & 6.01 (0.15) \\
  & OracMSG  & 0.0 (0.02)  & 0.01 (0.11) & 0.03 (0.35) \\ \midrule
-\multirow{10}{*}{Orth}  
+\multirow{10}{*}{Orthogonal}  
  & MSG & 1.54 (0.07) & 3.64 (0.09) & 5.34 (0.14)  \\
  & MSGCor   & 1.54 (0.07) & 3.64 (0.09) & 5.34 (0.14)  \\
  & Adap     & 1.72 (0.03) & 3.68 (0.0)  & 4.6 (0.0)    \\
@@ -227,7 +236,7 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 1.55 (0.09) & 4.17 (0.14) & 14.51 (0.1)  \\
  & NERCOME        & 1.48 (0.06) & 3.48 (0.03) & 4.51 (0.01)  \\
  & CorShrink      & 1.51 (0.05) & 3.47 (0.03) & 4.5 (0.02)   \\
- & SCM            & 2.95 (0.14) & 9.98 (0.15) & 20.03 (0.15) \\
+ & Sample            & 2.95 (0.14) & 9.98 (0.15) & 20.03 (0.15) \\
  & OracNonlin & 1.39 (0.06) & 3.41 (0.02) & 4.46 (0.01)  \\
  & OracMSG  & 1.5 (0.05)  & 3.46 (0.03) & 4.5 (0.01) \\  \midrule
 \multirow{10}{*}{Spiked}  
@@ -238,23 +247,23 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 1.72 (0.2)  & 3.7 (0.17)  & 14.78 (0.13) \\
  & NERCOME        & 1.68 (0.2)  & 2.89 (0.22) & 3.43 (0.06)  \\
  & CorShrink      & 2.02 (0.14) & 3.16 (0.06) & 3.46 (0.04)  \\
- & SCM            & 2.93 (0.16) & 9.98 (0.14) & 20.04 (0.14) \\
+ & Sample            & 2.93 (0.16) & 9.98 (0.14) & 20.04 (0.14) \\
  & OracNonlin & 1.53 (0.22) & 2.69 (0.18) & 3.19 (0.13)  \\
  & OracMSG  & 1.93 (0.17) & 3.14 (0.07) & 3.46 (0.04) \\ \bottomrule
 \end{tabular}%
 }
-\end{table} 
-The results in \ref{tab:cov n100} and \ref{tab:cor n100} show that CorShrink has outstanding performance in correlation estimation, it has the lowest error in most models. The only exception is Block model when correlations and standard deviations are correlated and our MSG method can beat other methods. As for covariance estimation, when the empirical distribution of the parameter $(\sigma_j,\sigma_k,r_{jk})$ is simple and easy to approximate, like in Sparse, Block, Dense and Dense2, our method had better performance than CorShrink and other covariance matrix estimators. In the models built on eigenvalue structure, like Orth and Spiked, CorShrink behaved better than MSG method. In these models, one of the nonlinear methods, NERCOME had the lowest error in general. The outperformance of our method in some scenarios can also be observed in the comparison between OracNonlin and OracMSG.
+\end{table}
 
-\subsection{Misspecification}
-Our estimator is based on the assumption that data is generated from multivariate Gaussian distribution. In reality, data is not always normally distributed. So we are interested to investigate its performance when the model is misspecified. We generated $\bs{Y}$ from two non-normal distributions with variance of 1 and let $\bs{X}=\bs{L}\bs{Y}$ where $\bs{L}$ is Cholesky decomposition of covariance matrix $\bs{\Sigma}$. Then the observed data $\bs{X}$ has covariance matrix $\Sigma$. In first simulation, $\bs{Y}\sim U(0,1) / \sqrt(1/12)$. In the second simulation, $\bs{Y}$ was generated from negative binomial distributions with size of 10 and mean of 4, and then was normalized to have variance of 1. 
+\section{Model misspecification}
+
+Our estimator assumes that data are generated from multivariate Gaussian distribution. To investigate the performance of our methods when the data are non-normal, we generated $\bs{Y}$ from either $U(0, 1)$ or a negative binomial distribution with size 10 and mean 4. The $\bs{Y}$ were then normalized by their theoretical standard deviations to have unit variance. Finally, we generated the observed data following $\bs{X}=\bs{L}\bs{Y}$, where $\bs{L}$ is the Cholesky decomposition of the desired covariance matrix of $\bs{Y}$. We simulated our data using the covariance matrices defined in Section \ref{models}. The results in Tables \ref{tab:unif} and \ref{tab:nb} suggest that MSG and MSGCor still have excellent performance under model misspecification for both continuous and discrete data, though they can be outperformed in Models 5 and 6.
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulation results for uniform distributed data.}
+\caption{Estimation errors for covariance matrices from uniformly distributed data.}
 \label{tab:unif}
-\resizebox{.7\textwidth}{!}{%
+\resizebox{0.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
 \toprule
 Model          & Method      & p=30                 & p=100                   & p=200  \\ \midrule
@@ -266,10 +275,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.73 (1.32) & 14.34 (1.29) & 29.63 (1.47) \\
  & NERCOME        & 4.82 (1.44) & 14.49 (1.19) & 26.71 (1.15) \\
  & CorShrink      & 3.89 (1.52) & 8.91 (1.42)  & 13.51 (1.78) \\
- & SCM            & 4.97 (1.25) & 16.46 (1.56) & 33.05 (1.79) \\
+ & Sample            & 4.97 (1.25) & 16.46 (1.56) & 33.05 (1.79) \\
  & OracNonlin & 4.01 (0.81) & 13.42 (1.01) & 25.66 (0.93) \\
  & OracMSG  & 1.9 (0.91)  & 6.01 (1.16)  & 10.07 (1.64) \\  \midrule
-\multirow{10}{*}{Block}    
+\multirow{10}{*}{Hypercorrelated}    
  & MSG & 4.18 (3.87)  & 14.2 (16.03)  & 28.91 (31.48) \\
  & MSGCor   & 4.18 (3.87)  & 14.2 (16.03)  & 28.91 (31.48) \\
  & Adap     & 12.14 (2.75) & 50.89 (5.48)  & 110.43 (9.1)  \\
@@ -277,10 +286,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 6.21 (2.86)  & 21.13 (10.67) & 60.5 (42.01)  \\
  & NERCOME        & 6.3 (2.66)   & 21.98 (10.21) & 43.9 (21.92)  \\
  & CorShrink      & 5.83 (2.71)  & 20.68 (10.95) & 42.38 (21.83) \\
- & SCM            & 6.64 (2.4)   & 23.08 (10.13) & 47.14 (20.15) \\
+ & Sample            & 6.64 (2.4)   & 23.08 (10.13) & 47.14 (20.15) \\
  & OracNonlin & 4.8 (0.85)   & 16.2 (2.04)   & 33.0 (3.52)   \\
  & OracMSG  & 0.0 (0.0)    & 0.0 (0.0)     & 0.0 (0.0)  \\ \midrule
- \multirow{10}{*}{Dense}   
+ \multirow{10}{*}{Dense-0.7}   
  & MSG & 3.4 (3.29)  & 10.07 (11.07) & 21.37 (25.63) \\
  & MSGCor   & 3.4 (3.29)  & 10.05 (11.07) & 21.37 (25.63) \\
  & Adap     & 4.75 (2.23) & 15.17 (6.74)  & 31.85 (16.09) \\
@@ -288,10 +297,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.53 (2.48) & 14.63 (7.85)  & 37.31 (30.31) \\
  & NERCOME        & 4.54 (2.39) & 14.44 (6.97)  & 30.14 (18.25) \\
  & CorShrink      & 3.96 (2.54) & 12.19 (8.2)   & 26.07 (19.72) \\
- & SCM            & 4.73 (2.09) & 15.08 (6.66)  & 30.69 (16.01) \\
+ & Sample            & 4.73 (2.09) & 15.08 (6.66)  & 30.69 (16.01) \\
  & OracNonlin & 3.17 (0.66) & 10.79 (1.4)   & 21.13 (2.43)  \\
  & OracMSG  & 0.0 (0.02)  & 0.07 (0.31)   & 0.34 (0.83)   \\ \midrule
-\multirow{10}{*}{Dense2}  
+\multirow{10}{*}{Dense-0.9}  
  & MSG & 3.23 (3.58) & 11.32 (11.95) & 20.44 (24.74) \\
  & MSGCor   & 3.23 (3.59) & 11.32 (11.95) & 20.44 (24.74) \\
  & Adap     & 3.72 (3.08) & 13.4 (10.75)  & 24.37 (19.79) \\
@@ -299,10 +308,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 3.72 (3.13) & 13.42 (10.95) & 24.46 (18.67) \\
  & NERCOME        & 4.0 (2.99)  & 13.49 (10.66) & 24.32 (19.74) \\
  & CorShrink      & 3.75 (2.9)  & 13.0 (10.73)  & 24.31 (20.56) \\
- & SCM            & 3.86 (2.79) & 13.4 (10.41)  & 25.16 (19.93) \\
+ & Sample            & 3.86 (2.79) & 13.4 (10.41)  & 25.16 (19.93) \\
  & OracNonlin & 2.03 (0.39) & 6.89 (0.94)   & 13.97 (1.4)   \\
  & OracMSG  & 0.0 (0.0)   & 0.0 (0.01)    & 0.0 (0.01)   \\ \midrule
-\multirow{10}{*}{Orth}  
+\multirow{10}{*}{Orthogonal}  
  & MSG & 4.14 (0.14) & 8.68 (0.13)  & 13.11 (0.23) \\
  & MSGCor   & 4.14 (0.14) & 8.68 (0.13)  & 13.11 (0.23) \\
  & Adap     & 4.79 (0.13) & 9.23 (0.09)  & 12.37 (0.1)  \\
@@ -310,7 +319,7 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.15 (0.24) & 10.09 (0.28) & 37.24 (0.41) \\
  & NERCOME        & 4.04 (0.17) & 8.51 (0.07)  & 11.68 (0.05) \\
  & CorShrink      & 4.23 (0.15) & 8.72 (0.11)  & 12.13 (0.1)  \\
- & SCM            & 7.92 (0.43) & 24.31 (0.49) & 51.82 (0.7)  \\
+ & Sample            & 7.92 (0.43) & 24.31 (0.49) & 51.82 (0.7)  \\
  & OracNonlin & 3.74 (0.15) & 8.34 (0.05)  & 11.53 (0.02) \\
  & OracMSG  & 4.09 (0.13) & 8.49 (0.07)  & 11.64 (0.03) \\  \midrule
 \multirow{10}{*}{Spiked}  
@@ -321,7 +330,7 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 2.26 (0.28) & 4.0 (0.18)   & 15.18 (0.2) \\
  & NERCOME        & 2.25 (0.28) & 3.22 (0.27)  & 3.65 (0.09) \\
  & CorShrink      & 2.64 (0.22) & 3.63 (0.07)  & 3.9 (0.04)  \\
- & SCM            & 3.63 (0.23) & 10.65 (0.22) & 20.7 (0.28) \\
+ & Sample            & 3.63 (0.23) & 10.65 (0.22) & 20.7 (0.28) \\
  & OracNonlin & 2.02 (0.26) & 2.98 (0.2)   & 3.4 (0.17)  \\
  & OracMSG  & 2.53 (0.23) & 3.48 (0.09)  & 3.66 (0.03) \\ \bottomrule
 \end{tabular}%
@@ -331,7 +340,7 @@ Model          & Method      & p=30                 & p=100                   & 
 \begin{table}[H]
 \tiny
 \centering
-\caption{Simulation results for negative binomial distributed data.}
+\caption{Estimation errors for covariance matrices from negative binomial data.}
 \label{tab:nb}
 \resizebox{.7\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
@@ -345,10 +354,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.84 (1.29) & 14.65 (1.29) & 29.6 (1.65)  \\
  & NERCOME        & 4.98 (1.37) & 14.85 (1.36) & 26.82 (1.18) \\
  & CorShrink      & 3.93 (1.47) & 9.37 (1.65)  & 14.08 (1.73) \\
- & SCM            & 5.04 (1.36) & 16.65 (1.59) & 33.02 (2.07) \\
+ & Sample            & 5.04 (1.36) & 16.65 (1.59) & 33.02 (2.07) \\
  & OracNonlin & 3.96 (0.78) & 13.68 (0.89) & 25.83 (1.12) \\
  & OracMSG  & 2.07 (0.89) & 6.41 (1.46)  & 10.29 (1.55)  \\  \midrule
-\multirow{10}{*}{Block}    
+\multirow{10}{*}{Hypercorrelated}    
  & MSG & 5.13 (5.59)  & 15.17 (21.1)  & 38.68 (45.87)  \\
  & MSGCor   & 5.13 (5.59)  & 15.16 (21.13) & 38.68 (45.87)  \\
  & Adap     & 14.02 (3.18) & 56.02 (9.97)  & 121.63 (26.82) \\
@@ -356,10 +365,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 7.13 (4.24)  & 22.34 (16.16) & 60.51 (52.2)   \\
  & NERCOME        & 6.94 (4.38)  & 22.88 (14.15) & 50.61 (36.64)  \\
  & CorShrink      & 6.83 (4.17)  & 21.38 (15.8)  & 49.5 (35.57)   \\
- & SCM            & 7.36 (4.08)  & 23.61 (14.1)  & 52.89 (34.0)   \\
+ & Sample            & 7.36 (4.08)  & 23.61 (14.1)  & 52.89 (34.0)   \\
  & OracNonlin & 4.83 (0.99)  & 16.34 (2.41)  & 32.87 (4.19)   \\
  & OracMSG  & 0.0 (0.0)    & 0.0 (0.0)     & 0.0 (0.0)   \\ \midrule
- \multirow{10}{*}{Dense}   
+ \multirow{10}{*}{Dense-0.7}   
  & MSG & 3.68 (4.3)  & 12.52 (11.77) & 22.57 (27.91) \\
  & MSGCor   & 3.68 (4.3)  & 12.52 (11.8)  & 22.56 (27.91) \\
  & Adap     & 5.42 (3.46) & 21.91 (15.03) & 58.59 (41.83) \\
@@ -367,10 +376,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.85 (2.96) & 16.81 (9.72)  & 36.33 (31.04) \\
  & NERCOME        & 4.95 (3.53) & 15.86 (9.61)  & 31.35 (21.77) \\
  & CorShrink      & 4.53 (3.3)  & 14.91 (10.05) & 28.64 (22.39) \\
- & SCM            & 5.07 (2.94) & 17.19 (8.85)  & 32.61 (19.27) \\
+ & Sample            & 5.07 (2.94) & 17.19 (8.85)  & 32.61 (19.27) \\
  & OracNonlin & 3.23 (0.64) & 10.66 (1.6)   & 20.95 (2.89)  \\
  & OracMSG  & 0.02 (0.13) & 0.52 (1.08)   & 1.54 (2.48)  \\ \midrule
-\multirow{10}{*}{Dense2}  
+\multirow{10}{*}{Dense-0.9}  
  & MSG & 4.66 (6.0)  & 17.77 (20.8)  & 34.8 (37.69)  \\
  & MSGCor   & 4.65 (6.0)  & 17.77 (20.81) & 34.79 (37.69) \\
  & Adap     & 5.09 (5.39) & 21.68 (21.41) & 41.3 (36.24)  \\
@@ -378,10 +387,10 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 5.07 (5.2)  & 19.89 (18.7)  & 35.65 (34.73) \\
  & NERCOME        & 5.46 (5.44) & 19.21 (19.57) & 35.68 (37.16) \\
  & CorShrink      & 4.87 (5.24) & 18.97 (19.15) & 36.71 (35.06) \\
- & SCM            & 4.93 (5.19) & 19.25 (19.16) & 37.16 (34.44) \\
+ & Sample            & 4.93 (5.19) & 19.25 (19.16) & 37.16 (34.44) \\
  & OracNonlin & 2.02 (0.49) & 6.93 (1.21)   & 14.01 (1.99)  \\
  & OracMSG  & 0.0 (0.02)  & 0.01 (0.2)    & 0.05 (0.5) \\ \midrule
-\multirow{10}{*}{Orth}  
+\multirow{10}{*}{Orthogonal}  
  & MSG & 4.34 (0.3)  & 9.13 (0.28)  & 14.66 (0.48) \\
  & MSGCor   & 4.34 (0.3)  & 9.13 (0.28)  & 14.66 (0.48) \\
  & Adap     & 5.18 (0.32) & 10.25 (0.51) & 14.93 (0.74) \\
@@ -389,7 +398,7 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 4.31 (0.27) & 10.2 (0.28)  & 37.35 (0.61) \\
  & NERCOME        & 4.09 (0.18) & 8.53 (0.07)  & 11.7 (0.05)  \\
  & CorShrink      & 4.66 (0.27) & 9.29 (0.19)  & 13.04 (0.19) \\
- & SCM            & 8.25 (0.49) & 24.45 (0.75) & 52.11 (0.99) \\
+ & Sample            & 8.25 (0.49) & 24.45 (0.75) & 52.11 (0.99) \\
  & OracNonlin & 3.79 (0.13) & 8.35 (0.06)  & 11.54 (0.03) \\
  & OracMSG  & 4.13 (0.13) & 8.49 (0.07)  & 11.64 (0.03) \\  \midrule
 \multirow{10}{*}{Spiked}  
@@ -400,26 +409,25 @@ Model          & Method      & p=30                 & p=100                   & 
  & QIS            & 2.31 (0.26) & 4.09 (0.21)  & 15.18 (0.24) \\
  & NERCOME        & 2.28 (0.27) & 3.28 (0.24)  & 3.66 (0.07)  \\
  & CorShrink      & 2.75 (0.24) & 3.91 (0.1)   & 4.39 (0.11)  \\
- & SCM            & 3.71 (0.28) & 10.73 (0.33) & 20.75 (0.39) \\
+ & Sample            & 3.71 (0.28) & 10.73 (0.33) & 20.75 (0.39) \\
  & OracNonlin & 2.05 (0.27) & 3.01 (0.2)   & 3.4 (0.13)   \\
  & OracMSG  & 2.6 (0.27)  & 3.53 (0.08)  & 3.7 (0.05)  \\ \bottomrule
 \end{tabular}%
 }
 \end{table}
-The result shows that although MSG and CorShrink assume normal distribution on data, it can adapt to misspecified model for both continuous distribution \ref{tab:unif} and discrete distribution \ref{tab:nb}, especially in Sparse, Block, Dense and Dense2 models.
 
-\subsection{Large dimension}
-In previous simulations, we took $p=30,100$ and 200. We are also interested in the case when $p$ has even larger value. In this section, we took $p=1000$ and investigated its performance in different models. The medians of errors among 50 replications are presented in \ref{tab:p1k}. 
+\section{Large dimension}
+
+In previous simulations, we took $p=30,100$ and 200. We also studied the performance of the various methods when $p=1000$. Because of the computational burden, here we only performed 50 replications. The results in Table \ref{tab:p1k} show that our estimator remains competitive in Models 1 through 4, but can be substantially outperformed in Models 5 and 6.
 
 \begin{table}[H]
-\small
 \centering
 \caption{Simulations investigating behavior when $p=1000$.}
 \label{tab:p1k}
-\resizebox{.7\textwidth}{!}{%
+\resizebox{0.95\textwidth}{!}{%
 \begin{tabular}{ccccccccc}
 \toprule
- & Method      	&Sparse  		&Block       		&Dense    			&Dense2  			&Orth  		&Spiked \\ \midrule
+  & Method      	&Sparse  		&Hypercorrelated       		&Dense-0.7    			&Dense-0.9  			&Orthogonal &Spiked \\ \midrule
  & MSG		&39.11(2.51) 	&210.24(205.80)  	&111.39(141.12) 	&176.32(151.84) 	&49.36(1.07)	&16.71(0.45) \\
  & MSGCor  	&37.81(2.48) 	&210.22(205.80) 	&111.34(141.08) 	&176.27(151.84)	&49.36(1.07)	&16.71(0.45) \\
  & Adap     	&66.52(1.89)  	&645.60(161.94) 	&472.83 (321.31)	&202.18(154.34) 	&30.22(0.28)	&6.28(0.17)\\
@@ -433,7 +441,11 @@ In previous simulations, we took $p=30,100$ and 200. We are also interested in t
 \end{tabular}%
 }
 \end{table}
-The result shows that our estimator still had competitive performance when $p$ has extremely large value. 
+
 \bibliographystyle{biom} 
 \bibliography{biblio}
 \end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

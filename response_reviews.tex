@@ -9,6 +9,9 @@
 \usepackage{lscape} 
 
 
+\usepackage{xr}
+\externaldocument{msg}
+
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \def\bs{\boldsymbol}
@@ -23,193 +26,217 @@
 
 \section{Response to the Associate Editor}
 
+Thank you for your very valuable comments. We respond to each point below.
+
 \begin{enumerate}
 \item \emph{As a journal, Biometrics presents papers that focus on the development of new methods and results of use in biosciences. As of now, the application seems more an afterthought, the use of a convenient (easily available) dataset to fit the scope of the journal. I believe that the authors should motivate their approach from the gene expression data or other bio-related applications starting from the Introduction.}
+
+  We have revised our introduction and have also completely redone our data analysis to study a question about gene network inference that arose during some of our previous collaborative work. We were involved in an analysis of bulk RNA-seq expression from mouse brain in a study of the neurogenomic response to social intrusion (Saul et al., 2017). We have now used some of these data to study gene networks in different regions of the mouse brain; \textbf{see Section 5}.
+
+  
 \item \emph{It is not really intuitively clear why the vectorization works, despite the approach not taking into consideration the structure of the covariance matrix. Also, the manuscript proposes a series of ad-hoc expedients to implement the method. See the clustering-based exemplar algorithm and replacing non-positive eigenvalues with a chosen positive value $c$ in the positive-definite correction. These expedients do not seem to be completely justified by the proposed separable compound-decision theory framework, and their effects on the estimation are unclear. A referee also commented on the impossibility to follow closely the implementation of the EM algorithm. In short, while I appreciate that the theoretical justification for the asymptotic efficiency of the proposed vectorization is not clear, the current implementation reads more like a clever algorithm than a well-founded statistical method. The authors should justify all the steps of the algorithm and provide an assessment of their contribution to its overall performance.}
 
-\item \emph{I agree with one of the referees that the title should be re-thought, since compound decision theory or compound decisions appear quite relevant to the approach, more than the empirical Bayes aspect of the paper.}\\
-We agree that compound decision theory should be more emphasized than empirical Bayes in our paper. Following your suggestions, we have changed the title from "A Empirical Bayes Approach to Covariance Matrix Estimation" to "A Compound Decision Approach to Covariance Matrix Estimation".
+  The success of our vectorization perspective is indeed surprising. In our revision we have made several attempts to contextualize this finding.
+  \begin{enumerate}
 
-\item \emph{on page 4, it appears to me that the choice of the risk function $\hat{R}$ does not correspond to the Frobenius risk. The rationale for choosing this risk function should be provided. It somehow appears the choice is dictated by Ledoit et al (2004) and Proposition 1, and not by independent first principles. If so, it should be explicitly stated before.}\\
-We squared and scaled the Frobenius norm $\|A\|_F = \sqrt{\sum_{j,k=1}^pa_{jk}^2}$ to $\frac{1}{p^2}\sum_{j,k=1}^p a_{jk}^2$ in order to apply fundamental theorem of compound decisions, for which the risk function should be scaled by the number of parameters because the empirical distribution has mass probability of $\frac{1}{d}$ where $d$ is the number of parameters.\\
-The transformation of Frobenius norm will not change the value of $(\widehat{\beta}_S,\widehat{\beta}_I)$ since it is determined by minimizing $RE(\beta_S,\beta_I)$.
-\item \emph{Figures 1 and 2 do not allow to appreciate uncertainty. Perhaps a table would be better.}\\
-We add the tables of the medians and uncertainty of Frobenius errors in supporting information. The uncertainty of Frobenius error is measured by the difference of 75\% quantile and 25\% quantile in 200 replicates. We use this range to measure the uncertainty because the errors of most methods are not following normal distribution. 
+  \item In \textbf{Section 2.1} we now note that measuring the success of covariance matrix estimation using Frobenius risk does not incentivize positive-definiteness. In other words, there can exist estimators of $\bs{\Sigma}$ that have low Frobenius risk but which are not positive-definite. So the fact that vectorization works is in part a consequence of the risk function.
+
+  \item In \textbf{Section 2.2} we note that several existing shrinkage methods can already be interpreted as vectorized methods. The sample covariance matrix, the linear shrinkage method of Ledoit and Wolf (2004), and the adaptive thresholding method of Cai and Liu (2011). The adapative thresholding method is also not guaranteed to be positive-definite.
+
+  \item In \textbf{Section 4.4} we now study one possible reason why vectorization may work better than existing rotationally invariant procedures that shrink only eigenvalues but use sample eigenvectors in their estimators. Since sample eigenvectors can be poor estimators of population eigenvectors in high-dimensions, we hypothesized that our vectorized approach would be better in simulation settings where the sample and population eigenvectors were more different. This appears to be the case; \textbf{see Figure 3}.
+  \end{enumerate}
+
+  We agree that projecting our final estimator on to the space of positive-definite matrices is not warranted by the compound decision formalism. Indeed, our uncorrected estimator still works very well in our simulation settings, and furthermore the (uncorrected) oracle vectorized estimator can be dramatically better than the oracle rotationally invariant estimator; \textbf{see Figure 2}. Nevertheless, it does appear that in finite samples, positive-definiteness correction can improve performance. We mention in the \textbf{Discussion} that a non-separable class of estimators that can incorporate this constraint is worth exploring in the future.
+
+  In our new \textbf{Section 3.3} we have also clarified our EM updates and have added details about iimplementation.
+
+  In short, in our paper we explore a new perspective on covariance matrix estimation, a vectorization perspective founded on a compound decision theoretic interpretation of the Frobenius risk. We define a new class of estimators, derive the optimal vectorized estimator within this class, and estimate the optimal estimator using approaches from the compound decision literature. Finally, we argue that these estimators work well for covariance matrices whose sample and population eigenvectors are very different.
+  
+\item \emph{I agree with one of the referees that the title should be re-thought, since compound decision theory or compound decisions appear quite relevant to the approach, more than the empirical Bayes aspect of the paper.}
+
+  We have changed our title following your suggestions.
+
+\item \emph{on page 4, it appears to me that the choice of the risk function $\hat{R}$ does not correspond to the Frobenius risk. The rationale for choosing this risk function should be provided. It somehow appears the choice is dictated by Ledoit et al (2004) and Proposition 1, and not by independent first principles. If so, it should be explicitly stated before.}
+
+  We have clarified in \textbf{Section 2.2} that the choice $\hat{R}$ follows directly from first principles.
+  \begin{enumerate}
+  \item In (4) we restrict ourselves to the class of linear vectorized estimators of $\bs{\Sigma}$.
+    
+  \item In Proposition 1 we show that $\hat{R}$ is an asymptotically unbiased estimate of the Frobenius risk for any fixed $\bs{\Sigma}$ and any fixed linear estimator.
+
+  \item A natural procedure is to minimize the empirical risk $\hat{R}$ over the class of linear estimators.
+    
+  \item In Proposition 2 we show that the estimator obtained after empirical risk minimization is very closely related to the Ledoit and Wolf (2004) estimator.
+  \end{enumerate}
+
+\item \emph{Figures 1 and 2 do not allow to appreciate uncertainty. Perhaps a table would be better.}
+
+  We now give exact numerical results for all simulations in our \textbf{Supporting Information}.
+
+  
 \item \emph{The manuscript requires careful proofreading and improvements. in the structure of the presentation and the visualization of the results. Non-exhaustive examples are reported below:}
 
 \emph{- p.1 “To overcome these issues, various methods have been developed to estimate high-dimensional covariance matrix” $\to$ matrices}
 
-It has been fixed.
+This has been fixed.
 
 \emph{- p. 1 “about the structure of population covariance matrix” $\to$ of the population covariance matrix}
 
-It has been fixed.
+This has been fixed.
 
 \emph{- p. 2 “Other common structured methods assume that the covariance matrix is banding” $\to$ banded?}
 
-It has been edited to 'banded'.
+This has been edited to ``banded''.
 
 \emph{- p. 2 “yet can still outperform the sample covariance matrix” What does this mean?}
 
-It means that these unstructured model have been shown to have lower estimation risk comparing to sample covariance matrix. For example, in \cite{ledoit2004}, the numerical result shows that their linear shrinkage method has much lower risk than sample covariance matrix. To make it clear, we have changed to "yet still have less estimation error comparing to the sample covariance matrix". 
+It means that these unstructured model have been shown to have lower estimation risk comparing to sample covariance matrix. To make it clear, we have changed to ``yet still have less estimation error comparing to the sample covariance matrix''. 
 
 \emph{- p. 3 “is squared error loss”$\to$ is the squared error loss}
 
-It has been fixed.
+This has been fixed.
 
 \emph{- p. 4 “Now consider the problem of estimating the vectorized $\boldsymbol{\Sigma}$ under risk 1” $\to$ risk (1) Equations are typically referenced between brackets. The same issue appears in many other points where equations are referenced throughout the manuscript.}
 
-We used to use \textbackslash ref to reference equation, we have changed it to \textbackslash eqref so that they are referenced between brackets.
+This has been fixed.
 
 \emph{- p. 8 “A major advantage of nonparametric estiation of the prior”$\to$ estimation}
 
-It has been fixed.
+This has been fixed.
 
 \emph{- page 8, “Figure 1 shows that different $K$ have similar estimation accuracy compared to the exemplar algorithm, while Table 1 shows that they can be significantly faster” However, at this point Figure 1 refers to models that have not yet been presented. Also, the reference to Table 1 anticipates point made in Section 3.2}
 
-We have moved the setting of the experiment to the start of Section 3 Numerical Results. 
+This has been fixed.
 
 \emph{- p. 16 “Finally, we have so far assumed that our data multivariate normal” $\to$ are normal}
 
-It has been fixed.
+This has been fixed.
 
 \emph{- In Equations (1) and (2) the arguments of the risk functions are $\theta$ and $\delta$. However, on page 5 the arguments of $\hat{R}$ are $\beta_{S}$, and $\beta_{I}$.}
 
-We have changed the notation $\hat{R}$ to $\text{RE}$ which means risk estimator and this differentiates it from $R$. 
+We now use $\hat{R}_L$ to denote the risk estimate for the class of linear decision rules. We also make the distinction between $\hat{R}_L$ and $R$ more explicit in \textbf{Proposition 1}.
 \end{enumerate}
 
-\section{Comments to Referee1}
-Thank you so much for the detailed and inspiring suggestions on our paper. We learnt a lot through them. We agree with your comments and address them in the updated draft version. Please find the following responses for more details.
+\section{Response to Referee 1}
 
-\subsection{Comments to section "CorShrink"}
-After carefully reviewed \cite{dey2018}, we think it is very related to our paper and it is valuable to make the comparison.
+Thank you for your positive comments, and your careful reading and extremely helpful suggestions. We respond to them below.
 
-As mentioned in Section 1, our method is quite similar to \cite{dey2018}. Both of us used empirical Bayes estimator and nonparametric estimation of prior distribution. The difference is that our method aim to estimate covariance matrix which requires to also shrink standard deviations.
+\subsection{Response to referee section ``CorShrink''}
 
-We also compared our two methods by numerical experiments which are shown in supporting information. We designed two simulations to compare the performance on correlation matrix estimation and covariance matrix estimation. In the first simulation, we compare covariance matrix estimation. For corShrink, $\widehat{\bs{\Sigma}} = \text{diag}(\widehat{SD}) \widehat{\bs{R}} \text{diag}(\widehat{SD})$, where $\widehat{SD}$ are sample standard deviations. In the second simulation, $\bs{\widehat{R}} = \text{diag}(1/\widehat{SD})\widehat{\bs{\Sigma}}\text{diag}(1/\widehat{SD})$, where $\widehat{SD}$ are standard deviations derived from $\widehat{\bs{\Sigma}}$. For each setting, we take $n$ as 20 and 100. 
+Thank you so much for bringing our attention to Dey and Stephens (2018). It is indeed extremely closely related to our work. We now discuss connections to their work in several places.
 
-\subsection{Comments to section "Separable rules, symmetry and the diagonal"}
-\begin{equation}\label{R1}
-\widehat{\Sigma} = (\widehat{\sigma}_{jk})_{1\leq j,k\leq p},\quad \widehat{\sigma}_{jk} = t(X_{\cdot,j}, X_{\cdot,k}), \quad t:\bb{R}^n\times \bb{R}^n\to \bb{R}
-\end{equation}
 \begin{enumerate}
-\item \emph{While reading the paper I was a bit confused by the fact that (R1) treats diagonal entries and off-diagonal in the same way. It would feel more natural to me to define a separable estimator as in (R1) for $j\neq k$, and as follows on the diagonal:}
-$$\hat{\sigma}_{jj} = \tilde{t}(X_{\cdot j}),\quad \tilde{t}:\bb{R}^n \to \bb{R}$$
-We have changed the rule to 
-\begin{equation}
-  \label{separable}
+\item In the last paragraphs of \textbf{Section 3.2} we note that the main difference between our approaches is that Dey and Stephens (2018) do not shrink the variances while we do, as our $\hat{t}_d$ estimates $\sigma_j$ using its supposed posterior expectation assuming a prior distribution of $\hat{G}_d$. Furthermore, our Proposition \ref{prop:bayes risk} shows that our shrinkage approach can be interpreted as viewing the triples $(\sigma_j, \sigma_k, r_{jk})$ as if they were drawn from the trivariate prior $G_{od}$, which allows for possible dependencies between $r_{jk}$ and the $\sigma_j$. For example, model 2 in our simulations in Section \ref{numerical results} considers a covariance matrix where entries with larger standard deviations also tend to have larger correlations. In contrast to the method of Dey and Stephens (2018), our approach can learn this structure if it exists and take advantage of it for more accurate estimation. We demonstrate this in Model 2 in our simulations.
+
+\item We have added CorShrink to our simulation studies for estimating both covariance matrices (\textbf{Figure \ref{fig:sim1_frobenius}}) and correlation matrices (\textbf{Table 3 in the Supporting Information}). We found that for estimating covariance matrices, our approach could outperform CorShrink in many cases, likely because it was able to accurately shrink the standard deviations. In the \textbf{Supporting Information} we also compare MSG and MSGCor to CorShrink for estimating correlation instead of covariance matrices. We find that in that case, CorShrink performs slightly better than MSG and MSGCor except in our Model 2, likely because the additional flexibility that our method trades off lower bias for higher variance.
+  
+\end{enumerate}
+
+\subsection{Response to referee section ``Separable rules, symmetry and the diagonal''}
+
+\begin{enumerate}
+\item \emph{While reading the paper I was a bit confused by the fact that (R1) treats diagonal entries and off-diagonal in the same way. It would feel more natural to me to define a separable estimator as in (R1) for $j\neq k$ \ldots In the Multivariate Gaussian case this is not an issue, since $X_{\cdot j}\neq X_{\cdot k}$ for $j\neq k$ with probability 1. But the proposed approach would also apply with minor modifications to e.g., discrete measurements (with known likelihood) in which case $X_{\cdot j}\neq X_{\cdot k}$ could happen with non-zero probability. Furthermore, while this issue is ignored for most of the paper, diagonal and off-diagonal entries are treated in a different way at the end of Section 2.3 (in the context of the clustering based algorithm). I believe it would be valuable to make the above distinction more explicit!}
+
+  Thank you for this excellent suggestion. We completely agree and have now redefined our class of separable estimators to be
+  \[
   \mathcal{S} = \{\bs{\delta} : \delta_{kj} = \delta_{jk} = t(\bs{X}_{\cdot j}, \bs{X}_{\cdot k}),\, 1\leq k<j\leq p,\quad 
    \delta_{jj} = \widetilde{t}(\bs{X}_{\cdot j}),\,j=1,\ldots,p)\},
-\end{equation}
-\emph{In the Multivariate Gaussian case this is not an issue, since $X_{\cdot j}\neq X_{\cdot k}$ for $j\neq k$ with probability 1. But the proposed approach would also apply with minor modifications to e.g., discrete measurements (with known likelihood) in which case $X_{\cdot j}\neq X_{\cdot k}$ could happen with non-zero probability.} \\
-We agree that it is not very precise to use $I(\bs{X}_{\cdot j}=\bs{X}_{\cdot k})$ to differentiate on-diagonal entries and off-diagonal entries. So we changed separable rule to the above class of rules.
+ \]
+ so that the on- and off-diagonal entries are treated separately. In \textbf{Section \ref{sec:class}} we derive the optimal estimator in this class. This estimator turns out to be the same as the estimator we actually implemented in our previous draft, but redefining $\mathcal{S}$ makes this much more rigorous.
 
-\emph{Furthermore, while this issue is ignored for most of the paper, diagonal and off-diagonal entries are treated in a different way at the end of Section 2.3 (in the context of the clustering based algorithm). I believe it would be valuable to make the above distinction more explicit!}
-\item \emph{A related question I had concerns the symmetry of the estimator. Does the estimator satisfy the symmetry property $\hat{\sigma}_{jk} =\hat{\sigma}_{kj}$? } 
+\item \emph{A related question I had concerns the symmetry of the estimator. Does the estimator satisfy the symmetry property $\hat{\sigma}_{jk} =\hat{\sigma}_{kj}$? Similarly, the reader may wonder whether the estimation procedure enforces symmetry in the prior $G$ in (6) with respect to $\sigma_j,\sigma_k$.}
 
-Yes, we only calculate estimates of lower triangular matrix of $\Sigma$, i.e., $\hat{\sigma}_{jk}$ where $j\geq k$. Then the upper triangular matrix estimation is calculated by the symmetry of covariance matrix $\sigma_{kj} = \sigma_{jk}$. Correspondingly, we should fix the Bayesian model in Section2.2 from
-\begin{equation}
-  \label{bayesian}
-  \bs{A} \mid \bs{\eta} \sim f(\cdot \mid \bs{\eta}),
-  \quad
-  \bs{\eta} \sim G_p(a,b, \gamma) =  \frac{1}{p^2} \sum_{j,k=1}^p I(\sigma_j \leq a, \sigma_k \leq b, r_{jk} \leq \gamma).
-\end{equation}
-to 
-\begin{equation}
-  \label{bayesian nondigaonal}
- (\bs{X}_{\cdot j},\bs{X}_{\cdot k})\mid \bs{\eta} \sim f(\cdot \mid \bs{\eta}),
-  \quad
-  \bs{\eta} \sim G_{nd}(a,b, \gamma) =  \frac{2}{p(p-1)} \sum_{1\leq k< j \leq p} I(\sigma_j \leq a, \sigma_k \leq b, r_{jk} \leq \gamma).
-\end{equation}
-and
-\begin{equation}
-  \label{bayesian nondigaonal}
-  \bs{X}_{\cdot j} \mid a \sim \widetilde{f}(\cdot \mid a),
-  \quad
-  a \sim G_{d}(a) =  \frac{1}{p} \sum_{j=1}^p I(\sigma_j \leq a).
-\end{equation}
-, as well as the proposed estimator from
-\begin{equation}
-  \label{Gp hat}
-  \widehat{G}_p = \argmax_{G \in \mathcal{G}} \prod_{j,k = 1}^p \int f(\bs{A}_{jk} \mid \bs{\eta}) dG(\bs{\eta}),
-\end{equation}
-to
-\begin{equation}
-  \label{Gp hat revision}
-  \widehat{G}_{nd} = \argmax_{G_{nd} \in \mathcal{G}} \prod_{1\leq k< j \leq p} \int f(\bs{X}_{\cdot j},\bs{X}_{\cdot k} \mid \bs{\eta}) dG_{nd}(\bs{\eta})\prod_{j=1}^p \int \widetilde{f}(\bs{X}_{\cdot j} \mid a) dG_{d}(a),
-\end{equation}
-\emph{Similarly, the reader may wonder whether the estimation procedure enforces symmetry in the prior $G$ in (6) with respect to $\sigma_j,\sigma_k$.} 
-
-In correspondence, we modified our sample exemplar algorithm, we first clusters sample points $(s_j,s_k, r_{jk})$ of lower triangular part of sample covariance matrix and get the $K$ centroids $(a,b,\gamma)$, then find their symmetric points $(b,a,\gamma)$. We also updated EM algorithm to guarantee each $(a,b,\gamma)$ and $(b,a,\gamma)$ has the same weight. 
+  In our new implementation we now explicitly enforce symmetry. We construct the support points of our estimated discrete prior to be symmetric and we also force the estimated masses at these points to be symmetric as well. See \textbf{Section \ref{implementation}} for details.
+  
 \item \emph{The paper emphasizes the Multivariate Gaussian problem. In that case, the sample covariance is sufficient, and so, it would seem more natural to me to define a separable rule, as one that satisfies,
 $$\hat{\sigma}_{jk} = \bar{t}(X_{\cdot j}^TX_{\cdot k}),\quad \bar{t}: \bb{R}\to \bb{R}_{+}$$
 instead of (R1). I am wondering why the authors chose to use (R1) instead.}
 
-$X_{\cdot j}^TX_{\cdot k}$ is sufficient statistics of the single entry $\sigma_{jk}$. In fact, for $(\bs{X}_{\cdot,j}, \bs{X}_{\cdot,k})$, the sufficient statistics for $\eta$ is $\bs{S}_{jk} = \begin{pmatrix} s_{jj}&s_{jk} \\  s_{kj}&s_{kk} \end{pmatrix}$. We also tried density based on single entries $s_{jk}$ before but the performance is not as good as using $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$.
+We chose our definition of a separable estimator because it is more general than $\bar{t}(\bs{X}_{\cdot j}^\top \bs{X}_{\cdot k})$. We actually initially tried this class of estimators but found that its performance was worse than the estimators we proposed in the manuscript. Intuitively, the reason is that the statistic $X_{\cdot j}^\top X_{\cdot j}$ is not sufficient for the parameter $\sigma_{jk}$.
+
 \item \emph{If I understand correctly, one of the benefits of estimator (3) is that it works without specific assumptions on the noise distribution. Instead the approach here appears to more heavily rely on a known likelihood (and specifically a multivariate Gaussian likelihood). It would be great if some simulations could be conducted under misspecification, wherein the data is not multivariate Gaussian, but the approach is applied assuming multivariate Gaussian data.}
 
-This is a good point. To measure the performance of our method on nonGaussian distribution, we did some simulations on negative binomial distribution. We first generate independent distributed $Y$ and then let $X = L Y$, where L is the Cholesky decomposition of $\Sigma$. The simulation results are presented in supporting information.
+  We now study the performance of our proposed method when the multivariate Gaussian assumption is violated. \textbf{Tables 4 and 5 in the Supporting Information} show that our procedures can still provide relatively accurate estimates for uniform or negative binomial data.
+  
 \end{enumerate}
 
-\subsection{Comments to section "Compound decision theory or empirical Bayes?"}
+\subsection{Response to referee section ``Compound decision theory or empirical Bayes?''}
 \begin{enumerate}
 \item \emph{The result following equation (6) could be presented separately as a Theorem (or Proposition). It should be highlighted that part of the statement is that the estimator in (R1) that optimizes (R2) depends on all the $\sigma_{j}$ and $\rho_{jk}$.}
- 
-We rewrote the equation after (6) as a separate proposition to show the equivalence between the Frobenius risk and Bayes risk.
-\item \emph{The term “compound decision theory” or “compound decisions” etc. deserves to be in the title!}
 
-Yes, we agree that "compound decision" is more deserved to be highlighted in the paper so we replaced "nonparametric empirical Bayes" with "compound decision" in the title.
-\item \emph{On the other hand, I would downemphasize the empirical Bayes aspect of the paper (and my preference would be to even remove it from the title). To me, an empirical Bayes analysis (especially since here the goal is to perform well, in a frequentist sense, in terms of (R2)) has the following flavor: “Let us mimic what a Bayesian would do, when we do not know the true prior, and in a way that we can get frequentist guarantees as well”. However, I do not think a Bayesian would start approaching this problem by first positing (6) and then using (8)2. Instead a more natural Bayesian approach would be to set a prior for the full covariance matrix $\Sigma$, e.g., as in Berger et al. [2020] and references therein. I would restrict the discussion of empirical Bayes to just saying that model (6) appears formally when optimizing over separable rules (R1). To approximate the unknown optimal rule, one follows an empirical Bayesian “Generalized Maximum Likelihood” approach with respect to the pairwise composite likelihood.3}
+  We have followed your suggestion and added \textbf{Proposition \ref{prop:bayes risk}} along with a discussion after it highlighting the fact that the optimal estimator depends on all the $\sigma_{j}$ and $\rho_{jk}$.
+  
+\item \emph{The term ``compound decision theory'' or ``compound decisions'' etc. deserves to be in the title!}
+
+  Thank you for the suggestion! We have revised the title accordingly.
+  
+\item \emph{On the other hand, I would downemphasize the empirical Bayes aspect of the paper (and my preference would be to even remove it from the title). To me, an empirical Bayes analysis (especially since here the goal is to perform well, in a frequentist sense, in terms of (R2)) has the following flavor: ``Let us mimic what a Bayesian would do, when we do not know the true prior, and in a way that we can get frequentist guarantees as well''. However, I do not think a Bayesian would start approaching this problem by first positing (6) and then using (8)2. Instead a more natural Bayesian approach would be to set a prior for the full covariance matrix $\Sigma$, e.g., as in Berger et al. [2020] and references therein. I would restrict the discussion of empirical Bayes to just saying that model (6) appears formally when optimizing over separable rules (R1). To approximate the unknown optimal rule, one follows an empirical Bayesian ``Generalized Maximum Likelihood'' approach with respect to the pairwise composite likelihood.}
+
+  This is an excellent point and we have done exactly as you suggested. We now only refer to empirical Bayes ideas as a method of estimating the optimal compound decision rule.
+  
 \end{enumerate}
 
-\subsection{comments to section "other remarks"}
+\subsection{Response to section ``Other remarks''}
 \begin{enumerate}
 \item \emph{It would be of great service to the community if the authors could provide code implementing the method and reproducing the results!}
 
-We put our code of methods and simulation in supporting information.
+  We now note at the \textbf{end of the Introduction} that our code is available on Github and give the link.
+  
 \item \emph{Related to the above point, based on the description in the manuscript it would not be possible for me to fully reproduce the results. For example, does the actual implementation use the EM algorithm or an interior point convex solver? If the EM algorithm is used, how many steps are taken or what is the termination criterion? And why is the EM algorithm used (since for these empirical Bayes problem it typically converges extremely slowly compared to interior point solvers, as carefully demonstrated by Koenker and Mizera [2014])? On the other hand, if an interior point solver is used, which one?}
 
-In our implementation, we used EM algorithm to estimate the prior distribution. We added the related details to Section 3 Numerical Results. The maximum number of iterations is set as 200. Iteration early stops when the criterion $\frac{L(\bs{w}^{(k+1)}) - L(\bs{w}^{(k)})}{L(\bs{w}^{(k)})}\leq 10^{-4}$ is met. We also tried interior point, but it always failed to find the optimal solution. The possible reason is the density $f(\cdot|a,b,\gamma)$ has very different scales, from $10^{-22}$ to $2$ and this makes interior point method difficult to solve.
-\item \emph{First paragraph of page 3, “they modify only the sample eigenvalues and not the sample eigenvectors”: The situation here is a bit more nuanced, since e.g., sometimes using the sample eigenvectors is provably the optimal thing to do (e.g., if one constrains themselves to rotationally invariant estimators as in Bun et al. [2016] and references therein)}
+  We have revised our description of our implementation in \textbf{Section \ref{implementation}} to make our EM algorithm more clear. We aso note that instead of EM, we attempted to maximize the composite likelihood \eqref{Gnd hat} using the interior point solver MOSEK, as advocated by Koenker and Mizera (2014), but ran into computational difficulties because for even moderate sample sizes $n$, the values of the likelihoods we needed to calculate could be extremely small at certain support points. These small values caused problems for the R wrapper for MOSEK. Our implementation of the EM algorithm was more robust to these small density values.
+  
+\item \emph{First paragraph of page 3, ``they modify only the sample eigenvalues and not the sample eigenvectors'': The situation here is a bit more nuanced, since e.g., sometimes using the sample eigenvectors is provably the optimal thing to do (e.g., if one constrains themselves to rotationally invariant estimators as in Bun et al. [2016] and references therein)}
 
-The sentence "However, they modify only the sample eigenvalues and not the sample eigenvectors." is not very appropriate so we changed it to "However, as rotation-equivariant estimators (Stein, 1975, 1986), shrinkage estimators modify only the sample eigenvalues and keep the sample eigenvectors.".
-\item \emph{Page 5, “it is straightforward to show that”: The “straightforward” could be replaced by a short proof in the appendix.}
+  Thank you for this reference. We now explicitly distinguish our proposed method from rotationally invariant ones and note in our \textbf{Introduction} that while rotationally invariate estimators perform extremely well, Bun et al. (2016) showed that the eigenvectors of any rotationally invariant estimate must be the same as those of the sample covariance matrix. This can be problematic because sample eigenvectors are not consistent when the dimension and the sample size increase at the same rate  (Mestre, 2008). This suggests that unstructured but non-rotationally invariant covariance matrix estimators may be worth exploring, as these can modify both the sample eigenvectors as well as the eigenvalues. Our contribution is to propose and study one such class of non-rotationally invariant estimators.
 
-We added the proof in the appendix.
+  Incidentally, our new simulations in \textbf{Figure \ref{fig:eigenvectors}} suggest that the simulation settings where our estimators can outperform existing methods are exactly those where the sample and population eigenvectors differ most.
+  
+\item \emph{Page 5, ``it is straightforward to show that'': The ``straightforward'' could be replaced by a short proof in the appendix.}
 
-\emph{Also could it be that the risk estimate is not exactly unbiased (because of dividing by $n$ and not $n-1$ in the definition of $\hat{\Delta}_{jk}^2$)?}
-You're right. We realized that the previous defined $\hat{\Delta}_{jk}^2$ is not unbiased estimator of Frobenius risk of $\bs{\delta}$ (1). So we changed the text to describe it as an "approximately unbiased risk estimator" since the factor $\frac{n-1}{n}$ is closed to 1. It is also shown in appendix B.
+  We have rewritten this as \textbf{Proposition \ref{prop:Rhat}} and have added a proof to the Supporting Information.
+  
+\item \emph{Also could it be that the risk estimate is not exactly unbiased (because of dividing by $n$ and not $n-1$ in the definition of $\hat{\Delta}_{jk}^2$)?}
 
-\emph{Where is the sample covariance $\bs{S}$ defined?}
+  You are absolutely right, thank you for catching this. We have changed our text to mention that the risk estimate is only asymptotically unbaised, and we show this in the Supporting Information.
+  
+\item \emph{Where is the sample covariance $\bs{S}$ defined?}
 
-In the updated manuscript, $\bs{S}$ is defined as $\bs{S} = \frac{1}{n}\bs{X}^\top \bs{X}$ as it is first mentioned in page 4, section 2.1.
+  We now define $\bs{S}$ in the first paragraph of \textbf{Section \ref{sec:connections}}.
 
-\item \emph{Section 2.5, “Projections in terms of other matrix norms are also possible”. Is this actually being done in the implementation?}
+\item \emph{Section 2.5, ``Projections in terms of other matrix norms are also possible''. Is this actually being done in the implementation?}
 
-No. We did not implement it in terms of other norms.
+  We did not implement this and so have removed this comment from the manuscript.
 
-\emph{Else perhaps remove this sentence.}
+\item \emph{Else perhaps remove this sentence.}
 
-It has been removed.
+This has been removed.
+
 \end{enumerate}
-\section{Comments to Referee2}
+
+\section{Response to Referee 2}
+
+Thank you for your positive comments. We respond to them below.
+
 \begin{enumerate}
-\item \emph{In the numerical experiments and the real data analysis, what was the size of the grid that was used? I may have missed it but I did not see it mentioned in the caption for figure 2.}\\
-In section 3.3, methods compared and section 3.4, data analysis, we used clustering-based exemplar algorithm, where we find $K$ clusters of all off-diagonal sample points. $K$ is set to be $p$ to balance accuracy and speed according to result of section 3.2.
-\item \emph{In the numerical experiments, the dimension p goes as far as 200. I believe it will be useful to consider a setting where $n = 100$ and $p = 1000$.} \\
-We did the simulation for $n=100$ and $p=1000$ using the different covariance matrix models in Section 3.1. Please see the supporting information for the simulation results.  
-\item \emph{Continuing on the numerical experiments, models 1 to 5 impose various structures on $\bs{\Sigma}$. It will be interesting to see the performance of the proposed method if a spiked covariance structure is imposed on $\bs{\Sigma}$.} \\
-We added the spiked model as the sixth matrix models in Section 3.1. Spiked covariance matrix is generated by $\Sigma = \bs{U}\text{diag}(\bs{l})\bs{U}^\top$, where $\bs{U}$ is a randomly generated orthogonal unit matrix, $\bs{l} = \{4,3,2,1,\ldots,1\}$.
-\item \emph{Typo on page 6: "The density of $f(\cdot \mid \bs{\eta}_{jk})$ of ...".}\\
-Thanks for poiting this out. We've fixed this sentence as "$f(\cdot \mid \bs{\eta}_{jk})$, the density of $\bs{A}_{jk}$, depends on $\bs{\eta}_{jk} = (\sigma_j, \sigma_k, r_{jk})^\top$, ...".
-\end{enumerate}
-\begin{thebibliography}{9}
-\bibitem{dey2018}
-Dey, K. K., \& Stephens, M. (2018). CorShrink: Empirical Bayes shrinkage estimation of correlations, with applications. bioRxiv, 368316.
-\bibitem{ledoit2004}
-Ledoit, O., \& Wolf, M. (2004). A well-conditioned estimator for large-dimensional covariance matrices. Journal of multivariate analysis, 88(2), 365-411.
+\item \emph{In the numerical experiments and the real data analysis, what was the size of the grid that was used? I may have missed it but I did not see it mentioned in the caption for figure 2.}
 
-\end{thebibliography}
+  We have now added a separate \textbf{Section \ref{optimalK}} that specifies the choice of grid size for our proposed method.
+  
+\item \emph{In the numerical experiments, the dimension p goes as far as 200. I believe it will be useful to consider a setting where $n = 100$ and $p = 1000$.}
+
+  We have added a simulation with $p = 1000$ in the \textbf{Supporting Information} and in \textbf{Section \ref{sec:accuracies}} note that while our methods perform well in our Models 1 through 4, other methods are better in Models 5 and 6 for large $p$. This is likely due to the fact that our class of estimators may not be be optimal in these settings because the population eigenvectors in these models appear relatively easy to estimate; \textbf{see the last paragraph of Section \ref{sec:accuracies} for details}.
+
+  
+\item \emph{Continuing on the numerical experiments, models 1 to 5 impose various structures on $\bs{\Sigma}$. It will be interesting to see the performance of the proposed method if a spiked covariance structure is imposed on $\bs{\Sigma}$.}
+
+  We have added a spiked covariance matrix as model 6 in our new simulations. As mentioned in our response above, we found that models 5 and 6 constitute settings where our methods may not work as well as existing approaches.
+  
+\item \emph{Typo on page 6: "The density of $f(\cdot \mid \bs{\eta}_{jk})$ of ...".}
+
+  This has been fixed.
+\end{enumerate}
+
 \end{document}
 %%% Local Variables:
 %%% mode: latex

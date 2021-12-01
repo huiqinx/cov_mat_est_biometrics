@@ -1,12 +1,12 @@
 \begin{table}
 \begin{center}
-\caption{\label{tab:sim1_time} Average running time for different ratios.}
+\caption{\label{tab:sim1_time} Average running time of MSGCor under Model 1 for different $K$.}
 %\setlength{\tabcolsep}{3pt} % Default value: 6pt
-\begin{tabular}{lrrr}
+\begin{tabular}{rrrr}
 \Hline
             & p=30 & p=100 & p=200 \\
 \hline
-Exemplar method   & 0.1357          & 6.0338        & 91.8942       \\
+Full example method   & 0.1357          & 6.0338        & 91.8942       \\
 $K=2p$       & 0.0539       & 1.1883    & 10.7687         \\
 $K=p$            & 0.0357         & 0.7852         & 7.0807         \\
 $K=p/2$         & 0.0222        & 0.5231         & 4.6736         \\
@@ -19,21 +19,20 @@ $K=p/4$      & 0.0158         &0.3694          & 3.2749         \\
  
 \begin{table}
 \begin{center}
-\caption{\label{tab:tab1} Average gene expression covariance matrix estimation errors. Bold entries highlight the smallest errors in each column.}
+\caption{\label{tab:tab1}Median gene expression covariance matrix estimation errors (25\% and 75\% quantiles in parentheses). Bold text highlights the smallest median errors in each column.}
 %\setlength{\tabcolsep}{3pt} % Default value: 6pt
-\begin{tabular}{lrrr}
-\Hline
-            & Frobenius & Spectral & Matrix $\ell_1$ \\
-\hline
-MSG   & 24.13 (2.54)         & 13.14(2.96)         & 46.53(8.49)         \\
-MSGCor & \textbf{24.04(2.56)} & \textbf{13.12(2.94)}& \textbf{46.00(8.67)}         \\
-Adap        & 28.93(2.03)          & 17.54(3.85)         & 49.66(8.47)         \\
-Linear      & 24.49(2.53)         & 13.65(3.14)         & 49.46(9.04)         \\
-QIS         & 28.76(2.79)          & 16.09(3.35)         & 58.73(9.74)         \\
-NERCOME     & 24.52(2.52)          & 13.19(3.07)         & 48.27(9.67)         \\
-Sample      & 28.43(2.54)          & 16.21(3.15)         & 56.08(9.89)         \\
-\hline
-
+\begin{tabular}{rll}
+  \Hline
+  Brain region & Amygdala & Frontal cortex \\
+  \hline
+  MSGCor & \textbf{2.26 (1.98, 2.57)} & \textbf{2.3 (2.15, 2.55)} \\
+  Adap & 2.6 (2.18, 2.97) & 2.44 (2.18, 2.71) \\
+  Linear & 2.3 (2.05, 2.55) & 2.35 (2.19, 2.53)\\
+  QIS & 2.61 (2.33, 2.86) & 2.79 (2.64, 2.93)\\
+  NERCOME & 2.37 (2.14, 2.62) & \textbf{2.3 (2.14, 2.53)}\\
+  CorShrink & \textbf{2.26 (2, 2.56)} & 2.36 (2.2, 2.56)\\
+  Sample & 2.61 (2.33, 2.85) & 2.79 (2.64, 2.95)\\
+  \hline
 \end{tabular}
 \end{center}
 \end{table}

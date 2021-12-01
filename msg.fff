@@ -1,8 +1,8 @@
 \begin{figure}
 \begin{center}
-\centerline{\includegraphics[width=0.85\textwidth]{img/sim1_frobenius.pdf} }
+\centerline{\includegraphics[width=0.85\textwidth]{img/sim1_frobenius.pdf}}
 \end{center}
-\caption{Median Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 6, respectively.}
+\caption{Median Frobenius norm errors over 200 replications for our proposed MSGCor. Exact numerical results and interquartile ranges are provided in the Supporting Information. Sparse: Model 1; Hypercorrelated: Model 2; Dense-0.7: Model 3; Dense-0.9: Model 4; Orthogonal: Model 5; Spiked: Model 6.}
 \label{fig:sim1_frobenius}
 \end{figure}
 \efloatseparator
@@ -11,24 +11,33 @@
 \begin{center}
 \centerline{  \includegraphics[width=0.85\textwidth]{img/sim2_frobenius.pdf}}
 \end{center}
-\caption{Median Frobenius norm errors over 200 replications. The Sparse, Block, Dense, Dense2, Orth and Spiked panels correspond to Models 1 through 6, respectively. In MSG, $K$-means clustering is applied with $K=p$}
+\caption{Median Frobenius norm errors over 200 replications. Exact numerical results and interquartile ranges are provided in the Supporting Information. MSG and MSGCor were implemented with $K = p$. Sparse: Model 1; Hypercorrelated: Model 2; Dense-0.7: Model 3; Dense-0.9: Model 4; Orthogonal: Model 5; Spiked: Model 6.}
 \label{fig:sim2_frobenius}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
 \begin{center}
-\centerline{ \includegraphics[width=0.85\textwidth]{img/network.pdf}}
+\centerline{  \includegraphics[width=0.95\textwidth]{img/eigenvectors.png}}
 \end{center}
-\caption{Gene networks recovered by the different covariance matrix estimation methods.}
-\label{network}
+\caption{Estimation errors of sample eigenvectors over 200 replications. Sparse: Model 1; Hypercorrelated: Model 2; Dense-0.7: Model 3; Dense-0.9: Model 4; Orthogonal: Model 5; Spiked: Model 6.}
+\label{fig:eigenvectors}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\begin{center}
-\centerline{\includegraphics[width=0.85\textwidth]{img/top20.pdf}}
-\end{center}
-\caption{Similarities of gene degrees between the estimated networks. Each number reports the Jaccard index between the top 20\% most connected genes of each pair of networks.}
-\label{top20}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{img/networks_A.png}
+  \end{center}
+\caption{Amygdala gene networks recovered by the different covariance matrix estimation methods.}
+\label{network_A}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{img/networks_FC.png}
+  \end{center}
+\caption{Frontal cortex gene networks recovered by the different covariance matrix estimation methods.}
+\label{network_FC}
 \end{figure}
