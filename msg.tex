@@ -128,7 +128,7 @@ for some parameters $\beta_S$ and $\beta_I$, where $s_{jk}$ is the $jk$th entry 
   \[
     \lim_{n \rightarrow 0} \{ \bb{E} \hat{R}_L(\beta_S, \beta_I) - R(\bs{\Sigma}, \bs{\delta}) \} = 0
   \]
-  for the class of decision rules $\bs{\delta}$ defined in \eqref{linear class}.
+  for the class of decision rules $\bs{\delta}$ defined in \eqref{linear class}. $\Vert \cdot \Vert_F$ denotes the Frobenius norm $\Vert \bs{A} \Vert_F^2=\sum_{j,k=1}^p A_{jk}^2$.
 \end{prop}
 The condition on $\bb{E} \Vert \bs{S} - \bs{\Sigma} \Vert_F^2$ requires that the variances of the entries of $\bs{S}$ do not grow too quickly as $n$ grows. It is also required by \citet{ledoit2004well} and is implied by their Lemma 3.1.
 
@@ -137,7 +137,7 @@ Proposition \ref{prop:Rhat} shows that $\hat{R}_L(\beta_S, \beta_I)$ \eqref{eq:R
 \label{eq:lw}
 \hat{\bs{\Sigma}}_{\text{LW}} = \left(1 - \frac{b_n^2}{d_n^2}\right) \bs{S} + \frac{b_n^2}{d_n^2}\hat{\mu} \bs{I},
 \end{equation} 
-where $\hat{\mu} = \text{tr}(\bs{S})/p$, $d_n^2=\Vert\bs{S}-\hat{\mu} \bs{I} \Vert_F^2$, $b_n^2 = \min(d_n^2, \sum_{i=1}^n \Vert \bs{X}_i \bs{X}_i^\top - \bs{S} \Vert_F^2 / n^2)$, and $\Vert \cdot \Vert_F$ denotes the Frobenius norm.
+where $\hat{\mu} = \text{tr}(\bs{S})/p$, $d_n^2=\Vert\bs{S}-\hat{\mu} \bs{I} \Vert_F^2$, $b_n^2 = \min(d_n^2, \sum_{i=1}^n \Vert \bs{X}_i \bs{X}_i^\top - \bs{S} \Vert_F^2 / n^2)$.
 
 \begin{prop}
 \label{prop:linear}
@@ -289,16 +289,16 @@ Our proposed estimator \eqref{proposed} is not guaranteed to be positive-definit
 \[
 P_0(\bs{B})
 =
-\argmin_{\bs{A}\geq 0} \Vert\bs{A}-\bs{B}\Vert
+\argmin_{\bs{A}\geq 0} \Vert\bs{A}-\bs{B}\Vert_F
 =
 \bs{Q}\text{diag}\{\max(\lambda_1,0),\max(\lambda_2,0),\ldots,\max(\lambda_p,0)\}\bs{Q}^\top,
 \]
-where $\Vert \cdot \Vert$ denotes the Frobenius norm, $\bs{Q}$ is the matrix of eigenvectors of $\bs{B}$, and $\lambda_1,\ldots,\lambda_p$ are its eigenvalues. 
+where $\bs{Q}$ is the matrix of eigenvectors of $\bs{B}$, and $\lambda_1,\ldots,\lambda_p$ are its eigenvalues. 
 
 To guarantee positive-definiteness, we follow \citet{huang2017calibration} and replace non-positive eigenvalues with a chosen positive value $c$ smaller than the least positive eigenvalue $\lambda_{\min}^+$, so that the corrected estimate is
 \begin{equation}
   \label{near posdef}
-  P_0(\bs{B})
+  P_c(\bs{B})
   =
   \bs{Q}\text{diag}\{\max(\lambda_1,c),\max(\lambda_2,c),\ldots,\max(\lambda_p,c)\}\bs{Q}^\top.
 \end{equation}
@@ -479,7 +479,7 @@ The class of separable covariance matrix estimators \eqref{separable} that we ex
 
 Providing theoretical guarantees for our estimator is difficult. In the standard mean vector estimation problem with $Y_i \sim N(\theta_i, 1)$, \citet{jiang2009general} showed that an empirical Bayes estimator based on a nonparametric maximum likelihood estimate of the prior on the $\theta_i$ can indeed asymptotically achieve the same risk as the oracle optimal separable estimator. However, this was in a simple model with a univariate prior distribution. \citet{saha2020nonparametric} extended these results to multivariate $\bs{Y}_i \sim N(\bs{\theta}_i, \bs{\Sigma}_i)$ with a multivariate prior on the $\bs{\theta}_i$, but assumed that the $\bs{Y}_i$ were independent. In contrast, our covariance matrix estimator is built from arbitrarily dependent $(\bs{X}_{\cdot j},\bs{X}_{\cdot k})$. These imposes significant theoretical difficulties that will require substantial work to address; we leave this for future research.
 
-Finally, we have so far assumed that our data are multivariate normal, though simulations in the Supporting Information suggest that our procedures can still provide relatively accurate estimates when the normality assumption is violated. To extend our procedure to non-normal data belonging to a parametric family, we can simply modify the density function $f(\cdot \mid \bs{\eta})$ in the nonparametric maximum compositive likelihood problem \eqref{Gnd hat} and in our proposed estimator \eqref{proposed}. If $f$ is unknown or difficult to specify, alternative procedures may be necessary to approximate the optimal separable rule.
+Finally, we have so far assumed that our data are multivariate normal, though simulations in the Supporting Information suggest that our procedures can still provide relatively accurate estimates when the normality assumption is violated. To extend our procedure to non-normal data belonging to a parametric family, we can simply modify the density function $f_1$ and $f_2$ in the nonparametric maximum compositive likelihood problem \eqref{Gnd hat} and in our proposed estimator \eqref{proposed}. If $f_1$ and $f_2$ are unknown or difficult to specify, alternative procedures may be necessary to approximate the optimal separable rule.
 
 \backmatter
 
