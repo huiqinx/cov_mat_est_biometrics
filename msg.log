@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 DEC 2021 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 DEC 2021 23:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,7 +608,7 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 Here is how much of TeX's memory you used:
  4367 strings out of 492616
  57392 string characters out of 6129482
- 139384 words of memory out of 5000000
+ 140384 words of memory out of 5000000
  8168 multiletter control sequences out of 15000+600000
  23401 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -640,7 +640,7 @@ b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb>
-Output written on msg.pdf (36 pages, 533175 bytes).
+Output written on msg.pdf (36 pages, 533182 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams
