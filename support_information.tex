@@ -5,7 +5,7 @@
 
 \usepackage[utf8]{inputenc}
 
-\usepackage{graphicx, amsmath, chngcntr, setspace, caption, subcaption, float,multirow, longtable, booktabs, bm, graphicx, bbm, breqn, lscape, rotating}
+\usepackage{graphicx, amsmath, chngcntr, setspace, caption, subcaption, float,multirow, longtable, booktabs, bm, graphicx, bbm, breqn, lscape, rotating, amssymb, amsfonts}
 %\usepackage{geometry}
 \usepackage[normalem]{ulem}
 \usepackage[usenames,dvipsnames,table]{xcolor} % see here:
@@ -22,8 +22,12 @@
 \newcommand{\tb}[1]{\textcolor{blue}{[[#1]]}}
 
 %\newcommand{\argmin}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{min}}\;}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%\def\bs{\boldsymbol}
 \def\bs{\bmath}
 \def\bb{\mathbb}
+
 
 \usepackage{xr}
 \externaldocument{msg}
@@ -40,7 +44,7 @@ Department of Statistics, University of Illinois at Urbana-Champaign, Champaign,
 \maketitle
 
 \section{Introduction} 
-Here we present more details about the simulations shown in the main manuscript as well as report additional experiments. We used the six models described in Section \ref{models} of the main text. We report the medians and interquartile ranges of the Frobenius errors across our replications. We used 200 replications unless otherwise specified.
+Here we present more details about the simulations shown in the main manuscript as well as report additional experiments. We used the six models described in Section \ref{models} of the main text. We report the medians and interquartile ranges of the Frobenius errors across our replications. We used 200 replications unless otherwise specified. We also present proofs of the propositions in the main text.
 
 \section{Clustering-based exemplar algorithm}
 
@@ -441,6 +445,149 @@ In previous simulations, we took $p=30,100$ and 200. We also studied the perform
 \end{tabular}%
 }
 \end{table}
+
+\section{Proofs}
+\subsection{Proof of Proposition \ref{prop:Rhat}}
+Using the fact that when $\bb{E}\bs{X}=\bs{0}$, $\bb{E}s_{jk} = \sigma_{jk}$ for all $j,k=1,\ldots,p$. Therefore for the class of linear decision rules \eqref{linear class}, the scaled Frobenius risk \eqref{frobenius risk} equals
+\begin{align*}
+R(\bs{\Sigma}, \bs{\delta}) &=\frac{1}{p^2}\sum_{j,k=1}^p \bb{E} \{ (\beta_{S}s_{jk}+\beta_Iu_{jk}-\sigma_{jk})^2 \} \\
+& =\frac{1}{p^2}\sum_{j,k=1}^p \bb{E} [s_{jk}-\sigma_{jk} - \{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}]^2\\
+& =\frac{1}{p^2}\sum_{j,k=1}^p [\bb{E}\{(s_{jk}-\sigma_{jk})^2\}+ \bb{E}\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2-2(1-\beta_{S})\bb{E}\{s_{jk}(s_{jk}-\sigma_{jk})\}]\\
+& =\frac{1}{p^2}\sum_{j,k=1}^p [(2\beta_{S}-1)\text{Var}(s_{jk})+\bb{E}\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2] \\
+& =\frac{1}{p^2}\sum_{j,k=1}^p\bb{E}[(2\beta_S-1)\frac{n}{n-1}\hat{\Delta}_{jk}^2+\{(1-\beta_{S})s_{jk}-\beta_Iu_{jk}\}^2],
+\end{align*}
+with $\hat{\Delta}_{jk}$ defined in Proposition \ref{prop:linear}. Therefore
+\begin{align*}
+  \bb{E} \hat{R}_L(\beta_S, \beta_I) - R(\bs{\Sigma}, \bs{\delta})
+  =\,&
+       \frac{-1}{n - 1} (2\beta_S-1) \frac{1}{p^2} \sum_{j,k=1}^{p}\bb{E}\hat{\Delta}_{jk}^2
+       =
+       \frac{-1}{n} (2\beta_S-1) \frac{1}{p^2} \sum_{j,k=1}^{p} \text{Var}(s_{jk}) \\
+  =\,&
+       \frac{-1}{n} (2\beta_S-1) \frac{1}{p^2} \bb{E} \Vert \bs{S} - \bs{\Sigma} \Vert_F^2
+  \rightarrow 0,
+\end{align*}
+where the last result follows because by assumption, $p^{-2} \bb{E} \Vert \bs{S} - \bs{\Sigma} \Vert_F^2$ is bounded as $n \rightarrow \infty$.
+
+\subsection{Proof of Proposition \ref{prop:linear}}
+
+% The estimator in \citet{ledoit2004well} is
+% \begin{equation} 
+% \label{eq:lw}
+% \bs{\Sigma}_{LW} = (\frac{d_n^2-b_n^2}{d_n^2})_+\bs{S}+ \min\{1,\frac{b_n^2}{d_n^2}\}\hat{\mu}\bs{I}
+% \end{equation}
+% where $d_n^2=\frac{1}{p}\sum_{j,k=1}^p s_{jk}^2-\frac{1}{p^2}(\sum_{j=1}^p s_{jj})^2$, $b_n^2=\frac{1}{pn^2}\sum_{j,k=1}^p\sum_{i=1}^n (X_{ij}X_{ik}-s_{jk})^2$, $\hat{\mu}=\frac{1}{p}\sum_{j=1}^p s_{jj}$.
+
+  We first rewrite the risk estimate $\hat{R}_L(\beta_S, \beta_I)$. Define $\bs{M}=(\sum_{j,k=1}^p\hat{\Delta}_{jk}^2, 0)^\top$, $\bs{\beta} = (\beta_S, \beta_I)^\top$, and the vectorized covariance matrices $\bs{v_S}=(s_{11},\ldots, s_{pp})^\top $, $\bs{v_I}=(u_{11},\ldots, u_{pp})^\top $, and $\bs{v_{\Sigma}} = (\sigma_{11},\ldots,\sigma_{pp})^\top$. Then the risk estimate can be re-written as
+  \[
+ p^2 \hat{R}_L(\beta_S,\beta_I) = \bs{\beta}^\top (\bs{Z}^\top \bs{Z})\bs{\beta} - 2(\bs{Z}^\top\bs{v_S}-\bs{M})^\top \bs{\beta} - \bs{1}^\top \bs{M}+\bs{v}_S^\top\bs{v}_S,
+  \]
+  where $\bs{Z} =(\bs{v_S}, \bs{v_I})$. Therefore
+  \begin{align*}
+    \hat{\bs{\beta}} &= \arg\min_{ \bs{\beta} }\hat{R}_L(\beta_S,\beta_I) = (\bs{Z}^\top \bs{Z})^{-1}(\bs{Z}^\top\bs{v_S}-\bs{M}),\\
+    &
+    \hat{\bs{v}}_{\bs{\Sigma}} = \bs{Z\hat{\beta}} = \bs{v_S} - \bs{Z}(\bs{Z}^\top \bs{Z})^{-1}\bs{M}.
+  \end{align*}
+
+  Since
+$$\bs{Z}^\top \bs{Z} = \begin{pmatrix}
+s_{11} &\ldots &s_{pp} \\
+u_{11} &\ldots &u_{pp} 
+\end{pmatrix}\begin{pmatrix}
+s_{11}  &u_{11} \\
+\ldots&\ldots\\
+s_{pp} &u_{pp} 
+\end{pmatrix}=\begin{pmatrix}
+\sum_{j,k=1}^ps_{jk}^2 & \sum_{j=1}^ps_{jj}\\
+\sum_{j=1}^ps_{jj} & p
+\end{pmatrix}$$
+and
+$\text{det}( \bs{Z}^\top \bs{Z} ) = p\sum_{j,k=1}^ps_{jk}^2 - (\sum_{j=1}^p s_{jj})^2 = p^2d_n^2$, it follows that
+$$(\bs{Z}^\top \bs{Z})^{-1} = \frac{1}{p^2d_n^2}\begin{pmatrix}
+p & -\sum_{j=1}^p s_{jj}\\
+-\sum_{j=1}^p s_{jj} & \sum_{j,k=1}^ps_{jk}^2
+\end{pmatrix},$$
+and in addition
+$$\bs{Z}^\top \bs{v_S}= \begin{pmatrix}
+\sum_{j,k=1}^ps_{jk}^2\\
+\sum_{j=1}^p s_{jj}
+\end{pmatrix},
+\quad 
+\bs{Z^\top \bs{v_S}}-\bs{M} =  \begin{pmatrix}
+&\sum_{j,k=1}^ps_{jk}^2 - \hat{\Delta}_{jk}^2\\
+&\sum_{j=1}^p s_{jj}
+\end{pmatrix}.$$
+
+Therefore
+\begin{align*}
+\hat{\bs{\beta}}& = (\bs{Z}^\top \bs{Z})^{-1}(\bs{Z^\top \bs{v_S}}-\bs{M} ) \\
+&= \frac{1}{p^2d_n^2}\begin{pmatrix}
+p & -\sum_{j=1}^p s_{jj}\\
+-\sum_{j=1}^p s_{jj} & \sum_{j,k=1}^ps_{jk}^2
+\end{pmatrix}\begin{pmatrix}
+\sum_{j,k=1}^p(s_{jk}^2 - \hat{\Delta}_{jk}^2)\\
+\sum_{j=1}^p s_{jj}
+\end{pmatrix}\\
+&= \frac{1}{p^2d_n^2}\begin{pmatrix}
+ p\sum_{j,k=1}^p s_{jk}^2 -p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2\\
+ (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)
+\end{pmatrix}.
+\end{align*}
+
+The second component of $\hat{\bs{\beta}}$ equals $\hat{\beta}_I$, and
+\begin{align*}
+\hat{\beta}_I &= \frac{1}{p^2d_n^2} (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)\\
+&=\{(\sum_{j=1}^ps_{jj})/p\}   \{(\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)/p \} / d_n^2
+=\hat{\mu}\frac{b_n^2}{d_n^2},
+\end{align*}
+so $\min(\hat{\mu}, \hat{\beta}_I) = \hat{\mu} b_n^2 / d_n^2$, which is the coefficient of the second term in the Ledoit and Wolf estimator \eqref{eq:lw}. Furthermore,
+\begin{align*}
+\hat{\beta}_I /\hat{\mu} + \hat{\beta}_S &= \frac{1}{p^2d_n^2}\sum_{j,k=1}^p \{ps_{jk}^2 -p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2+p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2\}\\
+&=\frac{1}{p^2d_n^2}\{p\sum_{j,k=1}^p s_{jk}^2 -(\sum_{j=1}^ps_{jj})^2\}
+=
+1,
+\end{align*}
+so $\min(\hat{\beta}_S, 0) = 1 - b_n^2 / d_n^2$, which is the coefficient of the first term in \eqref{eq:lw}.
+
+\subsection{Proof of Proposition \ref{prop:bayes risk}}
+
+For any $\bs{\delta} \in \mathcal{S}$ \eqref{separable}, the Frobenius risk \eqref{frobenius risk} can be written as
+\begin{align*}
+  R(\bs{\Sigma}, \bs{\delta})
+  =\,&
+       \frac{2}{p^2} \sum_{1\leq k<j\leq p}^p
+       \int \{t_{od}(\bs{X},\bs{X}^{\prime}) - \sigma_{jk} \}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid \sigma_j, \sigma_k, r_{jk}) d\bs{X}d\bs{X}^{\prime} \,+\\
+  &
+       \frac{1}{p^2}
+       \sum_{j=1}^p
+       \int \{t_d(\bs{X}) - \sigma_{jj} \}^2 f_{1n}(\bs{X} \mid s_{jj}) d\bs{X}\\
+  =\,&
+       \frac{p-1}{p}\int \int \{t_{od}(\bs{X},\bs{X}^{\prime}) - a b \gamma \}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma) d\bs{X}d\bs{X}^{\prime} \, +\\
+     &
+       \frac{1}{p}\int \int \{t_d(\bs{X}) - a^2\}^2 f_{1n}(\bs{X} \mid a) dG_{d}(a) d\bs{X}.
+\end{align*}
+Therefore for any $t_{od}$,
+\begin{align*}
+  &
+    \int \{t_{od}(\bs{X},\bs{X}^{\prime}) - a b \gamma \}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma) \\
+  =\,&
+       \int \{t_{od}(\bs{X},\bs{X}^{\prime}) - t_{od}^\star(\bs{X}, \bs{X}^\prime)\}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma) \,+\\
+  &
+    2 \{t_{od}(\bs{X},\bs{X}^{\prime}) - t_{od}^\star(\bs{X}, \bs{X}^\prime)\} \int 
+  \{t_{od}^\star(\bs{X}, \bs{X}^\prime) - a b \gamma \}
+  f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma) \,+\\
+  &
+    \int \{t_{od}^\star(\bs{X}, \bs{X}^\prime) - a b \gamma\}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma) \\
+  \geq\,&
+          \int \{t_{od}^\star(\bs{X}, \bs{X}^\prime) - a b \gamma\}^2 f_{2n}(\bs{X}, \bs{X}^{\prime} \mid a, b, \gamma) dG_{od}(a, b, \gamma),
+\end{align*}
+because the middle cross term is equal to zero by the definition of $t^\star_{od}$. Similarly, it can be shown that for any $t_d$,
+\begin{align*}
+  \int \{t_d(\bs{X}) - a^2\}^2 f_{1n}(\bs{X} \mid a) dG_{d}(a)
+  \geq
+  \int \{t_d^\star(\bs{X}) - a^2\}^2 f_{1n}(\bs{X} \mid a) dG_{d}(a).
+\end{align*}
+This implies that $R(\bs{\Sigma}, \bs{\delta}) \geq R(\bs{\Sigma}, \bs{\delta}^\star)$ for any $\bs{\delta} \in \mathcal{S}$.
 
 \bibliographystyle{biom} 
 \bibliography{biblio}
