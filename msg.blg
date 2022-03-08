@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: msg.aux
 The style file: biom.bst
 Database file #1: biblio.bib
-You've used 45 entries,
+You've used 42 entries,
             2146 wiz_defined-function locations,
-            789 strings with 11496 characters,
-and the built_in function-call counts, 20042 in all, are:
-= -- 1946
-> -- 932
-< -- 44
-+ -- 308
-- -- 294
-* -- 1782
-:= -- 3435
-add.period$ -- 139
-call.type$ -- 45
-change.case$ -- 319
-chr.to.int$ -- 45
-cite$ -- 45
-duplicate$ -- 740
-empty$ -- 1290
-format.name$ -- 372
-if$ -- 3839
+            772 strings with 11076 characters,
+and the built_in function-call counts, 19022 in all, are:
+= -- 1847
+> -- 892
+< -- 40
++ -- 296
+- -- 282
+* -- 1696
+:= -- 3247
+add.period$ -- 130
+call.type$ -- 42
+change.case$ -- 301
+chr.to.int$ -- 42
+cite$ -- 42
+duplicate$ -- 701
+empty$ -- 1226
+format.name$ -- 355
+if$ -- 3654
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 42
-newline$ -- 228
-num.names$ -- 180
-pop$ -- 249
+missing$ -- 41
+newline$ -- 213
+num.names$ -- 168
+pop$ -- 237
 preamble$ -- 1
-purify$ -- 320
+purify$ -- 301
 quote$ -- 0
-skip$ -- 543
+skip$ -- 513
 stack$ -- 0
-substring$ -- 1455
-swap$ -- 368
-text.length$ -- 11
+substring$ -- 1394
+swap$ -- 349
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 268
+type$ -- 250
 warning$ -- 0
-while$ -- 212
+while$ -- 201
 width$ -- 0
-write$ -- 589
+write$ -- 550

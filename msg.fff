@@ -18,17 +18,17 @@
  
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{img/networks_A.png}
+    \includegraphics[width=0.45\textheight]{img/networks_A_2.png}
   \end{center}
-\caption{Amygdala gene networks recovered by the different covariance matrix estimation methods.}
+\caption{Amygdala gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge.}
 \label{network_A}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{img/networks_FC.png}
+    \includegraphics[width=0.45\textheight]{img/networks_FC_2.png}
   \end{center}
-\caption{Frontal cortex gene networks recovered by the different covariance matrix estimation methods.}
+\caption{Frontal cortex gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge.}
 \label{network_FC}
 \end{figure}

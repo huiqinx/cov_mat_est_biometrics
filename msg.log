@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.1.2)  7 MAR 2022 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.1.2)  8 MAR 2022 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -350,19 +350,22 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [4]
-Underfull \vbox (badness 2781) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 5
  []
 
 [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 6
  []
 
 [6]
+Underfull \vbox (badness 5288) has occurred while \output is active []
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 7
  []
@@ -391,7 +394,7 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2318) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -399,9 +402,6 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [12]
-Underfull \vbox (badness 7344) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 13
  []
@@ -423,9 +423,6 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [15]
-Underfull \vbox (badness 3118) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 16
  []
@@ -436,9 +433,6 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 18
  []
@@ -500,28 +494,28 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [25 <./img/sim2_frobenius.pdf>]
-<img/networks_A.png, id=120, 722.7pt x 722.7pt>
-File: img/networks_A.png Graphic file (type png)
-<use img/networks_A.png>
-Package pdftex.def Info: img/networks_A.png  used on input line 21.
-(pdftex.def)             Requested size: 422.77661pt x 422.77228pt.
+<img/networks_A_2.png, id=120, 520.344pt x 520.344pt>
+File: img/networks_A_2.png Graphic file (type png)
+<use img/networks_A_2.png>
+Package pdftex.def Info: img/networks_A_2.png  used on input line 21.
+(pdftex.def)             Requested size: 296.99799pt x 297.01202pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 26
  []
 
-[26 <./img/networks_A.png (PNG copy)>]
-<img/networks_FC.png, id=124, 722.7pt x 722.7pt>
-File: img/networks_FC.png Graphic file (type png)
-<use img/networks_FC.png>
-Package pdftex.def Info: img/networks_FC.png  used on input line 30.
-(pdftex.def)             Requested size: 422.77661pt x 422.77228pt.
+[26 <./img/networks_A_2.png (PNG copy)>]
+<img/networks_FC_2.png, id=124, 520.344pt x 520.344pt>
+File: img/networks_FC_2.png Graphic file (type png)
+<use img/networks_FC_2.png>
+Package pdftex.def Info: img/networks_FC_2.png  used on input line 30.
+(pdftex.def)             Requested size: 296.99799pt x 297.01202pt.
 )
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 27
  []
 
-[27 <./img/networks_FC.png (PNG copy)>] (./msg.ttt
+[27 <./img/networks_FC_2.png (PNG copy)>] (./msg.ttt
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 28
  []
@@ -533,10 +527,10 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 
 [29] (./msg.aux) ) 
 Here is how much of TeX's memory you used:
- 4336 strings out of 483107
- 55742 string characters out of 5964631
- 295640 words of memory out of 5000000
- 19272 multiletter control sequences out of 15000+600000
+ 4327 strings out of 483107
+ 55535 string characters out of 5964631
+ 295514 words of memory out of 5000000
+ 19263 multiletter control sequences out of 15000+600000
  552099 words of font info for 96 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  33i,14n,38p,1343b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -563,7 +557,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on msg.pdf (30 pages, 494301 bytes).
+Output written on msg.pdf (30 pages, 433624 bytes).
 PDF statistics:
  211 PDF objects out of 1000 (max. 8388607)
  147 compressed objects within 2 object streams

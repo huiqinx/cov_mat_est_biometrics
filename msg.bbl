@@ -1,16 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Baranchik}{Baranchik}{1964}]{baranchik1964multiple}
-Baranchik, A.~J. (1964).
-\newblock Multiple regression and estimation of the mean of a multivariate
-  normal distribution.
-\newblock Technical Report~51, Stanford University.
-
-\bibitem[\protect\citeauthoryear{Biscarri}{Biscarri}{2019}]{biscarri2019thesis}
-Biscarri, W.~D. (2019).
-\newblock {\em {Statistical methods for binomial and Gaussian sequences}}.
-\newblock PhD thesis, University of Illinois at Urbana-Champaign.
-
 \bibitem[\protect\citeauthoryear{Brown and Greenshtein}{Brown and
   Greenshtein}{2009}]{brown2009nonparametric}
 Brown, L.~D. and Greenshtein, E. (2009).
@@ -54,14 +43,6 @@ Efron, B. (2014).
 Efron, B. (2019).
 \newblock {Bayes, Oracle Bayes and Empirical Bayes}.
 \newblock {\em {Statistical Science}} {\bf 34,} 177--201.
-
-\bibitem[\protect\citeauthoryear{Efron and Morris}{Efron and
-  Morris}{1973}]{efron1973stein}
-Efron, B. and Morris, C. (1973).
-\newblock {Stein's estimation rule and its competitors—an empirical Bayes
-  approach}.
-\newblock {\em Journal of the American Statistical Association} {\bf 68,}
-  117--130.
 
 \bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
   et~al.}{2008}]{fan2008high}
