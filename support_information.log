@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 MAR 2022 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 MAR 2022 11:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,71 +393,62 @@ LaTeX Warning: No \author given.
 Overfull \vbox (11.73091pt too high) has occurred while \output is active []
 
 
-[2] [3]
-Overfull \vbox (161.7774pt too high) has occurred while \output is active []
-
-
-[4] [5]
-Overfull \vbox (180.6222pt too high) has occurred while \output is active []
-
-
-[6] [7]
-Overfull \vbox (173.7774pt too high) has occurred while \output is active []
-
-
-[8]
-Overfull \vbox (152.7234pt too high) has occurred while \output is active []
-
+[2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (60.81746pt too wide) detected at line 463
+[]
+ []
 
 [9]
-Overfull \hbox (60.81746pt too wide) detected at line 457
+Overfull \hbox (34.88475pt too wide) detected at line 474
 []
  []
 
-[10]
-Overfull \hbox (34.88475pt too wide) detected at line 468
+[10] [11]
+Overfull \hbox (8.64456pt too wide) detected at line 573
 []
  []
 
-[11] [12]
-Overfull \hbox (8.64456pt too wide) detected at line 567
+[12]
+Overfull \hbox (17.15233pt too wide) detected at line 588
 []
  []
 
-[13]
-Overfull \hbox (17.15233pt too wide) detected at line 582
-[]
- []
+(./support_information.bbl [13]) [14] (./support_information.aux) )
+(\end occurred inside a group at level 5)
 
-(./support_information.bbl [14]) [15] (./support_information.aux) ) 
+### simple group (level 5) entered at line 426 ({)
+### simple group (level 4) entered at line 267 ({)
+### simple group (level 3) entered at line 262 ({)
+### simple group (level 2) entered at line 182 ({)
+### simple group (level 1) entered at line 98 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
  5129 strings out of 492616
  72904 string characters out of 6129482
- 183256 words of memory out of 5000000
+ 203255 words of memory out of 5000000
  8931 multiletter control sequences out of 15000+600000
  14404 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,16n,39p,890b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2019/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on support_information.pdf (15 pages, 183169 bytes).
+ 41i,16n,39p,890b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+b10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.
+pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
+></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on support_information.pdf (14 pages, 183030 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

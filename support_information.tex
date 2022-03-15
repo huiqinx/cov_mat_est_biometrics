@@ -95,6 +95,7 @@ Model          & Method      & p=30                 & p=100                   & 
 
 The following table gives exact numerical results corresponding to Figure \ref{fig:sim2_frobenius} of the main text.
 
+{\renewcommand{\arraystretch}{0.6}
 \begin{table}[H]
 \tiny
 \centering
@@ -178,6 +179,7 @@ Model          & Method      & p=30                 & p=100                   & 
 
 To fairly compare our methods to the CorShrink procedure of \citet{dey2018corshrink}, which was designed for estimating correlation matrices, we also studied the performance of these methods for estimating correlation matrices under Frobenius norm loss. For each method in Section \ref{compared}, we calculated a correlation matrix estimate by scaling the corresponding covariance matrix estimate such that the estimated variances were equal to one. The results in Table \ref{tab:cor n100} show that CorShink performs slightly better than our methods except in Model 2, likely because the additional flexibility that our method trades off lower bias for higher variance.
 
+{\renewcommand{\arraystretch}{0.6}
 \begin{table}[H]
 \tiny
 \centering
@@ -257,10 +259,12 @@ Model          & Method      & p=30                 & p=100                   & 
 }
 \end{table}
 
+{\renewcommand{\arraystretch}{1}
 \section{Model misspecification}
 
 Our estimator assumes that data are generated from multivariate Gaussian distribution. To investigate the performance of our methods when the data are non-normal, we generated $\bs{Y}$ from either $U(0, 1)$ or a negative binomial distribution with size 10 and mean 4. The $\bs{Y}$ were then normalized by their theoretical standard deviations to have unit variance. Finally, we generated the observed data following $\bs{X}=\bs{L}\bs{Y}$, where $\bs{L}$ is the Cholesky decomposition of the desired covariance matrix of $\bs{Y}$. We simulated our data using the covariance matrices defined in Section \ref{models}. The results in Tables \ref{tab:unif} and \ref{tab:nb} suggest that MSG and MSGCor still have excellent performance under model misspecification for both continuous and discrete data, though they can be outperformed in Models 5 and 6.
 
+{\renewcommand{\arraystretch}{0.6}
 \begin{table}[H]
 \tiny
 \centering
@@ -418,6 +422,8 @@ Model          & Method      & p=30                 & p=100                   & 
 \end{tabular}%
 }
 \end{table}
+
+{\renewcommand{\arraystretch}{1}
 
 \section{Large dimension}
 
