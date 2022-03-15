@@ -328,7 +328,7 @@ In addition to the above data-driven estimators, we also implemented two oracle 
 
 \subsection{\label{optimalK}Clustering-based exemplar algorithm}
 
-We first explored the consequences of choosing different numbers of cluster centroids in our clustering-based exemplar algorithm described in Section \ref{implementation}. For each model, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. Although $\bb{E}\bs{X}=0$ in our setting, we assume it is unknown and use $\bs{S}=\frac{1}{n-1}(\bs{X}-\bs{\bar{X}})^\top(\bs{X}-\bs{\bar{X}})$. We generated $200$ replicates and reported median errors under the loss function
+We first explored the consequences of choosing different numbers of cluster centroids in our clustering-based exemplar algorithm described in Section \ref{implementation}. For each model, we generated $n=100$ samples from a $p$-variate $\mathcal{N}(\bs{0}, \bs{\Sigma})$, where $p = 30, 100,$ or $200$. Although $\bb{E}\bs{X}=0$ in our setting, we assume it is unknown and use $\bs{S}=\frac{1}{n-1}(\bs{X}-\bs{\overline{X}})^\top(\bs{X}-\bs{\overline{X}})$. We generated $200$ replicates and reported median errors under the loss function
 \begin{equation}
   \label{eq:sim_loss}
   \frac{1}{p} \left\{ \sum_{j,k = 1}^p (\hat{\sigma}_{jk} - \sigma_{jk})^2 \right\}^{1/2},
@@ -407,7 +407,7 @@ We then converted the gene expression values to log-counts per million mapped re
   MSGCor & \textbf{2.26 (1.98, 2.57)} & \textbf{2.3 (2.15, 2.55)} \\
   Adap & 2.6 (2.18, 2.97) & 2.44 (2.18, 2.71) \\
   Linear & 2.3 (2.05, 2.55) & 2.35 (2.19, 2.53)\\
-  QIS & 2.61 (2.33, 2.86) & 2.79 (2.64, 2.93)\\
+  QIS & 2.48 (2.07, 2.85) & 2.42 (2.18, 2.70)\\
   NERCOME & 2.37 (2.14, 2.62) & \textbf{2.3 (2.14, 2.53)}\\
   CorShrink & \textbf{2.26 (2, 2.56)} & 2.36 (2.2, 2.56)\\
   Sample & 2.61 (2.33, 2.85) & 2.79 (2.64, 2.95)\\
@@ -450,15 +450,14 @@ Finally, we have so far assumed that our data are multivariate normal, though si
 \section*{Acknowledgments}
 We thank Dr. Roger Koenker and three anonymous referees for their very valuable comments.\vspace*{-8pt}
 
-
-\section*{Supporting Information}
-Web Appendices, Tables, and Figures referenced in Sections \ref{introduction} and \ref{numerical results} are available with this paper at the Biometrics website on Wiley Online Library. The procedures are implemented in the R package \verb|cole|, available on GitHub at \url{http://github.com/sdzhao/cole}.
-
 \section*{Data Availability Statement}
 The data are available from the NCBI Gene Expression Omnibus at \url{https://www.ncbi.nlm.nih.gov/geo/} under accession number GSE80345.
 
 \bibliographystyle{biom} 
 \bibliography{biblio}
+
+\section*{Supporting Information}
+Web Appendices, Tables, and Figures referenced in Sections \ref{introduction} and \ref{numerical results} are available with this paper at the Biometrics website on Wiley Online Library. The procedures are implemented in the R package \verb|cole|, available on GitHub at \url{http://github.com/sdzhao/cole}.
 
 \label{lastpage}
 \end{document}
