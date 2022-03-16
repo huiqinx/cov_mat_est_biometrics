@@ -219,11 +219,9 @@ Saha, S., Guntuboyina, A., et~al. (2020).
 \newblock {\em Annals of Statistics} {\bf 48,} 738--762.
 
 \bibitem[\protect\citeauthoryear{Saul, Seward, Troy, Zhang, Sloofman, Lu,
-  Weisner, Caetano-Anolles, Sun, Zhao, Chandrasekaran, Sinha, and Stubbs}{Saul
-  et~al.}{2017}]{saul2017transcriptional}
+  et~al\mbox{.}}{Saul et~al.}{2017}]{saul2017transcriptional}
 Saul, M.~C., Seward, C.~H., Troy, J.~M., Zhang, H., Sloofman, L.~G., Lu, X.,
-  Weisner, P.~A., Caetano-Anolles, D., Sun, H., Zhao, S.~D., Chandrasekaran,
-  S., Sinha, S., and Stubbs, L. (2017).
+  et~al. (2017).
 \newblock Transcriptional regulatory dynamics drive coordinated metabolic and
   neural response to social challenge in mice.
 \newblock {\em Genome Research} {\bf 27,} 959--972.

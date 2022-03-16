@@ -20,7 +20,7 @@
   \begin{center}
     \includegraphics[width=0.45\textheight]{img/networks_A_2.png}
   \end{center}
-\caption{Amygdala gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge.}
+\caption{Amygdala gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge. This figure appears in color in the electronic version of this article, and any mention of color refers to that version.}
 \label{network_A}
 \end{figure}
 \efloatseparator
@@ -29,6 +29,6 @@
   \begin{center}
     \includegraphics[width=0.45\textheight]{img/networks_FC_2.png}
   \end{center}
-\caption{Frontal cortex gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge.}
+\caption{Frontal cortex gene networks recovered by the top performers in Table \ref{tab:tab1}. Line types indicate the method(s) that recovered each each edge. This figure appears in color in the electronic version of this article, and any mention of color refers to that version.}
 \label{network_FC}
 \end{figure}
