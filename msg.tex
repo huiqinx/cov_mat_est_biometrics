@@ -159,7 +159,7 @@ We generalize these ideas to propose a new class of covariance matrix estimators
   \quad
   \delta_{kj} = \delta_{jk} = t_{od}(\bs{X}_{\cdot j}, \bs{X}_{\cdot k}),\, 1\leq k<j\leq p;
   \quad 
-   \delta_{jj} = t_d(\bs{X}_{\cdot j}),\,j=1,\ldots,p)\},
+   \delta_{jj} = t_d(\bs{X}_{\cdot j}),\,j=1,\ldots,p\},
 \end{equation}
 where $\bs{X}_{\cdot j} = (X_{1j}, \ldots, X_{nj})^\top$ is the vector of observed values of the $j$th feature. In other words, rules in $\mathcal{S}$ estimate diagonal entries of $\bs{\Sigma}$ using a function $t_d$ and off-diagonal entries using $t_{od}$, where $t_{od}$ and $t_d$ do not depend on the indices $j$ and $k$. Furthermore, we enforce rules in $\mathcal{S}$ to give symmetric estimates of the off-diagonal entries.
 

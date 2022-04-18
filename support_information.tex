@@ -543,9 +543,11 @@ The second component of $\hat{\bs{\beta}}$ equals $\hat{\beta}_I$, and
 \begin{align*}
 \hat{\beta}_I &= \frac{1}{p^2d_n^2} (\sum_{j=1}^ps_{jj}) (\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)\\
 &=\{(\sum_{j=1}^ps_{jj})/p\}   \{(\sum_{j,k=1}^p\hat{\Delta}_{jk}^2)/p \} / d_n^2
-=\hat{\mu}\frac{b_n^2}{d_n^2},
+=\hat{\mu}\frac{\bar{b}_n^2}{d_n^2},
 \end{align*}
-so $\min(\hat{\mu}, \hat{\beta}_I) = \hat{\mu} b_n^2 / d_n^2$, which is the coefficient of the second term in the Ledoit and Wolf estimator \eqref{eq:lw}. Furthermore,
+where $\bar{b}_n^2 = \frac{1}{n^2}\|\bs{X}_i\bs{X}_i^\top-\bs{S}\|_F^2 = \sum_{j,k=1}^p\hat\Delta_{jk}^2/p$.
+
+Thus by the definition that $b_n^2 = \min\{\bar{b}_n^2,d_n^2\}$, $\min(\hat{\mu}, \hat{\beta}_I) = \hat{\mu} b_n^2 / d_n^2$, which is the coefficient of the second term in the Ledoit and Wolf estimator \eqref{eq:lw}. Furthermore,
 \begin{align*}
 \hat{\beta}_I /\hat{\mu} + \hat{\beta}_S &= \frac{1}{p^2d_n^2}\sum_{j,k=1}^p \{ps_{jk}^2 -p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2-(\sum_{j=1}^ps_{jj})^2+p\sum_{j,k=1}^p\hat{\Delta}_{jk}^2\}\\
 &=\frac{1}{p^2d_n^2}\{p\sum_{j,k=1}^p s_{jk}^2 -(\sum_{j=1}^ps_{jj})^2\}

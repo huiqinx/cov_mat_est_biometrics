@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 MAR 2022 11:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  18 APR 2022 18:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -403,17 +403,17 @@ Overfull \hbox (34.88475pt too wide) detected at line 474
 []
  []
 
-[10] [11]
-Overfull \hbox (8.64456pt too wide) detected at line 573
+[10] [11] [12]
+Overfull \hbox (8.64456pt too wide) detected at line 575
 []
  []
 
-[12]
-Overfull \hbox (17.15233pt too wide) detected at line 588
+
+Overfull \hbox (17.15233pt too wide) detected at line 590
 []
  []
 
-(./support_information.bbl [13]) [14] (./support_information.aux) )
+[13] (./support_information.bbl) [14] (./support_information.aux) )
 (\end occurred inside a group at level 5)
 
 ### simple group (level 5) entered at line 426 ({)
@@ -445,7 +445,7 @@ usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
 local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on support_information.pdf (14 pages, 183030 bytes).
+Output written on support_information.pdf (14 pages, 184038 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
